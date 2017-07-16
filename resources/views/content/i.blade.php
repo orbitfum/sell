@@ -151,7 +151,7 @@
                     <div class="boxpricnew">
                         <div class="boxup">
 <div class="infotextprice">מחיר לצרכן: {{$it['CurrentPrice']}}₪</div>
-                            <div class="haozim">69.21</div>
+                            <div class="haozim">69.21%</div>
                         </div>
                     </div>
 
