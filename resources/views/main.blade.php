@@ -48,6 +48,8 @@
         
     <!-- REVOLUTION NAVIGATION STYLES -->
     <link rel="stylesheet" type="text/css" href="{{asset('lib/css/navigation.css')}}">
+    {{--orr--}}
+    <link rel="stylesheet" type="text/css" href="{{asset('css/second.css')}}">
 
 </head>
 
@@ -59,7 +61,7 @@
         <div class="top-info-bar">
         	<div class="row">
             
-            	<div class="medium-6 small-12 columns">
+            	<div class="medium-6 small-10 columns">
                 	<ul class="menu">
                     	<li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
@@ -68,8 +70,35 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div><!-- Left Ends /-->
-                
-                <div class="medium-6 small-12 columns hide-for-small-only">
+                <div class="my-account-holder float-right medium-3 small-2 columns">
+
+                    <div class="my-account-title" data-toggle="myaccount-dropdown">
+                        <div class="user-icon float-left">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </div>
+                        <div class="links float-left hide-for-small-only">
+                            <a href="#" class="sign-in special-margin">Sign in</a> <a href="#" class="special-margin">Join</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div><!-- ends title /-->
+
+                    <!-- Hidden Menus -->
+                    <div class="dropdown-pane" id="myaccount-dropdown" data-dropdown data-hover="true" data-hover-pane="true">
+                        <ul class="menu vertical">
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">My Orders</a></li>
+                            <li><a href="#">Message Center</a></li>
+                            <li><a href="#">Wish List</a></li>
+                            <li><a href="#">My Favorite Stores</a></li>
+                            <li><a href="#">My Coupons</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </div>
+                    <!-- Hidden Menus /-->
+
+                </div><!-- my account holder /-->
+
+                <div class="medium-3 small-6 columns hide-for-small-only">
                 	<ul class="menu dropdown float-right" data-dropdown-menu>
                     	<li><a href="start-selling.html">Start Selling</a>
                         	<ul class="menu">
@@ -97,7 +126,7 @@
         <!-- Header Starts -->
         <div class="header">
         <div class="row">
-            <div class="medium-3 small-12 columns account-wrap">
+            <div class="medium-2 small-6 columns">
 
                 <div class="my-account-holder cart-holder float-left">
 
@@ -141,81 +170,62 @@
 
                 </div><!-- my Cart /-->
 
-                <div class="my-account-holder float-right">
-
-                    <div class="my-account-title" data-toggle="myaccount-dropdown">
-                        <div class="user-icon float-left">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                        </div>
-                        <div class="links float-left">
-                            <a href="#" class="sign-in special-margin">Sign in</a> <a href="#" class="special-margin">Join</a>
-                            <a href="#">Welcome Back Ateeq</a>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div><!-- ends title /-->
-
-                    <!-- Hidden Menus -->
-                    <div class="dropdown-pane" id="myaccount-dropdown" data-dropdown data-hover="true" data-hover-pane="true">
-                        <ul class="menu vertical">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">My Orders</a></li>
-                            <li><a href="#">Message Center</a></li>
-                            <li><a href="#">Wish List</a></li>
-                            <li><a href="#">My Favorite Stores</a></li>
-                            <li><a href="#">My Coupons</a></li>
-                            <li><a href="#">Logout</a></li>
-                        </ul>
-                    </div>
-                    <!-- Hidden Menus /-->
-
-                </div><!-- my account holder /-->
 
             </div><!-- Third Column /-->
 
-            <div class="medium-5 small-12 columns search-wrap">
-                
-            	<div class="main-search-form">
-                    <form method="get" action="{{url('ebay/search')}}" autocomplete="on">
-                        <input type="text" name="q" {{isset($_GET['q'])?"value={$_GET['q']}":''}} autocomplete="on" placeholder="רשום את המוצר שאתה מחפש" class="search-head" />
-                    <select>
-                    	<option value="0">All Categories</option>
-                        <option value="1">Women's Clothing &amp; Accessories</option>
-                        <option value="2">Men's Clothing &amp; Accessories</option>
-                        <option value="0">Phones &amp; Telecommunications</option>
-                        <option value="0">Computer &amp; Office</option>
-                        <option value="0">Consumer Electronics</option>
-                        <option value="0">Jewelry &amp; Accessories</option>
-                        <option value="0">Home &amp; Garden</option>
-                        <option value="0">Luggage &amp; Bags</option>
-                        <option value="0">Shoes</option>
-                        <option value="0">Mother &amp; Kids</option>
-                        <option value="0">Sports &amp; Entertainment</option>
-                        <option value="0">Health &amp; Beauty</option>
-                        <option value="0">Watches</option>
-                        <option value="0">Toys &amp; Hobbies</option>
-                        <option value="0">Weddings &amp; Events</option>
-                        <option value="0">Novelty &amp; Special Use</option>
-                        <option value="0">Automobiles &amp; Motorcycles</option>
-                        <option value="0">Lights &amp; Lighting</option>
-                        <option value="0">Furniture</option>
-                        <option value="0">Industry &amp; Business</option>
-                        <option value="0">Electronic Components &amp; Supplies</option>
-                        <option value="0">Office &amp; School Supplies</option>
-                        <option value="0">Electrical Equipment &amp; Supplies</option>
-                        <option value="0">Gifts &amp; Crafts</option>
-                        <option value="0">Home Improvement</option>
-                        <option value="0">Food</option>
-                        <option value="0">Travel and Coupons</option>
-                        <option value="0">Security &amp; Protection</option>
-                        <option value="0">In All Categories</option>
-                    </select>
-                    <button type="submit" class="primary button"><i class="fa fa-search"></i></button>
-                    </form>
-                </div><!-- main search form /-->
+            <div class="medium-8 small-12 columns">
+
+                <main>
+
+                    <input id="tab1" type="radio" name="tabs" checked>
+                    <label for="tab1">Codepen</label>
+
+                    <input id="tab2" type="radio" name="tabs">
+                    <label for="tab2">Dribbble</label>
+
+                    <input id="tab3" type="radio" name="tabs">
+                    <label for="tab3">Dropbox</label>
+
+                    <input id="tab4" type="radio" name="tabs">
+                    <label for="tab4">Drupal</label>
+
+                    <section id="content1">
+                        section 1
+                    </section>
+
+                    <section id="content2">
+                        section 2
+
+                    </section>
+
+                    <section id="content3">
+                        section 3
+                    </section>
+
+                    <section id="content4">
+                        section 4
+                    </section>
+
+                </main>
+
+
+                {{----}}
+            	{{--<div class="main-search-form">--}}
+                    {{--<form method="get" action="{{url('ebay/search')}}" autocomplete="on">--}}
+                        {{--<input type="text" name="q" {{isset($_GET['q'])?"value={$_GET['q']}":''}} autocomplete="on" placeholder="רשום את המוצר שאתה מחפש" class="search-head" />--}}
+                    {{--<select>--}}
+                    	{{--<option value="0">All Categories</option>--}}
+                        {{--<option value="1">Women's Clothing &amp; Accessories</option>--}}
+                        {{--<option value="2">Men's Clothing &amp; Accessories</option>--}}
+                        {{----}}
+                    {{--</select>--}}
+                    {{--<button type="submit" class="primary button"><i class="fa fa-search"></i></button>--}}
+                    {{--</form>--}}
+                {{--</div><!-- main search form /-->--}}
             </div><!-- Second Column /-->
             
 
-            <div class="medium-4 small-12 columns logo-container">
+            <div class="medium-2 small-12 columns logo-container">
                 <div class="logo float-right">
                     <a href="index.html">
                         <img alt="" src="{{asset('images/logo.png')}}" />
