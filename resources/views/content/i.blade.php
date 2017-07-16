@@ -150,8 +150,18 @@
                     </div><!-- item options /-->
                     <div class="boxpricnew">
                         <div class="boxup">
-<div class="infotextprice">מחיר לצרכן: {{$it['CurrentPrice']}}₪</div>
-                            <div class="haozim">69.21%</div>
+                            <div class="infotextprice">מחיר לצרכן: <span>{{$it['CurrentPrice']}}</span></div>
+                            <div class="haozim">הנחה: <span>59%</span></div>
+                        </div>
+                        <div class="pricafter">
+                            <div class="pricexl">
+                                <sup>רק:</sup>
+                                <b>{{number_format(511.69 , 2)}}</b> <span>₪</span>
+
+                            </div>
+<div><span>מחיר משלוח: <b>19.54</b></span> | <span>זמן אספקה: <b>30</b></span></div>
+
+
                         </div>
                     </div>
 

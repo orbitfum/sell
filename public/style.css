@@ -281,7 +281,6 @@ Top bar CSS ends
     width: 130px;
     position: absolute;
     top: 0px;
-
     margin-bottom: 0px;
 }
 
@@ -2545,18 +2544,25 @@ add costum
 --------------------------*/
 
 .boxpricnew{background: rgba(255, 140, 0, 1);    border-top: solid 7px #bd5e05;  height: 130px;position: relative;direction: rtl}
-.boxpricnew .boxup{position: absolute; background-image:
+.boxpricnew .boxup{position: absolute;border-top: 7px solid #bd5e05; background-image:
         linear-gradient(
                 #fdfdfd 70%,
                 #ecebeb 90%
-        ); box-shadow: 1px -1px 10px #000;  width: 200px; right: 30px;  top:-15px; height: 120px;border-radius: 0 0 30px 30px}
-.boxpricnew .boxup .infotextprice{text-align: right;margin-top: 20px; padding: 5px;font-size: 14pt;color: #bd5e05; font-weight: 200}
-
-
-
-/*-------------------------
-23 - Information Boxes
--------------------------*/
+        );  width: 180px; right: 30px;  top:-15px; height: 120px;border-radius: 13px 13px 30px 30px}
+.boxpricnew .boxup .infotextprice{text-align: right;margin-top: 20px; padding: 5px;font-size: 13pt;color: #bd5e05; font-weight: 400}
+.boxup .haozim{color: #bd5e05;font-size: 13pt; font-weight: 200;
+    padding:5px;}
+.boxpricnew .boxup .infotextprice span{font-size: 14pt;color: #bd5e05;font-weight: bold; width: 60px; padding: 5px; margin: 5px auto;}
+.boxpricnew .boxup .haozim span{font-size: 14pt;color: #bd5e05;font-weight: bold; width: 60px; padding: 5px; margin: 5px auto;}
+.pricafter{position: absolute; left: 20px;width: 230px;color: #fff;}
+.pricafter sup {color: #fff;font-size: 13px;top:-35px;position: relative}
+.pricafter  .pricexl {font-size: 30pt; margin-top: 30px;
+    color: #fff; margin-bottom: 5px;}
+.pricafter  .pricexl span{font-size: 25pt;color: #fff;font-size: 15px;}
+.pricafter div span{color: #fff;text-shadow: 1px 1px 1px #000;font-size: 15px;}
+    /*-------------------------
+    23 - Information Boxes
+    -------------------------*/
 .information-boxes {
     text-align: center;
 }

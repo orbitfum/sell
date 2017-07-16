@@ -179,9 +179,13 @@ $token ='v^1.1#i^1#p^3#r^0#I^3#f^0#t^H4sIAAAAAAAAAOVXa2wUVRTu9oVQSn2CqSDLIKYRZ/f
         $apicall .= '&responseencoding=XML';
         $apicall .= '&appid=orhanabb-ebayonpl-PRD-308fe9d67-14c9c5e0';
         $apicall .= '&siteid=0';
+
         $apicall .= '&version=967';
-        $apicall .= '&IncludeSelector=Description,ItemSpecifics,Variations,Compatibility,ShippingCosts,Details';
+
+        $apicall .= '&IncludeSelector=Description,ItemSpecifics,Variations,Compatibility,ShippingCosts,currencyID="ILS",Details';
+
         $apicall .= '&ItemID=' . $id;
+        $apicall .= '&ItemExcludeShipToLocation=IL';
 
         $resp = simplexml_load_file($apicall);
         $json = json_encode($resp);
@@ -190,6 +194,7 @@ $token ='v^1.1#i^1#p^3#r^0#I^3#f^0#t^H4sIAAAAAAAAAOVXa2wUVRTu9oVQSn2CqSDLIKYRZ/f
         $data['json']= $json;
         $data['variname'] = ['ENGLISH' => ['Size', 'Color'], 'Hebrew' => ['מידה', 'צבע']];
         $data['it'] = $resp['Item'];
+
 
         if (isset($resp['Item']['Variations']))
             if(0){
