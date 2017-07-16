@@ -178,19 +178,31 @@
                 <main>
 
                     <input id="tab1" type="radio" name="tabs" checked>
-                    <label for="tab1">Codepen</label>
+                    <label for="tab1"><img src="{{asset('images/search/ebay.png')}}"></label>
 
                     <input id="tab2" type="radio" name="tabs">
-                    <label for="tab2">Dribbble</label>
+                    <label for="tab2"><img src="{{asset('images/search/aliexpress.png')}}"></label>
 
                     <input id="tab3" type="radio" name="tabs">
-                    <label for="tab3">Dropbox</label>
+                    <label for="tab3"><img src="{{asset('images/search/dealextreme.png')}}"></label>
 
                     <input id="tab4" type="radio" name="tabs">
-                    <label for="tab4">Drupal</label>
+                    <label for="tab4"><img src="{{asset('images/search/pinkcherry.jpg')}}"></label>
 
                     <section id="content1">
-                        section 1
+
+                        <div class="main-search-form">
+                        <form method="get" action="{{url('ebay/search')}}" autocomplete="on">
+                        <input type="text" name="q" {{isset($_GET['q'])?"value={$_GET['q']}":''}} autocomplete="on" placeholder="רשום את המוצר שאתה מחפש" class="search-head" />
+                        <select>
+                        <option value="0">All Categories</option>
+                        <option value="1">Women's Clothing &amp; Accessories</option>
+                        <option value="2">Men's Clothing &amp; Accessories</option>
+
+                        </select>
+                        <button type="submit" class="primary button"><i class="fa fa-search"></i></button>
+                        </form>
+                        </div><!-- main search form /-->
                     </section>
 
                     <section id="content2">

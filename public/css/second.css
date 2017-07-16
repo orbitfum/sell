@@ -1,7 +1,10 @@
+main{
+    direction: rtl;
+}
 
 section {
     display: none;
-    padding: 20px 0 0;
+    padding: 15px 0 0;
     border-top: 1px solid #ddd;
     direction: rtl;
 }
@@ -13,23 +16,21 @@ input {
 label {
     display: inline-block;
     margin: 0 0 -1px;
-    padding: 15px 25px;
+    padding: 8px 8px;
     font-weight: 600;
     text-align: center;
     color: #bbb;
     border: 1px solid transparent;
+
 }
 
-label:before {
-    font-family: fontawesome;
-    font-weight: normal;
-    margin-right: 10px;
+label[for*='1'],label[for*='2'],label[for*='3'],label[for*='4']{
+    width: 150px;
 }
-
-label[for*='1']:before { content: '\f1cb'; }
-label[for*='2']:before { content: '\f17d'; }
-label[for*='3']:before { content: '\f16b'; }
-label[for*='4']:before { content: '\f1a9'; }
+/*label[for*='1']:before { content: '\f1cb'; }*/
+/*label[for*='2']:before { content: '\f17d'; }*/
+/*label[for*='3']:before { content: '\f16b'; }*/
+/*label[for*='4']:before { content: '\f1a9'; }*/
 
 label:hover {
     color: #888;
@@ -50,7 +51,11 @@ input:checked + label {
     display: block;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 780px) {
+
+    section {
+        padding: 5px 0 0;
+    }
     label {
         font-size: 0;
     }
@@ -58,10 +63,52 @@ input:checked + label {
         margin: 0;
         font-size: 18px;
     }
+    label[for*='1'],label[for*='2'],label[for*='3'],label[for*='4']{
+        width: 60px;
+    }
+
 }
 
-@media screen and (max-width: 400px) {
-    label {
-        padding: 15px;
+
+@media screen and (max-width: 1025px) {
+
+    section {
+        padding: 5px 0 0;
     }
+    label {
+        font-size: 0;
+    }
+    label:before {
+        margin: 0;
+        font-size: 18px;
+    }
+    label[for*='1'],label[for*='2'],label[for*='3'],label[for*='4']{
+        width: 110px;
+    }
+
+}
+@media screen and (max-width: 420px) {
+    label {
+        padding: 1px;
+    }
+    label[for*='1'],label[for*='2'],label[for*='3'],label[for*='4']{
+        width: 62px;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    .search-head {
+        position: relative;
+        top: 0px;
+        right: 0px;
+        width: 100%;
+    }
+}
+
+.main-search-form select {
+    width: 130px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin-bottom: 0px;
 }
