@@ -190,6 +190,7 @@ $token ='v^1.1#i^1#p^3#r^0#I^3#f^0#t^H4sIAAAAAAAAAOVXa2wUVRTu9oVQSn2CqSDLIKYRZ/f
         $data['json']= $json;
         $data['variname'] = ['ENGLISH' => ['Size', 'Color'], 'Hebrew' => ['מידה', 'צבע']];
         $data['it'] = $resp['Item'];
+
         if (isset($resp['Item']['Variations']))
             if(0){
 

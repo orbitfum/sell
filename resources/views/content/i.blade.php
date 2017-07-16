@@ -16,14 +16,16 @@
                 <div class="small-12 columns">
                     <div class="float-right" dir="rtl">
 
+                        <span><i class="fa fa-hand-peace-o" aria-hidden="true"></i> <b
+                                    style="color: chartreuse;font-size: 15pt">{{$it['QuantitySold']}}</b> כבר קנו את המוצר! </span>
+                    </div>
+                    <div class="float-right" dir="rtl">
+                        <span><i class="fa fa-shield" aria-hidden="true"></i> טכנולוגיית הצפנה מתקדמת <i
+                                    class="fa fa-shield" aria-hidden="true"></i></span>
 
-                        <span><i class="fa fa-hand-peace-o" aria-hidden="true"></i>  מספר רכישות עד כה: <b
-                                    style="color: chartreuse">{{$it['QuantitySold']}}</b> </span>
-                        <span><i class="fa fa-shield" aria-hidden="true"></i> טכנולוגיית הצפנה מתקדמת <i class="fa fa-shield" aria-hidden="true"></i></span>
                     </div>
 
-
-                    <div class="float-left" dir="rtl">
+                    <div class="float-left " dir="rtl">
                         <a href="#" class="bordered-light"> <i class="fa fa-floppy-o" aria-hidden="true"></i>
                             שמור מוצר</a>
                     </div>
@@ -77,7 +79,7 @@
         <div class="single-product-detail module">
             <div class="row">
 
-                <div class="medium-5 small-12 columns item-image">
+                <div class="medium-6 small-12 columns item-image">
                     <div class="main-image">
                         <img id="zoomit"
                              data-zoom-image="{{is_array($it['PictureURL'])?$it['PictureURL'][0]:$it['PictureURL']}}"
@@ -97,7 +99,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="medium-7 small-12 columns item-detail">
+                <div class="medium-6 small-12 columns item-detail">
                     <div class="item-header">
                         <h1>{{$it['Title']}}</h1>
                         <div class="item-meta">
@@ -115,47 +117,7 @@
                         </div><!-- item meta /-->
                     </div><!-- item header /-->
 
-                    <div class="item-pricing">
-                        <p><span class="row-title">SKU:</span><span>{{isset($it['SKU'])?$it['SKU']:''}}</span></p>
-                        <p><span class="row-title">Category:</span><span><a href="#">Pants</a>, <a
-                                        href="#">Women</a></span></p>
-                        <p><span class="row-title">מחיר:</span><span class="sale-price">{{$it['CurrentPrice']}} ש"ח / יחידה</span>
-                        </p>
-                        <div><span class="row-title">מחיר:</span><span><span
-                                        class="regular-price">{{$it['CurrentPrice']}}₪</span> / יחידה</span><span
-                                    class="off-percent"></span>
-                            <span class="bulk-price">
-                            <a data-toggle="bulk-price" href="#">
-                                Bulk Price &raquo;
-                            </a>
-                        </span>
-                            <div class="dropdown-pane top-left" id="bulk-price" data-dropdown data-hover="true"
-                                 data-hover-pane="true">
-                                <table class="text-center">
-                                    <tr>
-                                        <th>Qty</th>
-                                        <th>Price /piece</th>
-                                    </tr>
-                                    <tr>
-                                        <td>2-10</td>
-                                        <td>$89.53</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10-50</td>
-                                        <td>$79.53</td>
-                                    </tr>
-                                    <tr>
-                                        <td>50-100</td>
-                                        <td>$59</td>
-                                    </tr>
-                                </table>
-                                <p>Discount automatically counted on checkout.</p>
-                            </div>
-                        </div>
-
-                    </div><!-- item head /-->
-
-                    <div class="item-options">
+                    <div class="item-options" dir="rtl">
                         @if(isset($it['Variations']))
                             @if(isset($it['Variations']['VariationSpecificsSet']['NameValueList']['0']))
                                 @foreach($it['Variations']['VariationSpecificsSet']['NameValueList'] as $key=>$vari)
@@ -186,7 +148,12 @@
                             @endif
                         @endif
                     </div><!-- item options /-->
-
+                    <div class="boxpricnew">
+                        <div class="boxup">
+<div class="infotextprice">מחיר לצרכן: {{$it['CurrentPrice']}}₪</div>
+                            <div class="haozim">69.21</div>
+                        </div>
+                    </div>
 
                     <div class="item-quantity">
                         <div><span class="row-title">Quantity:</span><span><input type="number" class="qty" value="1"/> piece(s)</span>

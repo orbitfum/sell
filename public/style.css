@@ -281,7 +281,7 @@ Top bar CSS ends
     width: 130px;
     position: absolute;
     top: 0px;
-    right: 36.58px;
+
     margin-bottom: 0px;
 }
 
@@ -1465,7 +1465,7 @@ Blog Posts Ends
 .pro-rating .infoseler{background-color: #5B5D60;
     padding: 5px;
 }
-.pro-rating .infoseler span{color: #fff; margin-left: 15px;}
+.pro-rating .infoseler span{color: #fff; margin-left: 10px;}
 .pro-rating .off {
     color: #ccc;
 }
@@ -2016,10 +2016,11 @@ Single Store CSS Ends
 }
 
 .row-title {
-    width: 100px;
-    padding-right: 15px;
+    width: 200px;
+    padding-left: 15px;
     display: block;
-    float: left;
+    float: right;
+    font-size: 13pt;
     line-height: 20px;
 }
 
@@ -2057,7 +2058,7 @@ Single Store CSS Ends
 }
 
 .item-options {
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 40px;
 }
 
@@ -2093,8 +2094,11 @@ Single Store CSS Ends
 }
 
 .option-box {
-    margin-bottom: 15px;
+    margin:0 10px;
+    margin-bottom: -6px;
 }
+
+.option-box span select {width: 50%;}
 
 .item-quantity .qty {
     margin-bottom: 0px;
@@ -2534,6 +2538,21 @@ body.box {
 /*-------------------------
 Page loading animation End
 ------------------------*/
+
+
+/*-------------------------
+add costum
+--------------------------*/
+
+.boxpricnew{background: rgba(255, 140, 0, 1);    border-top: solid 7px #bd5e05;  height: 130px;position: relative;direction: rtl}
+.boxpricnew .boxup{position: absolute; background-image:
+        linear-gradient(
+                #fdfdfd 70%,
+                #ecebeb 90%
+        ); box-shadow: 1px -1px 10px #000;  width: 200px; right: 30px;  top:-15px; height: 120px;border-radius: 0 0 30px 30px}
+.boxpricnew .boxup .infotextprice{text-align: right;margin-top: 20px; padding: 5px;font-size: 14pt;color: #bd5e05; font-weight: 200}
+
+
 
 /*-------------------------
 23 - Information Boxes
@@ -3040,7 +3059,7 @@ Footer CSS ends here
     }
 
     .title-section .bordered-light {
-        display: none;
+
     }
 
     .single-product-detail .thumbnails img {
@@ -3061,7 +3080,3 @@ Media Queries Ends
 }
 
 ;
-/*-------------------------
-add costum
---------------------------*/
-
