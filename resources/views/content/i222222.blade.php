@@ -4,7 +4,7 @@
 
     <style>
         .selectedphoto {
-            border: 3px black solid;
+            border: 10px black solid;
         }
     </style>
 
