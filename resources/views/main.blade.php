@@ -71,6 +71,47 @@
                     </ul>
                 </div><!-- Left Ends /-->
                 <div class="my-account-holder float-right medium-3 small-2 columns">
+                    <div class="cart-holder float-right">
+
+                        <div class="my-account-title" data-toggle="my-cart">
+                            <div class="cart-icon float-right">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </div>
+                            <div class="float-left">
+                                <a href="#">2 Item(s)</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div><!-- ends title /-->
+
+                        <!-- Hidden Menus -->
+                        <div class="dropdown-pane" id="my-cart" data-dropdown data-hover="true" data-hover-pane="true">
+                            <h5>Your Cart Detail</h5>
+                            <table>
+                                <tbody><tr>
+                                    <td><img alt="" src="images/help/product4.jpg" /></td>
+                                    <td>Beautiful Rhinestone Pearl <br>
+                                        2x $ 140
+                                    </td>
+                                    <td>280</td>
+                                </tr>
+                                <tr>
+                                    <td><img alt="" src="images/help/product4.jpg" /></td>
+                                    <td>Beautiful Rhinestone Pearl <br>
+                                        2x $ 140
+                                    </td>
+                                    <td>400</td>
+                                </tr>
+                                </tbody></table>
+                            <hr>
+                            <div class="text-center"><strong>Subtotal: $ 240 </strong></div>
+                            <hr>
+                            <a href="cart.html" class="button primary float-left">View Cart</a>
+                            <a href="checkout.html" class="button success float-right">Checkout</a>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- Hidden Menus /-->
+
+                    </div><!-- my Cart /-->
 
                     <div class="my-account-title" data-toggle="myaccount-dropdown">
                         <div class="user-icon float-left">
@@ -98,27 +139,7 @@
 
                 </div><!-- my account holder /-->
 
-                <div class="medium-3 small-6 columns hide-for-small-only">
-                	<ul class="menu dropdown float-right" data-dropdown-menu>
-                    	<li><a href="start-selling.html">Start Selling</a>
-                        	<ul class="menu">
-                            	<li><a href="#">For Retailers</a></li>
-                                <li><a href="#">For WholeSalers</a></li>
-                                <li><a href="#">For Manufactures</a></li>
-                                <li><a href="#">Become an Affiliate</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="start-selling.html">Help</a>
-                        	<ul class="menu">
-                            	<li><a href="#">Buyer Protection</a></li>
-                                <li><a href="#">Seller Protection</a></li>
-                                <li><a href="#">Submit Ticket</a></li>
-                                <li><a href="#">Talk to Us</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div><!-- Right Ends /-->
-                
+
             </div><!-- row /-->
         </div>
         <!-- top Bar Ends here /-->
@@ -126,54 +147,8 @@
         <!-- Header Starts -->
         <div class="header">
         <div class="row">
-            <div class="medium-2 small-6 columns">
 
-                <div class="my-account-holder cart-holder float-left">
-
-                    <div class="my-account-title" data-toggle="my-cart">
-                        <div class="user-icon float-left">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        </div>
-                        <div class="float-left cart-link">
-                            <a href="#">2 Item(s)</a>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div><!-- ends title /-->
-
-                    <!-- Hidden Menus -->
-                    <div class="dropdown-pane" id="my-cart" data-dropdown data-hover="true" data-hover-pane="true">
-                        <h5>Your Cart Detail</h5>
-                        <table>
-                            <tbody><tr>
-                                <td><img alt="" src="images/help/product4.jpg" /></td>
-                                <td>Beautiful Rhinestone Pearl <br>
-                                    2x $ 140
-                                </td>
-                                <td>280</td>
-                            </tr>
-                            <tr>
-                                <td><img alt="" src="images/help/product4.jpg" /></td>
-                                <td>Beautiful Rhinestone Pearl <br>
-                                    2x $ 140
-                                </td>
-                                <td>400</td>
-                            </tr>
-                            </tbody></table>
-                        <hr>
-                        <div class="text-center"><strong>Subtotal: $ 240 </strong></div>
-                        <hr>
-                        <a href="cart.html" class="button primary float-left">View Cart</a>
-                        <a href="checkout.html" class="button success float-right">Checkout</a>
-                        <div class="clearfix"></div>
-                    </div>
-                    <!-- Hidden Menus /-->
-
-                </div><!-- my Cart /-->
-
-
-            </div><!-- Third Column /-->
-
-            <div class="medium-8 small-12 columns">
+            <div class="medium-10 small-12 columns">
 
                 <main>
 
@@ -193,47 +168,69 @@
 
                         <div class="main-search-form">
                         <form method="get" action="{{url('ebay/search')}}" autocomplete="on">
-                        <input type="text" name="q" {{isset($_GET['q'])?"value={$_GET['q']}":''}} autocomplete="on" placeholder="רשום את המוצר שאתה מחפש" class="search-head" />
+                        <input type="text" name="q" {{isset($_GET['q'])?"value={$_GET['q']}":''}} autocomplete="on" placeholder="רשום את המוצר שאתה מחפש באייבי" class="search-head" />
                         <select>
                         <option value="0">All Categories</option>
                         <option value="1">Women's Clothing &amp; Accessories</option>
                         <option value="2">Men's Clothing &amp; Accessories</option>
 
                         </select>
-                        <button type="submit" class="primary button"><i class="fa fa-search"></i></button>
+                        <button type="submit" class="black-btn button"><i class="fa fa-search"></i></button>
                         </form>
                         </div><!-- main search form /-->
                     </section>
 
                     <section id="content2">
-                        section 2
+
+                        <div class="main-search-form">
+                            <form method="get" action="{{url('ebay/search')}}" autocomplete="on">
+                                <input type="text" name="q" {{isset($_GET['q'])?"value={$_GET['q']}":''}} autocomplete="on" placeholder="רשום את המוצר שאתה מחפש באליאקפרס" class="search-head" />
+                                <select>
+                                    <option value="0">All Categories</option>
+                                    <option value="1">Women's Clothing &amp; Accessories</option>
+                                    <option value="2">Men's Clothing &amp; Accessories</option>
+
+                                </select>
+                                <button type="submit" class="black-btn button"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div><!-- main search form /-->
 
                     </section>
 
                     <section id="content3">
-                        section 3
+
+                        <div class="main-search-form">
+                            <form method="get" action="{{url('ebay/search')}}" autocomplete="on">
+                                <input type="text" name="q" {{isset($_GET['q'])?"value={$_GET['q']}":''}} autocomplete="on" placeholder="רשום את המוצר שאתה מחפש בדיל-אקסטרים" class="search-head" />
+                                <select>
+                                    <option value="0">All Categories</option>
+                                    <option value="1">Women's Clothing &amp; Accessories</option>
+                                    <option value="2">Men's Clothing &amp; Accessories</option>
+
+                                </select>
+                                <button type="submit" class="black-btn button"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div><!-- main search form /-->
                     </section>
 
                     <section id="content4">
-                        section 4
+
+                        <div class="main-search-form">
+                            <form method="get" action="{{url('ebay/search')}}" autocomplete="on">
+                                <input type="text" name="q" {{isset($_GET['q'])?"value={$_GET['q']}":''}} autocomplete="on" placeholder="רשום את המוצר שאתה מחפש בפוסי" class="search-head" />
+                                <select>
+                                    <option value="0">All Categories</option>
+                                    <option value="1">Women's Clothing &amp; Accessories</option>
+                                    <option value="2">Men's Clothing &amp; Accessories</option>
+
+                                </select>
+                                <button type="submit" class="black-btn button"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div><!-- main search form /-->
                     </section>
 
                 </main>
 
-
-                {{----}}
-            	{{--<div class="main-search-form">--}}
-                    {{--<form method="get" action="{{url('ebay/search')}}" autocomplete="on">--}}
-                        {{--<input type="text" name="q" {{isset($_GET['q'])?"value={$_GET['q']}":''}} autocomplete="on" placeholder="רשום את המוצר שאתה מחפש" class="search-head" />--}}
-                    {{--<select>--}}
-                    	{{--<option value="0">All Categories</option>--}}
-                        {{--<option value="1">Women's Clothing &amp; Accessories</option>--}}
-                        {{--<option value="2">Men's Clothing &amp; Accessories</option>--}}
-                        {{----}}
-                    {{--</select>--}}
-                    {{--<button type="submit" class="primary button"><i class="fa fa-search"></i></button>--}}
-                    {{--</form>--}}
-                {{--</div><!-- main search form /-->--}}
             </div><!-- Second Column /-->
             
 
@@ -411,6 +408,8 @@
                         <!-- Categories -->
                     </div> <!-- drop down container /-->
                 </div> <!-- Categories /-->
+
+
 
             </div><!-- first column /-->
             
