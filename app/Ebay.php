@@ -47,15 +47,11 @@ class Ebay extends Model
         $apicall .= "&itemFilter(0).value(1)=FixedPrice";
 
 
-
-
-
         $apicall .= "&itemFilter(1).name=AvailableTo";
         $apicall .= "&itemFilter(1).value(0)=IL";
 
         $apicall .= "&itemFilter(2).name=HideDuplicateItems";
         $apicall .= "&itemFilter(2).value(0)=true";
-
 
 
         if ($input->has('min') && $input->has('max')) {
@@ -102,8 +98,7 @@ class Ebay extends Model
         $resp = json_decode($json, TRUE);
 
 
-
-        $data['cat'] = isset($resp['categoryHistogramContainer']['categoryHistogram'])?$resp['categoryHistogramContainer']['categoryHistogram']:[];
+        $data['cat'] = isset($resp['categoryHistogramContainer']['categoryHistogram']) ? $resp['categoryHistogramContainer']['categoryHistogram'] : [];
 
 
         $data['info'] = $resp['paginationOutput'];
@@ -114,7 +109,7 @@ class Ebay extends Model
 
     static public function search1($keyword, &$data, $input)
     {
-$token ='v^1.1#i^1#p^3#r^0#I^3#f^0#t^H4sIAAAAAAAAAOVXa2wUVRTu9oVQSn2CqSDLIKYRZ/fOzO7O7shusmzbtErbpdvWWizNPO60Q2dnJnNn2m4k0DThEUnUhARoYkh/NCKiCYgoEqIGY5AfiAQiJJJgBBJj6gNI0JhovLPdlm0NpQ9+bOL+2dxzz+s757t37gH9xfOf216z/Y9S17z8oX7Qn+9yUSVgfnHR6kUF+eVFeSBLwTXU/0x/4UDBT2sQn1QNrhEiQ9cQdPclVQ1xaWGYsE2N03mkIE7jkxBxlsglonXrONoDOMPULV3UVcJdWxkmGBDw+wIBCH0SI9MywFJtzGeTHibokBjk/YAN+SUBMoDH+wjZsFZDFq9ZeB9QLAkCJGCbKIajaY5mPT7G10a4W6CJFF3DKh5ARNLpcmlbMyvXqVPlEYKmhZ0QkdpodaIhWltZVd+0xpvlK5KpQ8LiLRtNXMV0CbpbeNWGU4dBaW0uYYsiRIjwRkYjTHTKRceSmUX66VLTAsXQlCRLshwM+aD0QEpZrZtJ3po6D0eiSKScVuWgZilW6n4VxdUQNkHRyqzqsYvaSrfzt97mVUVWoBkmqtZGX2lOVDUS7kQ8buo9igQlBykFaIYNMUwAZ9sn28mM/1EnmepOChDTNUlxaoXc9bq1FuJk4eSSUFklwUoNWoMZlS0nkWw9f6Z0mNdtTi9Hm2dbXZrTTpjE+N3p5f0LP8aEu71/UFyAPASCQLEsE/BDX3AKLjhnffp8iDgticbjXicXKPApMsmb3dAyVF6EpIjLayehqUgc45dpJihDUgqEZNIXkmVS8EsBkpIhBBAKghgK/g9oYVmmItgWHKfG5I00tjCREHUDxnVVEVPEZJX0DZMhQh8KE12WZXBeb29vr6eX8ehmp5cGgPK21q1LiF0wia/QMV3l/sqkkqaECLEVUjgrZeBs+jDjcHCtk4gwphTnTSuVgKqKBWN8nZBbZLL0HiCRAzK34Dn2CDvgDcXj0Nkj6kmvzuPj64g60hm7p6PkRbhAntHDgD17TMhLuqamZmM8AxtF68Gk0s3UtAI6Z/1eDmYQlBdF3das2WDMmM7AQrZVWVFV5+zMJmCW+UzS1Hg1ZSkiGg85J+JHDaNWyi3i62YXBikIpFMIXTNUMt5YSTIAX9khKcCSlE8MiX4I5oRbgj2KCDuUHMOu2ao6J1yVsCfX+inRgkz5GJpkRCFI+mQJn/XlFP7m+iVSoPxB2S8CGb/B54S7rjPXWhkMMD4QDNAhANg5QYupCr4imlK59oGq0ZEFpblBww/D3ALlXDVjN01IECRSDPpZ0kfJPjIYAgxJ83xwupAnCbIeWv95WnsnjrSRvPSPGnAdAwOuI3gqBl6wiloJVhQXNBcWLCxHigU9Ci97kNKp4UnNhJ5umDJ4xcwvdm1YevhgR9YQPdQOnhwfo+cXUCVZMzVYeneniCpbUkqxIABYPK7RNNsGVt7dLaQWFz6+6NnTa2/tZto+27YzvKEs76vQirLLoHRcyeUqyisccOW9SRytWDLy2PF686Otp/4eWMqd+OH0rdvbFj78W/W1xmW3j+4aKSG2X31BO05937p5r0eJvftQj//LfbGLDa2b9StNJftWp/YOl3+6us11YIdeRS24cPbQ69/84+qM/l76yI+DiY+Xw9g7+TXRWHTPoYqTT/88+NKl0hMfNJ1v3vL5E80L9t95+dSyszVvESNnFtw4WMDuqiCM6mvS199uOVmyu7lrVX/70IadIxtbjRubWga3fmdfdctLuovPHrl+pcwefv7cjrcvu0YORw88emPoWMcX89776/32N9TX7vxafqD9l0Pn/3y1JdZ37sULN+ni7nWnhhvq9pypOL5w84cX929MPrX4k+GOm+s3Xro+2r5/Adi4ea/eEAAA';
+        $token = 'v^1.1#i^1#p^3#r^0#I^3#f^0#t^H4sIAAAAAAAAAOVXa2wUVRTu9oVQSn2CqSDLIKYRZ/fOzO7O7shusmzbtErbpdvWWizNPO60Q2dnJnNn2m4k0DThEUnUhARoYkh/NCKiCYgoEqIGY5AfiAQiJJJgBBJj6gNI0JhovLPdlm0NpQ9+bOL+2dxzz+s757t37gH9xfOf216z/Y9S17z8oX7Qn+9yUSVgfnHR6kUF+eVFeSBLwTXU/0x/4UDBT2sQn1QNrhEiQ9cQdPclVQ1xaWGYsE2N03mkIE7jkxBxlsglonXrONoDOMPULV3UVcJdWxkmGBDw+wIBCH0SI9MywFJtzGeTHibokBjk/YAN+SUBMoDH+wjZsFZDFq9ZeB9QLAkCJGCbKIajaY5mPT7G10a4W6CJFF3DKh5ARNLpcmlbMyvXqVPlEYKmhZ0QkdpodaIhWltZVd+0xpvlK5KpQ8LiLRtNXMV0CbpbeNWGU4dBaW0uYYsiRIjwRkYjTHTKRceSmUX66VLTAsXQlCRLshwM+aD0QEpZrZtJ3po6D0eiSKScVuWgZilW6n4VxdUQNkHRyqzqsYvaSrfzt97mVUVWoBkmqtZGX2lOVDUS7kQ8buo9igQlBykFaIYNMUwAZ9sn28mM/1EnmepOChDTNUlxaoXc9bq1FuJk4eSSUFklwUoNWoMZlS0nkWw9f6Z0mNdtTi9Hm2dbXZrTTpjE+N3p5f0LP8aEu71/UFyAPASCQLEsE/BDX3AKLjhnffp8iDgticbjXicXKPApMsmb3dAyVF6EpIjLayehqUgc45dpJihDUgqEZNIXkmVS8EsBkpIhBBAKghgK/g9oYVmmItgWHKfG5I00tjCREHUDxnVVEVPEZJX0DZMhQh8KE12WZXBeb29vr6eX8ehmp5cGgPK21q1LiF0wia/QMV3l/sqkkqaECLEVUjgrZeBs+jDjcHCtk4gwphTnTSuVgKqKBWN8nZBbZLL0HiCRAzK34Dn2CDvgDcXj0Nkj6kmvzuPj64g60hm7p6PkRbhAntHDgD17TMhLuqamZmM8AxtF68Gk0s3UtAI6Z/1eDmYQlBdF3das2WDMmM7AQrZVWVFV5+zMJmCW+UzS1Hg1ZSkiGg85J+JHDaNWyi3i62YXBikIpFMIXTNUMt5YSTIAX9khKcCSlE8MiX4I5oRbgj2KCDuUHMOu2ao6J1yVsCfX+inRgkz5GJpkRCFI+mQJn/XlFP7m+iVSoPxB2S8CGb/B54S7rjPXWhkMMD4QDNAhANg5QYupCr4imlK59oGq0ZEFpblBww/D3ALlXDVjN01IECRSDPpZ0kfJPjIYAgxJ83xwupAnCbIeWv95WnsnjrSRvPSPGnAdAwOuI3gqBl6wiloJVhQXNBcWLCxHigU9Ci97kNKp4UnNhJ5umDJ4xcwvdm1YevhgR9YQPdQOnhwfo+cXUCVZMzVYeneniCpbUkqxIABYPK7RNNsGVt7dLaQWFz6+6NnTa2/tZto+27YzvKEs76vQirLLoHRcyeUqyisccOW9SRytWDLy2PF686Otp/4eWMqd+OH0rdvbFj78W/W1xmW3j+4aKSG2X31BO05937p5r0eJvftQj//LfbGLDa2b9StNJftWp/YOl3+6us11YIdeRS24cPbQ69/84+qM/l76yI+DiY+Xw9g7+TXRWHTPoYqTT/88+NKl0hMfNJ1v3vL5E80L9t95+dSyszVvESNnFtw4WMDuqiCM6mvS199uOVmyu7lrVX/70IadIxtbjRubWga3fmdfdctLuovPHrl+pcwefv7cjrcvu0YORw88emPoWMcX89776/32N9TX7vxafqD9l0Pn/3y1JdZ37sULN+ni7nWnhhvq9pypOL5w84cX929MPrX4k+GOm+s3Xro+2r5/Adi4ea/eEAAA';
 
         $api_endpoint = "https://api.ebay.com/buy/browse/v1/item_summary/search";
         $compat_level = 967;
@@ -128,28 +123,21 @@ $token ='v^1.1#i^1#p^3#r^0#I^3#f^0#t^H4sIAAAAAAAAAOVXa2wUVRTu9oVQSn2CqSDLIKYRZ/f
 
         $headers = array
         (
-            'Authorization:Bearer '.$token,
+            'Authorization:Bearer ' . $token,
             'Accept:application/json',
             'Content-Type:application/json',
 
         );
 
         $apicall = $api_endpoint;
-        $apicall .="?q=$keyword";
+        $apicall .= "?q=$keyword";
 
 
+        $apicall .= "&sort=max";
 
-        $apicall .="&sort=max";
+        $apicall .= "&limit=10";
 
-        $apicall .="&limit=10";
-
-        $apicall .="&offset=10";
-
-
-
-
-
-
+        $apicall .= "&offset=10";
 
 
         $connection = curl_init();
@@ -173,6 +161,33 @@ $token ='v^1.1#i^1#p^3#r^0#I^3#f^0#t^H4sIAAAAAAAAAOVXa2wUVRTu9oVQSn2CqSDLIKYRZ/f
 
     static public function getItem($id, &$data)
     {
+
+
+        $endpoint = 'http://open.api.ebay.com/shopping';
+        $apicall = $endpoint;
+        $apicall .= '?callname=GetShippingCosts';
+        $apicall .= '&responseencoding=XML';
+        $apicall .= '&appid=orhanabb-ebayonpl-PRD-308fe9d67-14c9c5e0';
+        $apicall .= '&siteid=0';
+
+        $apicall .= '&version=517';
+
+
+        $apicall .= '&ItemID=' . $id;
+        $apicall .= '&DestinationCountryCode=IL';
+        $apicall .= '&DestinationPostalCode=95128';
+        $apicall .= '&IncludeDetails=true';
+        $apicall .= '&QuantitySold=1';
+
+
+        $resp = simplexml_load_file($apicall);
+        $json = json_encode($resp);
+        $resp = json_decode($json, TRUE);
+
+        $data['shippnginfo'] = $resp;
+
+// ---------------------------------------------------------------------------
+
         $endpoint = 'http://open.api.ebay.com/shopping';
         $apicall = $endpoint;
         $apicall .= '?callname=GetSingleItem';
@@ -182,24 +197,24 @@ $token ='v^1.1#i^1#p^3#r^0#I^3#f^0#t^H4sIAAAAAAAAAOVXa2wUVRTu9oVQSn2CqSDLIKYRZ/f
 
         $apicall .= '&version=967';
 
-        $apicall .= '&IncludeSelector=Description,ItemSpecifics,Variations,Compatibility,ShippingCosts,currencyID="ILS",Details';
+        $apicall .= '&IncludeSelector=Description,ItemSpecifics,Variations,Compatibility,ShippingCosts,Details';
 
         $apicall .= '&ItemID=' . $id;
-        $apicall .= '&ItemExcludeShipToLocation=IL';
+
 
         $resp = simplexml_load_file($apicall);
         $json = json_encode($resp);
         $resp = json_decode($json, TRUE);
 
-        $data['json']= $json;
+        $data['json'] = $json;
         $data['variname'] = ['ENGLISH' => ['Size', 'Color'], 'Hebrew' => ['מידה', 'צבע']];
         $data['it'] = $resp['Item'];
 
 
         if (isset($resp['Item']['Variations']))
-            if(0){
+            if (0) {
 
-            $data['varpictures'] = json_encode($resp['Item']['Variations']['Pictures']['VariationSpecificPictureSet']);
+                $data['varpictures'] = json_encode($resp['Item']['Variations']['Pictures']['VariationSpecificPictureSet']);
             }
         if (isset($_GET['dd'])) dd($data['it']);
     }
