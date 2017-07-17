@@ -159,7 +159,9 @@
                                 <b>{{number_format(511.69 , 2)}}</b> <span>₪</span>
 
                             </div>
-<div><span>מחיר משלוח: <b>19.54</b></span> | <span>זמן אספקה: <b>30</b></span></div>
+                            <div style="position: relative; right: -50px;width: 300px;"><span>מחיר משלוח: <b>{{number_format($shippnginfo['ShippingCostSummary']['ShippingServiceCost'])}}
+                                        ₪</b></span> | <span>זמן אספקה: <b>19-45 </b><b style="font-size: 10px">ימים</b></span>
+                            </div>
 
 
                         </div>
