@@ -210,7 +210,6 @@ class Ebay extends Model
         $data['variname'] = ['ENGLISH' => ['Size', 'Color'], 'Hebrew' => ['מידה', 'צבע']];
         $data['it'] = $resp['Item'];
 
-
         if (isset($resp['Item']['Variations']))
             if (0) {
 

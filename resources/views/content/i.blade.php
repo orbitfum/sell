@@ -118,6 +118,9 @@
                     </div><!-- item header /-->
 
                     <div class="item-options" dir="rtl">
+                        <span class="row-title" style="margin-right: 8px;">מצב המוצר:</span>
+                        <span style="font-weight: bold">חדש עם תגיות</span>
+                        <div style="margin: 5px 0" class="clearfix"></div>
                         @if(isset($it['Variations']))
                             @if(isset($it['Variations']['VariationSpecificsSet']['NameValueList']['0']))
                                 @foreach($it['Variations']['VariationSpecificsSet']['NameValueList'] as $key=>$vari)
@@ -150,45 +153,44 @@
                     </div><!-- item options /-->
                     <div class="boxpricnew">
                         <div class="boxup">
-                            <div class="infotextprice">מחיר לצרכן: <span>{{$it['CurrentPrice']}}</span></div>
-                            <div class="haozim">הנחה: <span>59%</span></div>
+                            @if(isset($it['Variations']['Variation'][0]['DiscountPriceInfo']))
+
+                            <div class="infotextprice">מחיר לצרכן: <span>{{HR::currency($it['Variations']['Variation'][0]['DiscountPriceInfo']['OriginalRetailPrice']) }} ₪</span></div>
+                            <div class="haozim">הנחה: <span>{{number_format(HR::currency($it['CurrentPrice'])/ HR::currency($it['Variations']['Variation'][0]['DiscountPriceInfo']['OriginalRetailPrice']) *100)}}%</span></div>
+                                @else
+                                <div class="infotextprice">מחיר לצרכן: <span>{{HR::currency($it['CurrentPrice']) + (HR::currency($it['CurrentPrice'] + 63/100))  }} ₪</span></div>
+                                <div class="haozim">הנחה: <span>63%</span></div>
+                            @endif
                         </div>
                         <div class="pricafter">
                             <div class="pricexl">
                                 <sup>רק:</sup>
-                                <b>{{number_format(511.69 , 2)}}</b> <span>₪</span>
+                                <b>{{HR::currency($it['CurrentPrice'])}}</b> <span>₪</span>
 
                             </div>
-                            <div style="position: relative; right: -50px;width: 300px;"><span>מחיר משלוח: <b>{{number_format($shippnginfo['ShippingCostSummary']['ShippingServiceCost'])}}
-                                        ₪</b></span> | <span>זמן אספקה: <b>19-45 </b><b style="font-size: 10px">ימים</b></span>
+                            <div style="position: relative; right: -50px;width: 300px;"><span>מחיר משלוח: <b>{!!$shippnginfo['ShippingCostSummary']['ShippingServiceCost'] != 0 ? HR::currencyShip($shippnginfo['ShippingCostSummary']['ShippingServiceCost']).' ₪':'<i style="color:#ffed00">חינם</i>'!!}
+                                        </b></span> | <span>זמן אספקה: <b>19-45 </b><b style="font-size: 10px">ימים</b></span>
                             </div>
 
 
                         </div>
                     </div>
-
-                    <div class="item-quantity">
-                        <div><span class="row-title">Quantity:</span><span><input type="number" class="qty" value="1"/> piece(s)</span>
+<hr>
+                    <div class="item-quantity" dir="rtl">
+                        <div><span class="row-title" style="width: 50px">כמות:</span><span><input type="number" class="qty" value="1"/> יחידות</span>
                             <span id="qtymsg" style="color: red; font-size: 12px;"></span>
                         </div>
-                        <div><span class="row-title">Total Price:</span> <span>Select Color, size and quantity.</span>
-                        </div>
+
                     </div>
                     <!-- Item Quantity /-->
 
-                    <div class="shopping-buttons">
-                        <a href="#" class="button secondary">Buy Now</a> <a href="#" class="button primary">Add to
-                            cart</a> <a href="#" class="wishlist"><i class="fa fa-heart"></i></a>
-                        <div class="clearfix"></div>
-                    </div>
-                    , a
-                    <!-- shopping Buttons /-->
+                    <div class="shopping-buttons float-right" >
+                        <a href="#" class="button secondary">קנה עכשיו</a> <a href="#" class="button primary">הוסף לעגלת קניות</a>
 
-                    <div class="store-promotion">
-                        <div><span class="row-title">Store Promotion: </span> <span
-                                    class="coupon-store"><strong>US $2</strong> off per <strong>US $5</strong></span>
-                        </div>
                     </div>
+                    <div class="clearfix"></div>
+
+
                     <!-- promotion Ends /-->
 
                 </div><!-- item detail /-->
