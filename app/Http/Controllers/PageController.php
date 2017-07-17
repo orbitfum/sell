@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ebay;
 use App\Category;
+use App\HR;
 
 class PageController extends MainController
 {
@@ -44,6 +45,10 @@ class PageController extends MainController
 
 
         return view('content.i', self::$data);
+    }
+
+    public function testit() {
+        return HR::currency(2);
     }
 
 
