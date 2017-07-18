@@ -92,7 +92,7 @@
 
                                 @foreach($it['PictureURL'] as $row)
                                     <a href="#">
-                                        <img class="insidephoto selectedphoto" src="{{$row}}" alt=""/>
+                                        <img class="insidephoto selectedphoto" src="{{$row}}" style="object-fit: cover;" alt=""/>
                                     </a>
                                 @endforeach
                             @endif
