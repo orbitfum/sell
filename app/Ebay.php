@@ -178,7 +178,7 @@ class Ebay extends Model
         $json = json_encode($resp);
         $resp = json_decode($json, TRUE);
 
-        dd($resp);
+       $data['moreitem'] = $resp;
 
 
 
