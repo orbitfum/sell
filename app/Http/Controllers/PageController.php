@@ -10,22 +10,23 @@ use App\HR;
 class PageController extends MainController
 {
 
-    static public $info ='';
+    static public $info = '';
 
     public function index()
     {
         return view('content.home', self::$data);
     }
 
-    public function catsJson() {
+    public function catsJson()
+    {
         $cat = Category::all();
         $cat = $cat->toArray();
         $cats = '{';
-        foreach($cat as $key=>$ca) {
-            if($key+1 == count($cat))
-                $cats .= '"'.$ca['catid_ebay'] . '" : "' . trim($ca['heb']) . '"';
+        foreach ($cat as $key => $ca) {
+            if ($key + 1 == count($cat))
+                $cats .= '"' . $ca['catid_ebay'] . '" : "' . trim($ca['heb']) . '"';
             else
-                $cats .= '"'.$ca['catid_ebay'] . '" : "' . trim($ca['heb']) . '",';
+                $cats .= '"' . $ca['catid_ebay'] . '" : "' . trim($ca['heb']) . '",';
         }
         $cats .= '}';
         echo $cats;
@@ -42,15 +43,17 @@ class PageController extends MainController
     {
         Ebay::getItem($id, self::$data);
 
-
+        if (empty(self::$data['shippnginfo']['ShippingCostSummary'])) {
+            return view('content.i404', self::$data);
+        }
 
         return view('content.i', self::$data);
     }
 
-    public function testit() {
+    public function testit()
+    {
         return HR::currency(2);
     }
-
 
 
 }

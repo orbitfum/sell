@@ -161,8 +161,28 @@ class Ebay extends Model
 
     static public function getItem($id, &$data)
     {
+//מוצרים דומים
+        $endpoint = 'http://svcs.ebay.com/MerchandisingService';
+        $apicall = $endpoint;
+        $apicall .= '?OPERATION-NAME=getSimilarItems';
+        $apicall .= '&SERVICE-VERSION=1.1.0';
+        $apicall .= '&CONSUMER-ID=orhanabb-ebayonpl-PRD-308fe9d67-14c9c5e0';
+        $apicall .= '&RESPONSE-DATA-FORMAT=XML';
+        $apicall .= '&REST-PAYLOAD';
+        $apicall .= '&itemId='.$id;
+
+        $apicall .= '&maxResults=3';
 
 
+        $resp = simplexml_load_file($apicall);
+        $json = json_encode($resp);
+        $resp = json_decode($json, TRUE);
+
+        dd($resp);
+
+
+
+//מידע על המשלוח ------------------------------------------------------------------
         $endpoint = 'http://open.api.ebay.com/shopping';
         $apicall = $endpoint;
         $apicall .= '?callname=GetShippingCosts';
@@ -187,7 +207,7 @@ class Ebay extends Model
         $data['shippnginfo'] = $resp;
 
 // ---------------------------------------------------------------------------
-
+// פרטים על המוצר
         $endpoint = 'http://open.api.ebay.com/shopping';
         $apicall = $endpoint;
         $apicall .= '?callname=GetSingleItem';
