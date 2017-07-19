@@ -22,14 +22,13 @@ label {
     border: 1px solid transparent;
 
 }
-
+[type=checkbox]+label, [type=radio]+label{
+    margin-left: .5px;
+     margin-right: 1px;
+}
 label[for*='1'],label[for*='2'],label[for*='3'],label[for*='4']{
     width: 150px;
 }
-/*label[for*='1']:before { content: '\f1cb'; }*/
-/*label[for*='2']:before { content: '\f17d'; }*/
-/*label[for*='3']:before { content: '\f16b'; }*/
-/*label[for*='4']:before { content: '\f1a9'; }*/
 
 label:hover {
     color: #888;
@@ -50,61 +49,7 @@ input:checked + label {
     display: block;
 }
 
-@media screen and (max-width: 780px) {
 
-    section {
-        padding: 5px 0 0;
-    }
-    label {
-        font-size: 0;
-    }
-    label:before {
-        margin: 0;
-        font-size: 18px;
-    }
-    label[for*='1'],label[for*='2'],label[for*='3'],label[for*='4']{
-        width: 60px;
-    }
-
-}
-
-
-@media screen and (max-width: 1025px) {
-
-    section {
-        padding: 5px 0 0;
-    }
-    label {
-        font-size: 0;
-    }
-    label:before {
-        margin: 0;
-        font-size: 18px;
-    }
-    label[for*='1'],label[for*='2'],label[for*='3'],label[for*='4']{
-        width: 110px;
-    }
-
-}
-@media screen and (max-width: 420px) {
-    label {
-        padding: 1px;
-    }
-    label[for*='1'],label[for*='2'],label[for*='3'],label[for*='4']{
-        width: 62px;
-    }
-}
-
-@media only screen and (min-width: 64.063em) {
-    .search-head {
-        position: relative;
-        top: 0px;
-        right: 0px;
-        width: 100%;
-        height: 60px;
-        font-size: 1.3rem;
-    }
-}
 
 .main-search-form select {
     width: 130px;
@@ -143,4 +88,113 @@ input:checked + label {
     font-size: 20px;
     line-height: 5px;
     margin-right: 5px;
+}
+
+.search-head {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 60px;
+    font-size: 1.3rem;
+}
+
+
+
+@media screen and (max-width: 780px) {
+
+    section {
+        padding: 5px 0 0;
+    }
+    label {
+        font-size: 0;
+    }
+    label:before {
+        margin: 0;
+        font-size: 18px;
+    }
+    label[for*='1'],label[for*='2'],label[for*='3'],label[for*='4']{
+        width: 60px;
+    }
+
+}
+
+
+@media screen and (max-width: 1025px) {
+
+    section {
+        padding: 0px 0 0;
+    }
+    label {
+        font-size: 0;
+    }
+    label:before {
+        margin: 0;
+        font-size: 18px;
+    }
+    label[for*='1'],label[for*='2'],label[for*='3'],label[for*='4']{
+        width: 130px;
+    }
+
+}
+@media screen and (max-width: 426px) {
+    .menu{
+        display: none;
+    }
+    label {
+        padding: 0px;
+    }
+    label[for*='1'],label[for*='2'],label[for*='3'],label[for*='4']{
+        width: 90px;
+    }
+
+    .search-head {
+        position: relative;
+        top: 0px;
+        right: 0px;
+        width: 100%;
+        height: 40px;
+        font-size: 13px;
+    }
+
+    .main-search-form select{
+        height: 40px;
+        left: 37px;
+        font-size: 13px;
+        background-size: 11px 25px;
+    }
+    .main-search-form .button{
+        font-size: 18px;
+        padding: 9px;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    label {
+        padding: 0px;
+    }
+    label[for*='1'],label[for*='2'],label[for*='3'],label[for*='4']{
+        width: 69px;
+    }
+
+    .search-head {
+        position: relative;
+        top: 0px;
+        right: 0px;
+        width: 100%;
+        height: 38px;
+        font-size: 11px;
+    }
+
+    .main-search-form select{
+        height: 38px;
+        left: 36px;
+        width: 90px;
+        font-size: 11px;
+        background-size: 8px 24px;
+    }
+    .main-search-form .button{
+        font-size: 17px;
+        padding: 9px;
+    }
 }

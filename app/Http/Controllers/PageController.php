@@ -49,6 +49,7 @@ class PageController extends MainController
 
         return view('content.i', self::$data);
     }
+
     public function getifame($id)
     {
 
@@ -70,14 +71,18 @@ class PageController extends MainController
         $resp = simplexml_load_file($apicall);
         $json = json_encode($resp);
         $resp = json_decode($json, TRUE);
+        $str = $resp['Item']['Description'];
 
-        self::$data['ifram'] =$resp['Item']['Description'];
+        $newStr = str_ireplace('width=', "width='100%' ", $str);
+        $newStr .= '<div id="google_translate_element"></div><script type="text/javascript">function googleTranslateElementInit() {  new google.translate.TranslateElement({pageLanguage: \'en\', includedLanguages: \'iw\', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, \'google_translate_element\');}</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>';
 
+
+        self::$data['ifram'] = $newStr;
+//        dd(self::$data['ifram'] =$newStr);
 
 
         return view('content.ifram', self::$data);
     }
-
 
 
 }

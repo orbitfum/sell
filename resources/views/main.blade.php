@@ -62,7 +62,7 @@
     <div class="top-info-bar">
         <div class="row">
 
-            <div class="medium-6 small-10 columns">
+            <div class="medium-6 hide-for-small-only columns">
                 <ul class="menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
@@ -71,7 +71,7 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div><!-- Left Ends /-->
-            <div class="my-account-holder float-right medium-3 small-2 columns">
+            <div class="my-account-holder float-right medium-3 small-12 columns">
                 <div class="cart-holder float-right">
 
                     <div class="my-account-title" data-toggle="my-cart">
@@ -120,9 +120,8 @@
                     <div class="user-icon float-left">
                         <i class="fa fa-user" aria-hidden="true"></i>
                     </div>
-                    <div class="links float-left hide-for-small-only">
-                        <a href="#" class="sign-in special-margin">Sign in</a> <a href="#"
-                                                                                  class="special-margin">Join</a>
+                    <div class="links float-left">
+                        <a href="#" class="sign-in special-margin">Sign in</a> <a href="#" class="special-margin">Join</a>
                     </div>
                     <div class="clearfix"></div>
                 </div><!-- ends title /-->

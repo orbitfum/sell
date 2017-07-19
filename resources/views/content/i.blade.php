@@ -168,8 +168,8 @@
                                 <b>{{HR::currency($it['CurrentPrice'])}}</b> <span>₪</span>
 
                             </div>
-                            <div style="position: relative; right: -50px;width: 300px;"><span>מחיר משלוח: <b>{!!$shippnginfo['ShippingCostSummary']['ShippingServiceCost'] != 0 ? HR::currencyShip($shippnginfo['ShippingCostSummary']['ShippingServiceCost']).' ₪':'<i style="color:#ffed00">חינם</i>'!!}
-                                        </b></span> | <span>זמן אספקה: <b>19-45 </b><b style="font-size: 10px">ימים</b></span>
+                            <div><span>מחיר משלוח: <b>{!!$shippnginfo['ShippingCostSummary']['ShippingServiceCost'] != 0 ? HR::currencyShip($shippnginfo['ShippingCostSummary']['ShippingServiceCost']).' ₪':'<i style="color:#ffed00">חינם</i>'!!}
+                                        </b></span> | <span>זמן אספקה: <b>19-45 </b><b>ימים</b></span>
                             </div>
 
 
@@ -258,7 +258,7 @@
                                 }
                             </script>
 
-                            <iframe scrolling="no"  frameborder="0" src='{{url("ifram/ebay/{$it['ItemID']}")}}'   onload="resizeIframe(this)"></iframe>
+                            <iframe scrolling="yes"  frameborder="0" src='{{url("ifram/ebay/{$it['ItemID']}")}}'   onload="resizeIframe(this)"></iframe>
 
 
                     </div><!-- tabs content /-->
