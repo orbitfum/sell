@@ -184,8 +184,8 @@
                     </div>
                     <!-- Item Quantity /-->
 
-                    <div class="shopping-buttons float-right" >
-                        <a href="#" class="button secondary">קנה עכשיו</a> <a href="#" class="button primary">הוסף לעגלת קניות</a>
+                    <a class="shopping-buttons float-right" >
+                        <a href="#" class="button secondary">קנה עכשיו</a> <a href="{{url('ebay/addcart')}}" class="button primary add-to-cart" data-id="{{$it["ItemID"]}}" data-price="{{HR::currency($it['CurrentPrice'])}}" data-ship="{!!$shippnginfo['ShippingCostSummary']['ShippingServiceCost'] != 0 ? HR::currencyShip($shippnginfo['ShippingCostSummary']['ShippingServiceCost']):0 !!}"> הוסף לעגלה</a>
 
                     </div>
                     <div class="clearfix"></div>

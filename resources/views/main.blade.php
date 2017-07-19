@@ -51,6 +51,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('lib/css/navigation.css')}}">
     {{--orr--}}
     <link rel="stylesheet" type="text/css" href="{{asset('css/second.css')}}">
+    <script> var BASEURL = "{{url('')}}/" </script>
 
 </head>
 
