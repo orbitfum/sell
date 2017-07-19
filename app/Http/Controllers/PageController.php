@@ -101,5 +101,9 @@ class PageController extends MainController
 
     }
 
+    static public function addCart(request $request){
+        dd($request);
+    }
+
 }
 
