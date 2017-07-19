@@ -40,7 +40,7 @@ class HR extends Model
         $totalrate = $dollar * $rate;
         $totalrate = $totalrate + 1;
         $totalrate = $totalrate + ($totalrate * 15 / 100);
-        return number_format(3.6, 1);
+        return number_format($totalrate, 1);
     }
 
     static public function currencyShip($dollar)
@@ -54,6 +54,6 @@ class HR extends Model
         $totalrate = $dollar * $rate;
         $totalrate = $totalrate + 5;
 
-        return number_format(3.6);
+        return number_format($totalrate);
     }
 }

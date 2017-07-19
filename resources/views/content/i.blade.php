@@ -138,7 +138,7 @@
                                 @endforeach
                             @else
                                 <div class="option-box">
-                        <span class="row-title">{{ str_replace($variname['ENGLISH'], $variname['Hebrew'], $it['Variations']['VariationSpecificsSet']['NameValueList']['Name']) }}
+                        <span class="row-title">{{Lang::get('tr.'. $it['Variations']['VariationSpecificsSet']['NameValueList']['Name'])}}
                             :</span>
                                     <span>
                             <select class="cn" name="variation"

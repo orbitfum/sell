@@ -84,6 +84,11 @@ class PageController extends MainController
         return view('content.ifram', self::$data);
     }
 
+    static public function updtaedolar()
+    {
+
+
+    }
 
 }
 
