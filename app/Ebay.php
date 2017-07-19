@@ -7,6 +7,7 @@ use DB;
 use HR;
 use App\Category;
 
+
 class Ebay extends Model
 {
 
@@ -228,7 +229,7 @@ class Ebay extends Model
         $resp = json_decode($json, TRUE);
 
         $data['json'] = $json;
-        $data['variname'] = ['ENGLISH' => ['Size', 'Color'], 'Hebrew' => ['מידה', 'צבע']];
+
         $data['it'] = $resp['Item'];
 
         if (isset($resp['Item']['Variations']))

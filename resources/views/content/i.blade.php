@@ -119,13 +119,13 @@
 
                     <div class="item-options" dir="rtl">
                         <span class="row-title" style="margin-right: 8px;">מצב המוצר:</span>
-                        <span style="font-weight: bold">חדש עם תגיות</span>
+                        <span style="font-weight: bold"> {{Lang::get('tr.'.$it['ConditionDisplayName'])}}</span>
                         <div style="margin: 5px 0" class="clearfix"></div>
                         @if(isset($it['Variations']))
                             @if(isset($it['Variations']['VariationSpecificsSet']['NameValueList']['0']))
                                 @foreach($it['Variations']['VariationSpecificsSet']['NameValueList'] as $key=>$vari)
                                     <div class="option-box">
-                        <span class="row-title">{{str_replace($variname['ENGLISH'], $variname['Hebrew'], $vari['Name']) }}
+                        <span class="row-title">{{Lang::get('tr.'. $vari['Name'])}}
                             :</span>
                                         <span>
                             <select class="cn" name="variation"
