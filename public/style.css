@@ -2850,7 +2850,7 @@ Call to Action
 /*--------------------------
 Footer CSS ends here
 ---------------------------*/
-.nokaim{max-width: 600px}
+.nokaim{max-width: 700px;height: 320px; border: 1px solid #ededed}
 .nokaim img{float: right;width: 40%; margin-top: 35px}
 .nokaim .title{font-size: 18pt; float: right; width: 60%;padding: 5px;}
 /*-------------------------

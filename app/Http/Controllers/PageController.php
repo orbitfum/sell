@@ -49,11 +49,36 @@ class PageController extends MainController
 
         return view('content.i', self::$data);
     }
-
-    public function testit()
+    public function getifame($id)
     {
-        return HR::currency(2);
+
+
+        $endpoint = 'http://open.api.ebay.com/shopping';
+        $apicall = $endpoint;
+        $apicall .= '?callname=GetSingleItem';
+        $apicall .= '&responseencoding=XML';
+        $apicall .= '&appid=orhanabb-ebayonpl-PRD-308fe9d67-14c9c5e0';
+        $apicall .= '&siteid=0';
+
+        $apicall .= '&version=967';
+
+        $apicall .= '&IncludeSelector=Description,ItemSpecifics,Variations,Compatibility,ShippingCosts,Details';
+
+        $apicall .= '&ItemID=' . $id;
+
+
+        $resp = simplexml_load_file($apicall);
+        $json = json_encode($resp);
+        $resp = json_decode($json, TRUE);
+
+        self::$data['ifram'] =$resp['Item']['Description'];
+
+
+
+        return view('content.ifram', self::$data);
     }
 
 
+
 }
+

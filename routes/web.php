@@ -14,6 +14,8 @@ Route::get('/', 'PageController@index');
 Route::get('cjson', 'PageController@catsJson');
 Route::get('ebay/search', 'PageController@search');
 Route::get('ebay/{name}/{id}', 'PageController@getItem');
-Route::get('test', 'PageController@testit');
+Route::get('ifram/ebay/{id}', 'PageController@getifame');
+
+
 
 

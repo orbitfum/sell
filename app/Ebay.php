@@ -169,17 +169,18 @@ class Ebay extends Model
         $apicall .= '&CONSUMER-ID=orhanabb-ebayonpl-PRD-308fe9d67-14c9c5e0';
         $apicall .= '&RESPONSE-DATA-FORMAT=XML';
         $apicall .= '&REST-PAYLOAD';
-        $apicall .= '&itemId='.$id;
+        $apicall .= '&listingType=FixedPriceItem';
+        $apicall .= '&country=IL';
+        $apicall .= '&itemId=' . $id;
 
-        $apicall .= '&maxResults=3';
+        $apicall .= '&maxResults=10';
 
 
         $resp = simplexml_load_file($apicall);
         $json = json_encode($resp);
         $resp = json_decode($json, TRUE);
 
-       $data['moreitem'] = $resp;
-
+        $data['moreitem'] = $resp;
 
 
 //מידע על המשלוח ------------------------------------------------------------------
@@ -236,6 +237,8 @@ class Ebay extends Model
                 $data['varpictures'] = json_encode($resp['Item']['Variations']['Pictures']['VariationSpecificPictureSet']);
             }
         if (isset($_GET['dd'])) dd($data['it']);
+
     }
+
 
 }

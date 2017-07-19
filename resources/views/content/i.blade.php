@@ -196,142 +196,51 @@
                 </div><!-- item detail /-->
                 <!-- Item Image /-->
             </div><!-- row /-->
+
         </div>
         <!-- single product detail /-->
 
         <!-- customer content -->
         <div class="store-content">
             <div class="row">
+                <div class="featured-area small-module">
+                    <div class="section-title" style="text-align: center">
+                        <h2>מוצרים  <span>דומים</span></h2>
+                    </div><!-- section title /-->
 
-                <!-- store sidebar -->
-                <div class="sidebar store-sidebar medium-3 small-12 columns">
+                    <div class="content-section store-related">
+                        @if(isset($moreitem['itemRecommendations']['item']))
+                        @foreach($moreitem['itemRecommendations']['item'] as $row)
+                            <div class="product">
+                                <div class="product-image">
+                                    <a href="{{ url('ebay/'.str_replace([' ','/'],['-',','],$row['title']).'/'.$row["itemId"]) }}">
+                                        <img style="height: 150px;" src="{{$row['imageURL']}}" alt=""/>
+                                        <img style="height: 150px;" src="{{$row['imageURL']}}" alt=""/>
+                                    </a>
 
-                    <div class="widget store-widget">
-                        <h2>About Store</h2>
+                                </div><!-- Product Image /-->
+                                <div class="product-title" >
+                                    <a style="height: 90px" href="{{ url('ebay/'.str_replace([' ','/'],['-',','],$row['title']).'/'.$row["itemId"]) }}">{{$row['title']}}</a>
+                                </div><!-- product title /-->
+                                <div class="product-meta">
+                                    <div class="prices">
+                                        <span class="price">{{HR::currency($row['buyItNowPrice'])}} ₪</span>
 
-                        <div class="widget-content">
-                            <a href="#">
-                                <img alt="" src="images/help/store1.jpg"/>
-                            </a>
-                            <h4><a href="#">Fajar Accessories & Fashion Store</a></h4>
-                            <div class="store-reputation">
-                                <div class="pro-rating float-left">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star off"></i>
-                                </div>
-                                <span>230 reviews</span>
-                            </div><!-- Store reputation /-->
-                            <p class="store-location"><i class="fa fa-map-marker" aria-hidden="true"></i> 25 Birmingham,
-                                USA</p>
-                            <a href="#" class="button primary">Add to Fav Store</a>
-                        </div><!-- widget content /-->
-
-                    </div><!-- widget ends /-->
-
-                    <div class="widget">
-                        <h2>Customer Service</h2>
-                        <div class="widget-content">
-                            <ul class="menu vertical">
-                                <li><a href="#">Contact Store</a></li>
-                                <li><a href="#">Visit Store</a></li>
-                            </ul>
-                        </div>
-                        <!-- widget content /-->
-                    </div>
-                    <!-- widget /-->
-
-                    <div class="widget">
-                        <h2>Store Categors</h2>
-                        <div class="widget-content">
-                            <ul class="menu vertical">
-                                <li><a href="#">Women</a></li>
-                                <li><a href="#">Men</a></li>
-                                <li><a href="#">Kids</a></li>
-                                <li><a href="#">Party Wear</a></li>
-                                <li><a href="#">Sports Wear</a></li>
-                            </ul>
-                        </div><!-- widget content /-->
-                    </div><!-- widget /-->
-
-                    <div class="widget">
-                        <h2>Best Sellers</h2>
-                        <div class="widget-content">
-
-                            <div class="popular-product">
-                                <img alt="" src="images/help/product1-1.jpg" class="float-left thumbnail"/>
-                                <div class="float-right product-description">
-                                    <a href="#">Red hot skirt with laces</a>
-                                    <div class="price">$22</div>
-                                    <div class="pro-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star off"></i>
                                     </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div><!-- popular product /-->
+                                    <div class="clearfix"></div>
+                                </div><!-- product meta /-->
+                            </div><!-- Product /-->
 
-                            <div class="popular-product">
-                                <img alt="" src="images/help/product4-1.jpg" class="float-left thumbnail"/>
-                                <div class="float-right product-description">
-                                    <a href="#">Red hot skirt with laces</a>
-                                    <div class="price">$22</div>
-                                    <div class="pro-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star off"></i>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div><!-- popular product /-->
-
-                            <div class="popular-product">
-                                <img alt="" src="images/help/product3-1.jpg" class="float-left thumbnail"/>
-                                <div class="float-right product-description">
-                                    <a href="#">Red hot skirt with laces</a>
-                                    <div class="price">$22</div>
-                                    <div class="pro-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star off"></i>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div><!-- popular product /-->
-
-                            <div class="popular-product">
-                                <img alt="" src="images/help/product2-1.jpg" class="float-left thumbnail"/>
-                                <div class="float-right product-description">
-                                    <a href="#">Red hot skirt with laces</a>
-                                    <div class="price">$22</div>
-                                    <div class="pro-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star off"></i>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div><!-- popular product /-->
-
-                        </div><!-- widget content /-->
-                    </div><!-- widget /-->
+                        @endforeach
+@endif
+                    </div><!-- Content Section /-->
 
                 </div>
-                <!-- store sidebar Ends /-->
+
+                <!-- store sidebar -->
 
                 <!-- Store Content -->
-                <div class="medium-9 small-12 columns store-content">
+                <div class="medium-12 small-12 columns store-content">
 
                     <ul class="tabs" role="tablist" data-tabs id="new-items">
                         <li class="tabs-title is-active"><a href="#description" role="tab" aria-selected="true">Description</a>
@@ -343,8 +252,15 @@
 
                     <div class="tabs-content small-module" data-tabs-content="new-items">
                         <div class="tabs-panel is-active product-description" id="panel1">
-                            <iframe src='{{url("ifram/ebay/{$it['ItemID']}")}}'></iframe>
-                        </div>
+                            <script type="text/javascript">
+                                function resizeIframe(iframe) {
+                                    iframe.height = iframe.contentWindow.document.body.scrollHeight + "px";
+                                }
+                            </script>
+
+                            <iframe scrolling="no"  frameborder="0" src='{{url("ifram/ebay/{$it['ItemID']}")}}'   onload="resizeIframe(this)"></iframe>
+
+
                     </div><!-- tabs content /-->
 
                     <!-- more items from store /-->
@@ -863,5 +779,7 @@
                 selBox.append($("<option class='rem' " + selected + " " + disabled + "></option>").attr("value", v2).text(v2));
             });
         });
+
+
     </script>
 @endsection
