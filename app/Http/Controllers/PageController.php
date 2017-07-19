@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Ebay;
 use App\Category;
 use App\HR;
+use App\Setting;
 
 class PageController extends MainController
 {
@@ -87,6 +88,16 @@ class PageController extends MainController
     static public function updtaedolar()
     {
 
+        $add = 'http://www.boi.org.il/currency.xml?curr=01';
+        $getcurrencygate = simplexml_load_file($add);
+        $json = json_encode($getcurrencygate);
+        $curr = json_decode($json, TRUE);
+        $curr = $curr['CURRENCY']['RATE'];
+        $flight = Setting::find(1);
+
+        $flight->dolar = $curr;
+
+        $flight->save();
 
     }
 

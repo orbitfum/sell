@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Session;
+use App\Setting;
 
 class HR extends Model
 {
@@ -31,12 +33,17 @@ class HR extends Model
 
     static public function currency($dollar)
     {
-        $add = 'http://www.boi.org.il/currency.xml?curr=01';
-        $getcurrencygate = simplexml_load_file($add);
-        $json = json_encode($getcurrencygate);
-        $curr = json_decode($json, TRUE);
-        $curr = $curr['CURRENCY']['RATE'];
-        $rate = $curr + '0.4';
+        if (!Session::has('dolar')) {
+            $dolar = Setting::find(1);
+            $dolar = $dolar->dolar;
+
+            Session::put('dolar', $dolar);
+        }
+
+        $dol = Session::get('dolar');
+
+
+        $rate = $dol + '0.4';
         $totalrate = $dollar * $rate;
         $totalrate = $totalrate + 1;
         $totalrate = $totalrate + ($totalrate * 15 / 100);
@@ -45,12 +52,17 @@ class HR extends Model
 
     static public function currencyShip($dollar)
     {
-        $add = 'http://www.boi.org.il/currency.xml?curr=01';
-        $getcurrencygate = simplexml_load_file($add);
-        $json = json_encode($getcurrencygate);
-        $curr = json_decode($json, TRUE);
-        $curr = $curr['CURRENCY']['RATE'];
-        $rate = $curr + '0.2';
+
+        if (!Session::has('dolar')) {
+            $dolar = Setting::find(1);
+            $dolar = $dolar->dolar;
+
+            Session::put('dolar', $dolar);
+        }
+
+        $dol = Session::get('dolar');
+
+        $rate = $dol + '0.2';
         $totalrate = $dollar * $rate;
         $totalrate = $totalrate + 5;
 
