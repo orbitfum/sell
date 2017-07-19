@@ -15,7 +15,7 @@ Route::get('cjson', 'PageController@catsJson');
 Route::get('ebay/search', 'PageController@search');
 Route::get('cornjon/dsaodasopkdoakoerqwmczxcksdfoddolr', 'PageController@updtaedolar');
 Route::get('ebay/{name}/{id}', 'PageController@getItem');
-Route::get('ebay/addcart', 'PageController@addCart');
+Route::get('ebay/addCart', 'PageController@addCart');
 Route::get('ifram/ebay/{id}', 'PageController@getifame');
 
 

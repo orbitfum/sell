@@ -601,6 +601,7 @@
 
 <!-- Webful JS -->
 <script src="{{asset('js/webful.js')}}"></script>
+<script src="{{asset('js/main.js')}}"></script>
 
 
 
