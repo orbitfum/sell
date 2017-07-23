@@ -25,6 +25,7 @@ class Ebay extends Model
 
         }
 
+
         error_reporting(E_ALL);
         $compatabilityLevel = 825;    // eBay API version
 
@@ -42,7 +43,9 @@ class Ebay extends Model
         $apicall .= "&SECURITY-APPNAME=" . self::$appID;
         $apicall .= "&GLOBAL-ID=$globalid";
         $apicall .= "&keywords=$safequery";
+
         $apicall .= "&sortOrder=BestMatch";
+
 
         $apicall .= "&itemFilter(0).name=ListingType";
         $apicall .= "&itemFilter(0).value(1)=FixedPrice";
@@ -60,10 +63,10 @@ class Ebay extends Model
                 $min = $input->get('min');
                 $max = $input->get('max');
 
-                $apicall .= "&itemFilter(1).name=MinPrice";
-                $apicall .= "&itemFilter(1).value=$min";
-                $apicall .= "&itemFilter(2).name=MaxPrice";
-                $apicall .= "&itemFilter(2).value=$max";
+                $apicall .= "&itemFilter(3).name=MinPrice";
+                $apicall .= "&itemFilter(3).value=$min";
+                $apicall .= "&itemFilter(4).name=MaxPrice";
+                $apicall .= "&itemFilter(4).value=$max";
 
             }
 
@@ -82,16 +85,24 @@ class Ebay extends Model
         $apicall .= "&itemFilter(3).paramName=Currency";
         $apicall .= "&itemFilter(3).paramValue=USD";
 
-        $apicall .= "&paginationInput.entriesPerPage=50";
+        $apicall .= "&paginationInput.entriesPerPage=100";
+        if($input->has('page')){
+
+            $apicall .= "&paginationInput.pageNumber=".$input->get('page');
+        }else{
+            $apicall .= "&paginationInput.pageNumber=1";
+        }
+
         $apicall .= "&filter=deliveryCountry:IL";
         $apicall .= "&filter=topRatedListing";
 
-        $apicall .= "&outputSelector[0]=PictureURLSuperSize";
-        $apicall .= "&outputSelector[1]=CategoryHistogram";
-        $apicall .= "&outputSelector[2]=ConditionHistogram";
-        $apicall .= "&outputSelector[3]=PictureURLLarge";
+        $apicall .= "&outputSelector[0]=GalleryInfo";
+        $apicall .= "&outputSelector[1]=PictureURLLarge";
+        $apicall .= "&outputSelector[2]=CategoryHistogram";
+        $apicall .= "&outputSelector[3]=ConditionHistogram";
 
-        $apicall .= "&outputSelector[5]=StoreInfo";
+
+        $apicall .= "&outputSelector[4]=StoreInfo";
 
 
         $resp = simplexml_load_file($apicall);
@@ -105,6 +116,7 @@ class Ebay extends Model
         $data['info'] = $resp['paginationOutput'];
         $data['item'] = isset($resp['searchResult']['item']) ? $resp['searchResult']['item'] : '';
 
+        $data['pagenum'] = $resp['paginationOutput']['totalPages'] > 100 ? 100 : $resp['paginationOutput']['totalPages'];
 
     }
 

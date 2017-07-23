@@ -1396,8 +1396,8 @@ Blog Posts Ends
 }
 
 .product .product-image img {
-    max-width: 100%;
-    height: 250px;
+    max-width: 170px;
+    height: 170px;
     text-align: center;
 }
 
@@ -1805,6 +1805,7 @@ Suggested Stores Ends
 .store-content .pagination-container {
     border-top: 1px solid #ededed;
     padding-top: 15px;
+
 }
 
 .shop-filter span {

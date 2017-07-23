@@ -183,7 +183,7 @@
                         <div class="main-search-form">
                             <form method="get" action="{{url('ebay/search')}}" autocomplete="on">
                                 <input type="text" name="q"
-                                       {{isset($_GET['q'])?"value={$_GET['q']}":''}} autocomplete="on"
+                                  value="{{isset($_GET['q'])?$_GET['q']:''}}" autocomplete="on"
                                        placeholder="רשום את המוצר שאתה מחפש באייבי" class="search-head"/>
                                 <select>
                                     <option value="0">All Categories</option>

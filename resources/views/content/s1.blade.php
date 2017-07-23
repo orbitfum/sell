@@ -203,8 +203,10 @@
                         <div class="products-wrap">
 
                             <div class="row">
+@if(isset($item[0]))
+@foreach($item as $row)
 
-                                @foreach($item as $row)
+
                                     @if(isset($row['galleryURL']) || isset($row['pictureURLSuperSize']))
 
                                         <div class="product medium-4 small-12 columns" style="position: relative">
@@ -213,10 +215,12 @@
                                                 <!--  <div class="sale-tag">Sale</div> -->
 
                                                 <a href="">
+                                                    <center>
                                                     <img src="{{isset($row['pictureURLSuperSize'])?$row['pictureURLSuperSize']:$row['galleryURL']}}"
                                                          alt="{{$row['title']}}"/>
                                                     <img src="{{isset($row['pictureURLSuperSize'])?$row['pictureURLSuperSize']:$row['galleryURL']}}"
                                                          alt="{{$row['title']}}"/>
+                                                    </center>
                                                 </a>
 
                                                 <!-- <div class="pro-buttons menu-centered">
@@ -271,26 +275,111 @@
                                         </div><!-- Product /-->
 
                                     @endif
+@endforeach
 
-                                @endforeach
+                                @else
+                                    @if(isset($item['galleryURL']) || isset($item['pictureURLSuperSize']))
+
+                                        <div class="product medium-4 small-12 columns" style="position: relative">
+                                            <a href='{{ url('ebay/'.str_replace([' ','/'],['-',','],$item['title']).'/'.$item["itemId"]) }}' style="position: absolute;z-index: 999; width: 100%;height: 100%">
+                                                <div class="product-image">
+                                                    <!--  <div class="sale-tag">Sale</div> -->
+
+                                                    <a href="">
+                                                        <img src="{{isset($item['pictureURLSuperSize'])?$item['pictureURLSuperSize']:$item['galleryURL']}}"
+                                                             alt="{{$item['title']}}"/>
+                                                        <img src="{{isset($item['pictureURLSuperSize'])?$item['pictureURLSuperSize']:$item['galleryURL']}}"
+                                                             alt="{{$item['title']}}"/>
+                                                    </a>
+
+                                                    <!-- <div class="pro-buttons menu-centered">
+                                                         <ul class="menu">
+                                                             <li><a href="#" title="Add to wish list"><i
+                                                                             class="fa fa-heart"></i></a>
+                                                             </li>
+                                                             <li><a href="#" title="Open Product Page"><i
+                                                                             class="fa fa-retweet"></i></a></li>
+                                                             <li><a href="#" title="Quick View"><i
+                                                                             class="fa fa-search-plus"></i></a>
+                                                             </li>
+                                                             <li><a href="#" title="Add to cart"><i
+                                                                             class="fa fa-shopping-cart"></i></a></li>
+                                                         </ul>
+                                                     </div><!-- product buttons /-->
+
+                                                </div><!-- Product Image /-->
+                                                <div class="product-title">
+                                                    <a href="">{{$item['title']}}</a>
+                                                </div><!-- product title /-->
+                                                <div class="product-meta">
+                                                    <div class="prices" dir="rtl">
+                                                        @if($item['sellingStatus']['currentPrice']==$item['sellingStatus']['convertedCurrentPrice'])
+                                                            <span class="price">{{number_format($item['sellingStatus']['currentPrice'],2)}}
+                                                                ₪</span>
+
+                                                        @else
+                                                            <span class="price">{{number_format($item['sellingStatus']['currentPrice'],2)}}
+                                                                ₪</span>
+
+                                                            <span class="sale-price">{{number_format($item['sellingStatus']['convertedCurrentPrice'],2)}}
+                                                                ₪</span>
+                                                        @endif
+                                                    </div>
+                                                    <!--   <div class="last-row">
+                                                           <div class="pro-rating float-left">
+                                                               <i class="fa fa-star"></i>
+                                                               <i class="fa fa-star"></i>
+                                                               <i class="fa fa-star"></i>
+                                                               <i class="fa fa-star"></i>
+                                                               <i class="fa fa-star off"></i>
+                                                           </div>
+                                                         <!--  <div class="store float-right">
+                                                               By: <a href="store-front.html">Fajar Accessories</a>
+                                                           </div>
+                                                    </div><!-- last row /-->
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </a><!-- product meta /-->
+
+                                        </div><!-- Product /-->
+
+                                    @endif
+                                    @endif
                             </div>
+
 
 
                         </div><!-- products wrap /-->
 
                         <!-- pagination starts -->
                         <div class="pagination-container">
+                            <center>
                             <ul class="pagination" role="menubar" aria-label="Pagination">
-                                <li class="arrow unavailable" aria-disabled="true"><a href="">&laquo; Previous</a></li>
-                                <li class="current"><a href="">1</a></li>
-                                <li><a href="">2</a></li>
-                                <li><a href="">3</a></li>
-                                <li><a href="">4</a></li>
-                                <li class="unavailable" aria-disabled="true"><a href="">&hellip;</a></li>
-                                <li><a href="">12</a></li>
-                                <li><a href="">13</a></li>
-                                <li class="arrow"><a href="">Next &raquo;</a></li>
+@if(!isset($_GET['page']))
+
+                                <li class="current"><a href="?q={{$_GET['q']}}&page=">1</a></li>
+
+                                    @for($i=2; $i <=10; $i++)
+                                        <li><a href="?q={{$_GET['q']}}&page={{$i}}">{{$i}}</a></li>
+                                    @endfor
+@else
+
+
+@if($_GET['page'] < 8)
+                                    @for($i=1; $i <=10; $i++)
+                                        <li {{$_GET['page'] == $i ? 'class=current':''}}><a href="?q={{$_GET['q']}}&page={{$i}}">{{$i}}</a></li>
+                                    @endfor
+
+    @else
+
+@endif
+
+
+    @endif
+
+
                             </ul>
+                            </center>
                         </div>
                         <!-- Pagination Ends -->
 
