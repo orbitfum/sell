@@ -73,14 +73,22 @@
                 </ul>
             </div><!-- Left Ends /-->
             <div class="my-account-holder float-right medium-3 small-12 columns">
+                <div id="cartHolder">
                 <div class="cart-holder float-right">
 
                     <div class="my-account-title" data-toggle="my-cart">
                         <div class="cart-icon float-right">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         </div>
-                        <div class="float-left">
-                            <a href="#">2 Item(s)</a>
+                        <div class="float-left" style="direction: rtl">
+
+                            @if(!Cart::isEmpty())
+
+                                <a href={{url('cart/mycart')}}>{{Cart::getTotalQuantity()}} בעגלה </a>
+                            @else
+                                <a href={{url('cart//mycart')}}>אין פריטים</a>
+                            @endif
+
                         </div>
                         <div class="clearfix"></div>
                     </div><!-- ends title /-->
@@ -116,6 +124,7 @@
                     <!-- Hidden Menus /-->
 
                 </div><!-- my Cart /-->
+                </div>
 
                 <div class="my-account-title" data-toggle="myaccount-dropdown">
                     <div class="user-icon float-left">

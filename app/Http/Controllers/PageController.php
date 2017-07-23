@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Http\Request;
 use App\Ebay;
 use App\Category;
@@ -102,7 +103,12 @@ class PageController extends MainController
     }
 
     static public function addCart(request $request){
-        dd($request->toArray());
+        Order::addToCart($request);
+    }
+
+    static public function cart(){
+        Order::cartView(self::$data);
+        return view('content.cart', self::$data);
     }
 
 }

@@ -202,3 +202,24 @@ input:checked + label {
         padding: 9px;
     }
 }
+
+.btn-spinner {
+    margin-left: -4px;
+    height: 18px;
+    width: 18px;
+    animation: rotate 1.0s infinite linear;
+    border: 2px solid rgba(255,254,243,0.37) ;
+    border-right-color: transparent;
+    border-radius: 50%;
+    position: absolute;
+    display: none;
+}
+
+@keyframes rotate {
+    0%    { transform: rotate(0deg); }
+    100%  { transform: rotate(360deg); }
+}
+
+.add-to-cart{
+    min-width: 140px;
+}

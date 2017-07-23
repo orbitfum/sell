@@ -185,7 +185,9 @@
                     <!-- Item Quantity /-->
 
                     <a class="shopping-buttons float-right" >
-                        <a href="#" class="button secondary">קנה עכשיו</a> <a href="" class="button primary add-to-cart" data-id="{{$it["ItemID"]}}" data-price="{{HR::currency($it['CurrentPrice'])}}" data-ship="{!!$shippnginfo['ShippingCostSummary']['ShippingServiceCost'] != 0 ? HR::currencyShip($shippnginfo['ShippingCostSummary']['ShippingServiceCost']):0 !!}" data-img="{{is_array($it['PictureURL']) ? $it['PictureURL'][0] : $it['PictureURL']}}" data-title="{{$it['Title']}}"> הוסף לעגלה</a>
+                        <a href="#" class="button secondary">קנה עכשיו</a>
+                        <a href="" class="button primary add-to-cart" data-id="{{$it["ItemID"]}}" data-price="{{HR::currency($it['CurrentPrice'])}}" data-ship="{!!$shippnginfo['ShippingCostSummary']['ShippingServiceCost'] != 0 ? HR::currencyShip($shippnginfo['ShippingCostSummary']['ShippingServiceCost']):0 !!}" data-img="{{is_array($it['PictureURL']) ? $it['PictureURL'][0] : $it['PictureURL']}}" data-title="{{$it['Title']}}">
+                            <div class="btn-spinner"></div> הוסף לעגלה</a>
 
                     </div>
                     <div class="clearfix"></div>
