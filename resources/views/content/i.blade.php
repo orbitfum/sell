@@ -147,6 +147,8 @@
                                     data-variation="{{ $it['Variations']['VariationSpecificsSet']['NameValueList']['Name'] }}">
                                 <option value="^^^SELECT^^^">בחר</option>
                             </select>
+                                                                <span class="select-error" id="er{{$b++}}" style="display: none">נא לבחור</span>
+
                         </span>
                                     <div class="clearfix"></div>
                                 </div>
