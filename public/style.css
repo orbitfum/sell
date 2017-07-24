@@ -2022,7 +2022,7 @@ Single Store CSS Ends
 }
 
 .row-title {
-    width: 200px;
+    width: 181px;
     padding-left: 15px;
     display: block;
     float: right;
@@ -2105,7 +2105,7 @@ Single Store CSS Ends
 }
 
 .option-box span select {
-    width: 50%;
+    width: 49%;
 }
 
 .item-quantity .qty {

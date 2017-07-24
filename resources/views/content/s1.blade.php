@@ -210,7 +210,7 @@
                                     @if(isset($row['galleryURL']) || isset($row['pictureURLSuperSize']))
 
                                         <div class="product medium-4 small-12 columns" style="position: relative">
-                                            <a href='{{ url('ebay/'.str_replace([' ','/'],['-',','],$row['title']).'/'.$row["itemId"]) }}' style="position: absolute;z-index: 999; width: 100%;height: 100%">
+                                            <a href='{{ url('ebay/'.preg_replace('/[^a-zA-Z0-9\']/','-',$row['title']).'/'.$row["itemId"]) }}' style="position: absolute;z-index: 999; width: 100%;height: 100%">
                                             <div class="product-image">
                                                 <!--  <div class="sale-tag">Sale</div> -->
 

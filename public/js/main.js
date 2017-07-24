@@ -31,10 +31,42 @@ function flyToElement(flyer, flyingTo) {
         });
 }
 
+function controlVari(vali, vari, err){
+
+    if(vali == '^^^SELECT^^^'){
+        $(this).addClass('selector-error');
+        $('#'+ vari).addClass('selector-error');
+        $('#'+ err).fadeIn().css('display', 'inline-block');
+        $('#' + vari).on('focusin', function () {
+            $(this).removeClass('selector-error');
+            $('#'+ err).fadeOut().css('display', 'none');
+        });
+    }
+}
+
+
 
 $('.add-to-cart').on('click', function () {
     event.preventDefault();
 
+     exists = false;
+        vali1 = $('#vali1').val();
+        vali2 = $('#vali2').val();
+        vali3 = $('#vali3').val();
+        vali4 = $('#vali4').val();
+     if(vali1 == '^^^SELECT^^^' || vali2 == '^^^SELECT^^^' || vali3 == '^^^SELECT^^^' || vali4 == '^^^SELECT^^^'){
+         exists = false;
+     }else{
+         exists = true;
+     }
+
+    controlVari(vali1,'vali1','er1');
+    controlVari(vali2,'vali2','er2');
+    controlVari(vali3,'vali3','er3');
+    controlVari(vali4,'vali4','er4');
+
+
+    if(exists){
 
     $.ajax({
         url: BASEURL + "ebay/addCart",
@@ -45,7 +77,11 @@ $('.add-to-cart').on('click', function () {
             price: $(this).data('price'),
             ship: $(this).data('ship'),
             img: $(this).data('img'),
-            title: $(this).data('title')
+            title: $(this).data('title'),
+            val1: vali1,
+            val2: vali2,
+            val3: vali3,
+            val4: vali4
         },
         beforeSend: function () {
             $('.btn-spinner').css('display', 'block');
@@ -73,6 +109,8 @@ $('.add-to-cart').on('click', function () {
 
         }
     });
-
+    }
 
 });
+
+

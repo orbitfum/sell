@@ -1,6 +1,7 @@
 @extends('main')
 
 @section ('content')
+<?php print_r($cart);?>
     <!-- Content Area -->
     <div class="content-container module contact-page">
 

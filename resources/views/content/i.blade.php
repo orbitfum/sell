@@ -92,7 +92,8 @@
 
                                 @foreach($it['PictureURL'] as $row)
                                     <a href="#">
-                                        <img class="insidephoto selectedphoto" src="{{$row}}" style="object-fit: cover;" alt=""/>
+                                        <img class="insidephoto selectedphoto" src="{{$row}}" style="object-fit: cover;"
+                                             alt=""/>
                                     </a>
                                 @endforeach
                             @endif
@@ -122,17 +123,18 @@
                         <span style="font-weight: bold"> {{Lang::get('tr.'.$it['ConditionDisplayName'])}}</span>
                         <div style="margin: 5px 0" class="clearfix"></div>
                         @if(isset($it['Variations']))
+                            <?php $a = $b = 1; ?>
                             @if(isset($it['Variations']['VariationSpecificsSet']['NameValueList']['0']))
                                 @foreach($it['Variations']['VariationSpecificsSet']['NameValueList'] as $key=>$vari)
                                     <div class="option-box">
                         <span class="row-title">{{Lang::get('tr.'. $vari['Name'])}}
                             :</span>
                                         <span>
-                            <select class="cn" name="variation"
-                                    data-variation="{{ $vari['Name'] }}">
+                            <select class="cn"  id="vali{{$a++}}" name="variation" data-variation="{{ $vari['Name'] }}">
                                 <option value="^^^SELECT^^^">בחר</option>
                             </select>
-                        </span>
+                        <span class="select-error" id="er{{$b++}}" style="display: none">נא לבחור</span>
+                                        </span>
                                         <div class="clearfix"></div>
                                     </div>
                                 @endforeach
@@ -141,9 +143,9 @@
                         <span class="row-title">{{Lang::get('tr.'. $it['Variations']['VariationSpecificsSet']['NameValueList']['Name'])}}
                             :</span>
                                     <span>
-                            <select class="cn" name="variation"
+                            <select class="cn" id="vali{{$a++}}" name="variation"
                                     data-variation="{{ $it['Variations']['VariationSpecificsSet']['NameValueList']['Name'] }}">
-<option value="^^^SELECT^^^">בחר</option>
+                                <option value="^^^SELECT^^^">בחר</option>
                             </select>
                         </span>
                                     <div class="clearfix"></div>
@@ -155,10 +157,13 @@
                         <div class="boxup">
                             @if(isset($it['Variations']['Variation'][0]['DiscountPriceInfo']))
 
-                            <div class="infotextprice">מחיר לצרכן: <span>{{HR::currency($it['Variations']['Variation'][0]['DiscountPriceInfo']['OriginalRetailPrice']) }} ₪</span></div>
-                            <div class="haozim">הנחה: <span>{{number_format(HR::currency($it['CurrentPrice'])/ HR::currency($it['Variations']['Variation'][0]['DiscountPriceInfo']['OriginalRetailPrice']) *100)}}%</span></div>
-                                @else
-                                <div class="infotextprice">מחיר לצרכן: <span>{{HR::currency($it['CurrentPrice']) + (HR::currency($it['CurrentPrice'] + 63/100))  }} ₪</span></div>
+                                <div class="infotextprice">מחיר לצרכן: <span>{{HR::currency($it['Variations']['Variation'][0]['DiscountPriceInfo']['OriginalRetailPrice']) }}
+                                        ₪</span></div>
+                                <div class="haozim">הנחה: <span>{{number_format(HR::currency($it['CurrentPrice'])/ HR::currency($it['Variations']['Variation'][0]['DiscountPriceInfo']['OriginalRetailPrice']) *100)}}
+                                        %</span></div>
+                            @else
+                                <div class="infotextprice">מחיר לצרכן: <span>{{HR::currency($it['CurrentPrice']) + (HR::currency($it['CurrentPrice'] + 63/100))  }}
+                                        ₪</span></div>
                                 <div class="haozim">הנחה: <span>63%</span></div>
                             @endif
                         </div>
@@ -175,43 +180,50 @@
 
                         </div>
                     </div>
-<hr>
+                    <hr>
                     <div class="item-quantity" dir="rtl">
-                        <div><span class="row-title" style="width: 50px">כמות:</span><span><input type="number" class="qty" value="1"/> יחידות</span>
+                        <div><span class="row-title" style="width: 50px">כמות:</span><span><input type="number"
+                                                                                                  class="qty"
+                                                                                                  value="1"/> יחידות</span>
                             <span id="qtymsg" style="color: red; font-size: 12px;"></span>
                         </div>
 
                     </div>
                     <!-- Item Quantity /-->
 
-                    <a class="shopping-buttons float-right" >
+                    <a class="shopping-buttons float-right">
                         <a href="#" class="button secondary">קנה עכשיו</a>
-                        <a href="" class="button primary add-to-cart" data-id="{{$it["ItemID"]}}" data-price="{{HR::currency($it['CurrentPrice'])}}" data-ship="{!!$shippnginfo['ShippingCostSummary']['ShippingServiceCost'] != 0 ? HR::currencyShip($shippnginfo['ShippingCostSummary']['ShippingServiceCost']):0 !!}" data-img="{{is_array($it['PictureURL']) ? $it['PictureURL'][0] : $it['PictureURL']}}" data-title="{{$it['Title']}}">
-                            <div class="btn-spinner"></div> הוסף לעגלה</a>
+                        <a href="" class="button primary add-to-cart" data-id="{{$it["ItemID"]}}"
+                           data-price="{{HR::currency($it['CurrentPrice'])}}"
+                           data-ship="{!!$shippnginfo['ShippingCostSummary']['ShippingServiceCost'] != 0 ? HR::currencyShip($shippnginfo['ShippingCostSummary']['ShippingServiceCost']):0 !!}"
+                           data-img="{{is_array($it['PictureURL']) ? $it['PictureURL'][0] : $it['PictureURL']}}"
+                           data-title="{{$it['Title']}}">
+                            <div class="btn-spinner"></div>
+                            הוסף לעגלה</a>
 
-                    </div>
-                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
 
 
-                    <!-- promotion Ends /-->
+                <!-- promotion Ends /-->
 
-                </div><!-- item detail /-->
-                <!-- Item Image /-->
-            </div><!-- row /-->
+            </div><!-- item detail /-->
+            <!-- Item Image /-->
+        </div><!-- row /-->
 
-        </div>
-        <!-- single product detail /-->
+    </div>
+    <!-- single product detail /-->
 
-        <!-- customer content -->
-        <div class="store-content">
-            <div class="row">
-                <div class="featured-area small-module">
-                    <div class="section-title" style="text-align: center">
-                        <h2>מוצרים  <span>דומים</span></h2>
-                    </div><!-- section title /-->
+    <!-- customer content -->
+    <div class="store-content">
+        <div class="row">
+            <div class="featured-area small-module">
+                <div class="section-title" style="text-align: center">
+                    <h2>מוצרים <span>דומים</span></h2>
+                </div><!-- section title /-->
 
-                    <div class="content-section store-related">
-                        @if(isset($moreitem['itemRecommendations']['item']))
+                <div class="content-section store-related">
+                    @if(isset($moreitem['itemRecommendations']['item']))
                         @foreach($moreitem['itemRecommendations']['item'] as $row)
                             <div class="product">
                                 <div class="product-image">
@@ -221,8 +233,9 @@
                                     </a>
 
                                 </div><!-- Product Image /-->
-                                <div class="product-title" >
-                                    <a style="height: 90px" href="{{ url('ebay/'.str_replace([' ','/'],['-',','],$row['title']).'/'.$row["itemId"]) }}">{{$row['title']}}</a>
+                                <div class="product-title">
+                                    <a style="height: 90px"
+                                       href="{{ url('ebay/'.str_replace([' ','/'],['-',','],$row['title']).'/'.$row["itemId"]) }}">{{$row['title']}}</a>
                                 </div><!-- product title /-->
                                 <div class="product-meta">
                                     <div class="prices">
@@ -234,33 +247,35 @@
                             </div><!-- Product /-->
 
                         @endforeach
-@endif
-                    </div><!-- Content Section /-->
+                    @endif
+                </div><!-- Content Section /-->
 
-                </div>
+            </div>
 
-                <!-- store sidebar -->
+            <!-- store sidebar -->
 
-                <!-- Store Content -->
-                <div class="medium-12 small-12 columns store-content">
+            <!-- Store Content -->
+            <div class="medium-12 small-12 columns store-content">
 
-                    <ul class="tabs" role="tablist" data-tabs id="new-items">
-                        <li class="tabs-title is-active"><a href="#description" role="tab" aria-selected="true">Description</a>
-                        </li>
-                        <li class="tabs-title"><a href="#panel2" role="tab">Specifications</a></li>
-                        <li class="tabs-title"><a href="#panel3" role="tab">Reviews</a></li>
-                        <li class="tabs-title"><a href="#panel4" role="tab">Payment & Shipping</a></li>
-                    </ul> <!-- Tabs Titles Ends /-->
+                <ul class="tabs" role="tablist" data-tabs id="new-items">
+                    <li class="tabs-title is-active"><a href="#description" role="tab"
+                                                        aria-selected="true">Description</a>
+                    </li>
+                    <li class="tabs-title"><a href="#panel2" role="tab">Specifications</a></li>
+                    <li class="tabs-title"><a href="#panel3" role="tab">Reviews</a></li>
+                    <li class="tabs-title"><a href="#panel4" role="tab">Payment & Shipping</a></li>
+                </ul> <!-- Tabs Titles Ends /-->
 
-                    <div class="tabs-content small-module" data-tabs-content="new-items">
-                        <div class="tabs-panel is-active product-description" id="panel1">
-                            <script type="text/javascript">
-                                function resizeIframe(iframe) {
-                                    iframe.height = iframe.contentWindow.document.body.scrollHeight + "px";
-                                }
-                            </script>
+                <div class="tabs-content small-module" data-tabs-content="new-items">
+                    <div class="tabs-panel is-active product-description" id="panel1">
+                        <script type="text/javascript">
+                            function resizeIframe(iframe) {
+                                iframe.height = iframe.contentWindow.document.body.scrollHeight + "px";
+                            }
+                        </script>
 
-                            <iframe scrolling="yes"  frameborder="0" src='{{url("ifram/ebay/{$it['ItemID']}")}}'   onload="resizeIframe(this)"></iframe>
+                        <iframe scrolling="yes" frameborder="0" src='{{url("ifram/ebay/{$it['ItemID']}")}}'
+                                onload="resizeIframe(this)"></iframe>
 
 
                     </div><!-- tabs content /-->

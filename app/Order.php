@@ -13,7 +13,7 @@ class Order extends Model
             $product = $request->toArray();
 
             if(Cart::add($product['id'], $product['title'], $product['price'], 1, ['img' => $product['img']])){
-                echo $product['id'];
+                print_r($product) ;
             }else{
                 echo 0;
             }
