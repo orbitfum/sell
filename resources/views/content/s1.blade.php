@@ -43,6 +43,7 @@
 
 
                                     @foreach($cat as $row)
+
                                         @if(!empty($row['categoryId']))
                                             <li>
 
