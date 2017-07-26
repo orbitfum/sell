@@ -21,6 +21,7 @@ Route::group(['prefix' => 'ebay' ],function () {
     Route::get('search', 'PageController@search');
     Route::get('addCart', 'PageController@addCart');
     Route::get('{name}/{id}', 'PageController@getItem');
+    Route::get('{namecat}/{id}/{name}', 'PageController@searchcat');
 });
 
 #cart

@@ -36,9 +36,26 @@ class PageController extends MainController
 
     public function search(Request $request)
     {
-        Ebay::search($request->get('q'), self::$data, $request);
+
+        $name = $request->get('q');
+        Ebay::search($name, self::$data, $request);
+
+        self::$data['q']= $name;
+        return view('content.s1', self::$data);
+    }
+
+    public function searchcat($namecat,$id,$name ,Request $request){
+
+
+
+        Ebay::search($name, self::$data, $request,$id);
+
+
+
+        self::$data['q']= $name;
 
         return view('content.s1', self::$data);
+
     }
 
     public function getItem($name, $id)
@@ -77,7 +94,7 @@ class PageController extends MainController
 
         $newStr = str_ireplace('width=', "width='100%' ", $str);
         $newStr .= '<div id="google_translate_element"></div><script type="text/javascript">function googleTranslateElementInit() {  new google.translate.TranslateElement({pageLanguage: \'en\', includedLanguages: \'iw\', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, \'google_translate_element\');}</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>';
-        $afterStr = str_ireplace('http://www.ebay.com/itm/', url('ebay').'/', $newStr);
+        $afterStr = str_ireplace('http://www.ebay.com/itm/', url('ebay') . '/', $newStr);
 
         self::$data['ifram'] = $afterStr;
 //        dd(self::$data['ifram'] =$newStr);
@@ -102,11 +119,13 @@ class PageController extends MainController
 
     }
 
-    static public function addCart(request $request){
+    static public function addCart(request $request)
+    {
         Order::addToCart($request);
     }
 
-    static public function cart(){
+    static public function cart()
+    {
         Order::cartView(self::$data);
         return view('content.cart', self::$data);
     }

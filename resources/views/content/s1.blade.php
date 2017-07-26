@@ -39,25 +39,52 @@
                         <h2>קטגוריות</h2>
                         <div class="widget-content">
                             <ul class="menu vertical">
-                                @foreach($cat as $row)
-@if(!empty($row->categoryId))
-                                    <li>
+@if(isset($cat[0]))
 
-                                        <a href="#"><div class="categoryname" data-ebayid="{{$row['categoryId']}}">{{$row['categoryName']}}</div><span>({{$row['count']}})</span></a>
 
-                                        @if(isset($row['childCategoryHistogram']))
+                                    @foreach($cat as $row)
+                                        @if(!empty($row['categoryId']))
+                                            <li>
 
-                                            <ul>
-                                                @foreach($row['childCategoryHistogram'] as $row1)
-                                                    @if(!empty($row1['categoryName']))
-                                                        <li><a href="#"><subcat class="categoryname" data-ebayid="{{$row1['categoryId']}}">{{$row1['categoryName']}}</subcat><span>({{$row1['count']}})</span></a> </li>
-                                                    @endif
-                                                    @endforeach
-                                            </ul>
-                                            @endif
-                                    </li>
-                                    @endif
-                                @endforeach
+                                                <a href="{{url('ebay/'.str_replace(' ','-',$row['categoryName']).'/'.$row['categoryId'].'/'.$q)}}"><div class="categoryname" data-ebayid="{{$row['categoryId']}}">{{$row['categoryName']}}</div><span>({{$row['count']}})</span></a>
+
+                                                @if(isset($row['childCategoryHistogram']))
+
+                                                    <ul>
+                                                        @foreach($row['childCategoryHistogram'] as $row1)
+                                                            @if(!empty($row1['categoryName']))
+                                                                <li><a href="{{url($row1['categoryName'].'/'.$row1['categoryId'].'/'.$q)}}"><subcat class="categoryname" data-ebayid="{{$row1['categoryId']}}">{{$row1['categoryName']}}</subcat><span>({{$row1['count']}})</span></a> </li>
+                                                            @endif
+                                                        @endforeach
+                                                    </ul>
+                                                @endif
+                                            </li>
+                                        @endif
+                                    @endforeach
+
+    @else
+
+
+                                        @if(!empty($cat['categoryId']))
+                                            <li>
+
+                                                <a href="{{url('ebay/'.str_replace(' ','-',$cat['categoryName']).'/'.$cat['categoryId'].'/'.$q)}}"><div class="categoryname" data-ebayid="{{$cat['categoryId']}}">{{$cat['categoryName']}}</div><span>({{$cat['count']}})</span></a>
+
+                                                @if(isset($cat['childCategoryHistogram']))
+
+                                                    <ul>
+                                                        @foreach($cat['childCategoryHistogram'] as $row1)
+                                                            @if(!empty($row1['categoryName']))
+                                                                <li><a href="{{url($row1['categoryName'].'/'.$row1['categoryId'].'/'.$q)}}"><subcat class="categoryname" data-ebayid="{{$row1['categoryId']}}">{{$row1['categoryName']}}</subcat><span>({{$row1['count']}})</span></a> </li>
+                                                            @endif
+                                                        @endforeach
+                                                    </ul>
+                                                @endif
+                                            </li>
+                                        @endif
+
+    @endif
+
                             </ul>
                         </div><!-- widget content /-->
                     </div><!-- widget /-->
@@ -69,7 +96,7 @@
 
                             <form class="sinon" method="get" action="">
                                 <span>מחיר</span>
-                                <input type="hidden" name="q" value="{{$_GET['q']}}"/>
+                                <input type="hidden" name="q" value="{{$q}}"/>
                                 <input type="number" name="min" placeholder="מ: 1"/>
                                 <span>- </span>
                                 <input type="number" name="max" placeholder="עד: 99999"/>
@@ -186,14 +213,14 @@
                             <div class="medium-12 small-12 columns sortby">
                                 <div class="pull-right">
                                     <b>מיין לפי:</b>
-                                    <span><a href="{{url("ebay/search?q={$_GET['q']}&order=max")}}">מחיר גבוה לנמוך <i
+                                    <span><a href="{{url("ebay/search?q={$q}&order=max")}}">מחיר גבוה לנמוך <i
                                                     style="color:rgba(0,91,24,0.91)" class="fa fa-arrow-up"
                                                     aria-hidden="true"></i></a></span>
-                                    <span><a href="{{url("ebay/search?q={$_GET['q']}&order=min")}}">מחיר נמוך לגבוה <i
+                                    <span><a href="{{url("ebay/search?q={$q}&order=min")}}">מחיר נמוך לגבוה <i
                                                     style="color: rgba(232,19,16,0.91)" class="fa fa-arrow-down"
                                                     aria-hidden="true"></i></a></span>
 
-                                    <span><a href="{{url("ebay/search?q={$_GET['q']}&order=new")}}">החדשים ביותר</a></span>
+                                    <span><a href="{{url("ebay/search?q={$q}&order=new")}}">החדשים ביותר</a></span>
 
                                 </div>
                             </div>
@@ -357,17 +384,17 @@
                             <ul class="pagination" role="menubar" aria-label="Pagination">
 @if(!isset($_GET['page']))
 
-                                <li class="current"><a href="?q={{$_GET['q']}}&page=">1</a></li>
+                                <li class="current"><a href="?q={{$q}}&page=">1</a></li>
 
                                     @for($i=2; $i <=10; $i++)
-                                        <li><a href="?q={{$_GET['q']}}&page={{$i}}">{{$i}}</a></li>
+                                        <li><a href="?q={{$q}}&page={{$i}}">{{$i}}</a></li>
                                     @endfor
 @else
 
 
 @if($_GET['page'] < 8)
                                     @for($i=1; $i <=10; $i++)
-                                        <li {{$_GET['page'] == $i ? 'class=current':''}}><a href="?q={{$_GET['q']}}&page={{$i}}">{{$i}}</a></li>
+                                        <li {{$_GET['page'] == $i ? 'class=current':''}}><a href="?q={{$q}}&page={{$i}}">{{$i}}</a></li>
                                     @endfor
 
     @else

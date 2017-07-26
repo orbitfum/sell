@@ -734,6 +734,7 @@
                 var qty = v1['Quantity'];
                 var sold = v1['SellingStatus']['QuantitySold'];
                 var available = qty - sold;
+
                 if (isMulti) {
                     $.each(v1['VariationSpecifics'], function (k2, v2) {
                         var combinationFound = true;
@@ -775,9 +776,11 @@
                     $.each(v1['VariationSpecifics']['NameValueList'], function (k2, v2) {
                         if (k2 == "Value") {
                             if (available > 0) {
+
                                 new_array_specs.push(v2);
                             }
                             else {
+
                                 new_array_specs.push(v2 + outOfStock);
                             }
                         }
