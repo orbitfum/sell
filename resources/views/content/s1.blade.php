@@ -392,15 +392,25 @@
                                     @endfor
 @else
 
-
-@if($_GET['page'] < 8)
-                                    @for($i=1; $i <=10; $i++)
-                                        <li {{$_GET['page'] == $i ? 'class=current':''}}><a href="?q={{$q}}&page={{$i}}">{{$i}}</a></li>
+                                    @if($_GET['page'] > 3)
+                                    <li><a href="?q={{$q}}&page=1"><<</a></li>
+                                    <li><a href="?q={{$q}}&page={{ $_GET['page']-1 }}"><</a></li>
+                                    ...
+                                    @endif
+                                    @for($i=1; $i <= $pagenum; $i++)
+                                        @if($i == $_GET['page'])
+                                            @for($j = $_GET['page']-2; $j <= $_GET['page']+2; $j++)
+                                                @if($j >= 1 && $j <= $pagenum)
+                                                <li {{$_GET['page'] == $j ? 'class=current':''}}><a href="?q={{$q}}&page={{$j}}">{{$j}}</a></li>
+                                                @endif
+                                            @endfor
+                                        @endif
                                     @endfor
-
-    @else
-
-@endif
+                                @if($_GET['page'] < $pagenum-2)
+                                    ...
+                                    <li><a href="?q={{$q}}&page={{ $_GET['page']+1 }}">></a></li>
+                                    <li><a href="?q={{$q}}&page={{ $pagenum }}">>></a></li>
+                                    @endif
 
 
     @endif
