@@ -30,28 +30,28 @@
             </div><!-- section title /-->
 
             <div class="content-section store-related">
-@foreach($moreitem['itemRecommendations']['item'] as $row)
-                <div class="product">
-                    <div class="product-image">
-                        <a href="{{ url('ebay/'.str_replace([' ','/'],['-',','],$row['title']).'/'.$row["itemId"]) }}">
-                            <img style="height: 150px;" src="{{$row['imageURL']}}" alt=""/>
-                            <img style="height: 150px;" src="{{$row['imageURL']}}" alt=""/>
-                        </a>
+                @foreach($moreitem['itemRecommendations']['item'] as $row)
+                    <div class="product">
+                        <div class="product-image">
+                            <a href="{{ url('ebay/'.str_replace([' ','/'],['-',','],$row['title']).'/'.$row["itemId"]) }}">
+                                <img style="height: 150px;" src="{{$row['imageURL']}}" alt=""/>
+                                <img style="height: 150px;" src="{{$row['imageURL']}}" alt=""/>
+                            </a>
 
-                    </div><!-- Product Image /-->
-                    <div class="product-title" >
-                        <a style="height: 90px" href="{{ url('ebay/'.str_replace([' ','/'],['-',','],$row['title']).'/'.$row["itemId"]) }}">{{$row['title']}}</a>
-                    </div><!-- product title /-->
-                    <div class="product-meta">
-                        <div class="prices">
-                            <span class="price">{{HR::currency($row['buyItNowPrice'])}} ₪</span>
+                        </div><!-- Product Image /-->
+                        <div class="product-title" >
+                            <a style="height: 90px" href="{{ url('ebay/'.str_replace([' ','/'],['-',','],$row['title']).'/'.$row["itemId"]) }}">{{$row['title']}}</a>
+                        </div><!-- product title /-->
+                        <div class="product-meta">
+                            <div class="prices">
+                                <span class="price">{{HR::currency($row['buyItNowPrice'])}} ₪</span>
 
-                        </div>
-                        <div class="clearfix"></div>
-                    </div><!-- product meta /-->
-                </div><!-- Product /-->
+                            </div>
+                            <div class="clearfix"></div>
+                        </div><!-- product meta /-->
+                    </div><!-- Product /-->
 
-@endforeach
+                @endforeach
 
             </div><!-- Content Section /-->
 

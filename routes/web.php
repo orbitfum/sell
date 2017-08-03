@@ -11,6 +11,7 @@
 |
 */
 Route::get('/', 'PageController@index');
+Route::get('register', 'UserController@register');
 Route::get('cjson', 'PageController@catsJson');
 Route::get('cornjon/dsaodasopkdoakoerqwmczxcksdfoddolr', 'PageController@updtaedolar');
 

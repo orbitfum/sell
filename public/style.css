@@ -229,6 +229,7 @@ Top bar CSS ends
 03 - HEADER CSS Starts
 -------------------------*/
 .header {
+    margin-top: 40px;
     padding-top: 25px;
     padding-bottom: 25px;
     border-bottom: 1px solid #ededed;
@@ -2164,8 +2165,80 @@ Single Store CSS Ends
 }
 
 /*--------------------
-Product Page CSS Ends
+add css
 ---------------------*/
+.topnav {
+    z-index: 9999;
+    background-color: #fff;
+    width: 100%;
+    direction: rtl;
+    height: 40px;
+    border-bottom: 1px solid rgba(200, 200, 200, 0.6);
+
+    position: fixed;
+
+}
+
+.topnav .navuser {
+    list-style: none;
+    margin-top: 5px;
+    padding-top: 2px;
+    float: right;
+}
+
+.topnav .navuser li {
+
+    padding: 10px 0.20rem;
+    font-weight: 300;
+    display: inline;
+}
+
+.topnav .navuser li:hover {
+    color: #fff;
+    cursor: pointer;
+    background-color: #4787ed;;
+}
+
+.topnav .navuserleft {
+
+    list-style: none;
+    margin-top: 5px;
+    padding-top: 2px;
+    float: left;
+    margin-left: 100px;
+}
+
+.topnav .navuserleft li {
+
+    padding: 10px;
+
+    font-weight: 300;
+    display: inline;
+}
+
+.cartvav {
+    cursor: pointer;
+    display: block;
+    color: #fff;
+    margin-left: 2px;
+    background-color: #4787ed;
+    padding: 10px;
+
+}
+.cartvav li {
+
+   border-left: 1px solid #fff;
+  font-size: 16pt;
+
+
+}
+
+.facbook {
+    position: absolute;
+    top: 5px;
+    left: -200px;
+    height: 60px
+}
 
 /*-----------------------
 21 - Content Blocks CSS Starts.
@@ -2614,8 +2687,6 @@ add costum
     color: #fff;
 }
 
-
-
 .pricafter sup {
     color: #fff;
     font-size: 13px;
@@ -2641,6 +2712,7 @@ add costum
     text-shadow: 1px 1px 1px #000;
     font-size: 15px;
 }
+
 @media screen and (max-width: 770px) {
     .pricafter {
         left: 2px;
@@ -2658,17 +2730,20 @@ add costum
     .boxpricnew .boxup .infotextprice {
         font-size: 10px;
     }
-    .pricafter .pricexl{
+
+    .pricafter .pricexl {
         font-size: 28pt;
     }
-    .pricafter .pricexl span{
+
+    .pricafter .pricexl span {
         font-size: 12px;
     }
+
     .pricafter div {
         width: 139px;
     }
 
-    .pricafter div span{
+    .pricafter div span {
         font-size: 14px;
     }
 }
@@ -2682,11 +2757,12 @@ add costum
         height: 110px;
     }
 
-    .boxpricnew .boxup .infotextprice span{
+    .boxpricnew .boxup .infotextprice span {
         font-size: 12px;
     }
 
 }
+
 /*-------------------------
 23 - Information Boxes
 -------------------------*/
@@ -3055,6 +3131,7 @@ Footer CSS ends here
 
 /*Mobile Screens CSS*/
 @media only screen and (max-width: 40em) {
+
     .responsive-table {
         overflow-x: scroll;
     }

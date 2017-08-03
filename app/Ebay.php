@@ -114,10 +114,9 @@ class Ebay extends Model
         $apicall .= "&outputSelector[4]=StoreInfo";
 
 
-        $resp = simplexml_load_file($apicall);
-        $json = json_encode($resp);
-        $resp = json_decode($json, TRUE);
-
+            $resp = simplexml_load_file($apicall);
+            $json = json_encode($resp);
+            $resp = json_decode($json, TRUE);
 
         $data['cat'] = isset($resp['categoryHistogramContainer']['categoryHistogram']) ? $resp['categoryHistogramContainer']['categoryHistogram'] : [];
 
@@ -134,9 +133,11 @@ class Ebay extends Model
     static public function getItem($id, &$data)
     {
 //מוצרים דומים
+
         $endpoint = 'http://svcs.ebay.com/MerchandisingService';
         $apicall = $endpoint;
         $apicall .= '?OPERATION-NAME=getSimilarItems';
+        $apicall .= '&SERVICE-NAME=MerchandisingService';
         $apicall .= '&SERVICE-VERSION=1.1.0';
         $apicall .= '&CONSUMER-ID=orhanabb-ebayonpl-PRD-308fe9d67-14c9c5e0';
         $apicall .= '&RESPONSE-DATA-FORMAT=XML';
@@ -147,12 +148,14 @@ class Ebay extends Model
 
         $apicall .= '&maxResults=10';
 
-
-        $resp = simplexml_load_file($apicall);
-        $json = json_encode($resp);
-        $resp = json_decode($json, TRUE);
-
-        $data['moreitem'] = $resp;
+if(@simplexml_load_file($apicall)){
+    $resp = simplexml_load_file($apicall);
+    $json = json_encode($resp);
+    $resp = json_decode($json, TRUE);
+    $data['moreitem'] = $resp;
+}else{
+    $data['moreitem'] ='';
+}
 
 
 //מידע על המשלוח ------------------------------------------------------------------
