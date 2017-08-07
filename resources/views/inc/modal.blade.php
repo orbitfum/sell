@@ -21,7 +21,7 @@
 <input type="submit" name="submit" value="התחברות" class="submit button secondary">
 
             <span>
-            <a href="forgot-password" style="float: left">שכחתי סיסמה</a>
+            <a id="forgot-password" style="float: left">שכחתי סיסמה</a>
         </span></form>
         </div>
     </div>
@@ -63,42 +63,33 @@
 
 </div>
 
+<div id="forgotModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h3>שחזור סיסמה</h3>
+        </div>
+        <div class="modal-body">
+            <form action="post" target="">
+                <label for="login">דוא"ל או טלפון</label>
+                <input type="text" name="login" id="login" placeholder="הזן כתובת דואר או טלפון">
+                *שים לב, פרטי ההתחברות ישלחו למייל שנרשמת דרכו.
+        </div>
+
+        <div class="modal-footer">
+            <input type="submit" name="recover" value="שחזור סיסמה" class="submit button secondary">
+</form>
+        </div>
+    </div>
+
+</div>
+
 <script>
     modal('#loginModal', '#login');
     modal('#registerModal', '#register');
-//    var modal = document.getElementById('loginModal');
-//    var regmodal = document.getElementById('registerModal');
-//
-//    var btn = document.getElementById("login");
-//    var regbtn = document.getElementById("register");
-//
-//    var span = document.getElementsByClassName("close")[0];
-//    var regspan = document.getElementsByClassName("regclose")[0];
-//
-//    btn.onclick = function() {
-//        modal.style.display = "block";
-//    }
-//    regbtn.onclick = function() {
-//        regmodal.style.display = "block";
-//    }
-//
-//    span.onclick = function() {
-//        modal.style.display = "none";
-//    }
-//    regspan.onclick = function() {
-//        regmodal.style.display = "none";
-//    }
-//
-//    window.onclick = function(event) {
-//        if (event.target == modal) {
-//            modal.style.display = "none";
-//            $('.modal').css('display', 'none');
-//        }
-//    }
-//    window.onclick = function(event) {
-//        if (event.target == regmodal) {
-//            regmodal.style.display = "none";
-//        }
-//    }
+    modal('#forgotModal', '#forgot-password');
+
 
 </script>
