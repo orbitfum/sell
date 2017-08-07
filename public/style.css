@@ -2169,11 +2169,11 @@ add css
 ---------------------*/
 .topnav {
     z-index: 9999;
-    background-color: #fff;
+    background-color: #3853d8;
     width: 100%;
     direction: rtl;
     height: 40px;
-    border-bottom: 1px solid rgba(200, 200, 200, 0.6);
+    border-bottom: 1px solid rgba(80, 117, 249, 0.6);
 
     position: fixed;
 
@@ -2181,58 +2181,62 @@ add css
 
 .topnav .navuser {
     list-style: none;
-    margin-top: 5px;
-    padding-top: 2px;
     float: right;
+    direction: rtl;
+    color: #FFFFFF;
 }
 
+.topnav .navuser .cartvav{
+    font-size: 13pt;
+    position: relative;
+    top: -4px;
+}
+.cartvav div{
+    top: -21px;
+    position: relative;
+    left: 8px;
+    font-size: 13px;
+}
 .topnav .navuser li {
-
-    padding: 10px 0.20rem;
+    padding: 16px 10px 11px 10px;
     font-weight: 300;
-    display: inline;
+    display: inline-block;
+    border-left: #4a6de3 solid 1px;
+    min-width: 40px;
+    line-height: 0px;
+    position: relative;
+    top: -12px;
 }
 
 .topnav .navuser li:hover {
     color: #fff;
     cursor: pointer;
-    background-color: #4787ed;;
+    background-color: #4787ed;
 }
 
 .topnav .navuserleft {
-
+    color: #FFFFFF;
     list-style: none;
-    margin-top: 5px;
-    padding-top: 2px;
     float: left;
-    margin-left: 100px;
+    padding-left: 90px;
 }
 
 .topnav .navuserleft li {
 
-    padding: 10px;
-
+    padding: 16px 10px 11px 10px;
     font-weight: 300;
-    display: inline;
+    display: inline-block;
+    border-left: #4a6de3 solid 1px;
+    min-width: 40px;
+    line-height: 0px;
+
 }
 
-.cartvav {
-    cursor: pointer;
-    display: block;
+.topnav .navuserleft li:hover {
     color: #fff;
-    margin-left: 2px;
+    cursor: pointer;
     background-color: #4787ed;
-    padding: 10px;
-
 }
-.cartvav li {
-
-   border-left: 1px solid #fff;
-  font-size: 16pt;
-
-
-}
-
 .facbook {
     position: absolute;
     top: 5px;

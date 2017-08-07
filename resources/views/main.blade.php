@@ -63,22 +63,29 @@
     <div class="topnav">
         <div class="row" style="position: relative">
             <ul class="navuser">
-                <li>הרשמה <i class="fa fa-registered" aria-hidden="true"></i>
+                <li><i class="fa fa-user-plus" aria-hidden="true"> </i>   הרשמה
                     </li>
-                <li>התחברות <i class="fa fa-sign-in" aria-hidden="true"></i></li>
+                <li><i class="fa fa-sign-in" aria-hidden="true"></i> התחברות </li>
+                <li class="cartvav"><i class="fa fa-shopping-cart" aria-hidden="true"></i><div id="cart">
+
+                        @if(!Cart::isEmpty())
+
+                            {{Cart::getTotalQuantity()}}
+                        @else
+                            0
+                        @endif
+
+                    </div> </li>
+                <li class="cartvav"><i class="fa fa-heart-o" aria-hidden="true"></i> <div id="wish">0</div></li>
             </ul>
 
 
-            <ul class="navuserleft  hide-for-small-only" style="margin-right: 120px">
-                <li><a href="#">צור קשר <i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                <li><a href="#">מי אנחנו <i class="fa fa-info" aria-hidden="true"></i></a></li>
+            <ul class="navuserleft  hide-for-small-only">
+                <li> <i class="fa fa-envelope-o" aria-hidden="true"></i> צור קשר </li>
+                <li><i class="fa fa-info" aria-hidden="true"></i> מי אנחנו </li>
 
             </ul>
-            <ul class="navuserleft cartvav" style="margin: 0 2px">
-                <li>0 <i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
-                <li>0 <i class="fa fa-floppy-o" aria-hidden="true"></i></li>
 
-            </ul>
             <div class="facbook hide-for-small-only">
                 <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2F%25D7%2596%25D7%2594-%25D7%25A7%25D7%259C-%25D7%259C%25D7%25A7%25D7%25A0%25D7%2595%25D7%25AA-%25D7%259E%25D7%2597%25D7%2595%25D7%259C-272067086606441%2F&width=80&layout=button_count&action=like&size=large&show_faces=false&share=false&height=21&appId=1899215936968165" width="80" height="41" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
             </div>

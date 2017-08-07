@@ -34,6 +34,10 @@ function flyToElement(flyer, flyingTo) {
 function controlVari(vali, vari, err){
 
     if(vali == '^^^SELECT^^^'){
+
+        $('html, body').animate({
+            scrollTop: $(".infoseler").offset().top
+        }, 500);
         $(this).addClass('selector-error');
         $('#'+ vari).addClass('selector-error');
         $('#'+ err).fadeIn().css('display', 'inline-block');
@@ -81,7 +85,8 @@ $('.add-to-cart').on('click', function () {
             val1: vali1,
             val2: vali2,
             val3: vali3,
-            val4: vali4
+            val4: vali4,
+            quntity: $('.qty').val(),
         },
         beforeSend: function () {
             $('.btn-spinner').css('display', 'block');
@@ -91,11 +96,11 @@ $('.add-to-cart').on('click', function () {
                 setTimeout(function () {
                     $('.btn-spinner').css('display', 'none');
                 }, 1200);
-
             } else {
-                $("#cartHolder").load(location.href + " #cartHolder");
+                var number = $('#cart').text();
+
                 var itemImg = $('.main-image').find('img').eq(0);
-                flyToElement($(itemImg), $('.my-account-title'));
+                flyToElement($(itemImg), $('#cart'));
                 setTimeout(function () {
                     $('.btn-spinner').css('display', 'none');
 
