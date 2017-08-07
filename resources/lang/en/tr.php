@@ -11,6 +11,7 @@ return [
     'New other (see details)' => 'חדש - אחר (צפה בפירוט)',
     'New without tags' => 'חדש ללא תגיות',
     'New without box' => 'חדש ללא קופסא',
+    'US Shoe Size (Women\'s)' => 'מידה נעל אמרקאית (נשים)'
 
 
 

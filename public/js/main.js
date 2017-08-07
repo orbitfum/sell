@@ -97,7 +97,10 @@ $('.add-to-cart').on('click', function () {
                     $('.btn-spinner').css('display', 'none');
                 }, 1200);
             } else {
-                var number = $('#cart').text();
+                var number = parseInt($("#cart").text(),10);
+                var newValue = number + 1;
+                $('#cart').text(newValue);
+
 
                 var itemImg = $('.main-image').find('img').eq(0);
                 flyToElement($(itemImg), $('#cart'));
@@ -118,4 +121,14 @@ $('.add-to-cart').on('click', function () {
 
 });
 
+$('.qty').on('focusout', function () {
+    qty = parseInt($(this).val(),10);
+    price = parseFloat($(".pricexl b").data('price').toFixed(2));
+    orprice = parseFloat($(".infotextprice span").data('price')).toFixed(2);
+
+    newprice = parseFloat(qty * price).toFixed(2);
+    neworprice = parseFloat(qty * orprice).toFixed(2);
+    $('.pricexl b').text(newprice);
+    $('.infotextprice span').text(neworprice);
+});
 

@@ -2066,7 +2066,6 @@ Single Store CSS Ends
 
 .item-options {
     margin-top: 20px;
-    margin-bottom: 40px;
 }
 
 .red {
@@ -2109,6 +2108,10 @@ Single Store CSS Ends
     width: 49%;
 }
 
+
+.item-quantity{
+    margin-bottom: 40px;
+}
 .item-quantity .qty {
     margin-bottom: 0px;
     padding: 5px;
@@ -2116,6 +2119,7 @@ Single Store CSS Ends
     width: 50px;
     display: inline;
     margin-right: 15px;
+    text-align: center;
 }
 
 .item-quantity span {

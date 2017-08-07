@@ -155,24 +155,33 @@
                             @endif
                         @endif
                     </div><!-- item options /-->
+
+                    <div class="item-quantity" dir="rtl">
+                        <div class="option-box"><span class="row-title" style="width: 166px">כמות:</span><span><input type="number" class="qty" value="1"/> יחידות</span>
+                            <span id="qtymsg" style="color: red; font-size: 12px;"></span>
+                        </div>
+
+                    </div>
                     <div class="boxpricnew">
                         <div class="boxup">
                             @if(isset($it['Variations']['Variation'][0]['DiscountPriceInfo']))
 
-                                <div class="infotextprice">מחיר לצרכן: <span>{{HR::currency($it['Variations']['Variation'][0]['DiscountPriceInfo']['OriginalRetailPrice']) }}
-                                        ₪</span></div>
+                                <div class="infotextprice">מחיר לצרכן: <span data-price="{{HR::currency($it['Variations']['Variation'][0]['DiscountPriceInfo']['OriginalRetailPrice']) }}">
+                                        {{HR::currency($it['Variations']['Variation'][0]['DiscountPriceInfo']['OriginalRetailPrice']) }}
+                                        </span>₪</div>
                                 <div class="haozim">הנחה: <span>{{number_format(HR::currency($it['CurrentPrice'])/ HR::currency($it['Variations']['Variation'][0]['DiscountPriceInfo']['OriginalRetailPrice']) *100)}}
                                         %</span></div>
                             @else
-                                <div class="infotextprice">מחיר לצרכן: <span>{{HR::currency($it['CurrentPrice']) + (HR::currency($it['CurrentPrice'] + 63/100))  }}
-                                        ₪</span></div>
+                                <div class="infotextprice">מחיר לצרכן: <span data-price="{{HR::currency($it['CurrentPrice']) + (HR::currency($it['CurrentPrice'] + 63/100))  }}">
+                                        {{HR::currency($it['CurrentPrice']) + (HR::currency($it['CurrentPrice'] + 63/100))  }}
+                                        </span>₪</div>
                                 <div class="haozim">הנחה: <span>63%</span></div>
                             @endif
                         </div>
                         <div class="pricafter">
                             <div class="pricexl">
                                 <sup>רק:</sup>
-                                <b>{{HR::currency($it['CurrentPrice'])}}</b> <span>₪</span>
+                                <b data-price="{{HR::currency($it['CurrentPrice'])}}">{{HR::currency($it['CurrentPrice'])}}</b> <span>₪</span>
 
                             </div>
                             <div><span>מחיר משלוח: <b>{!!$shippnginfo['ShippingCostSummary']['ShippingServiceCost'] != 0 ? HR::currencyShip($shippnginfo['ShippingCostSummary']['ShippingServiceCost']).' ₪':'<i style="color:#ffed00">חינם</i>'!!}
@@ -183,14 +192,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="item-quantity" dir="rtl">
-                        <div><span class="row-title" style="width: 50px">כמות:</span><span><input type="number"
-                                                                                                  class="qty"
-                                                                                                  value="1"/> יחידות</span>
-                            <span id="qtymsg" style="color: red; font-size: 12px;"></span>
-                        </div>
 
-                    </div>
                     <!-- Item Quantity /-->
 
                     <a class="shopping-buttons float-right">
