@@ -63,9 +63,9 @@
     <div class="topnav">
         <div class="row" style="position: relative">
             <ul class="navuser">
-                <li><i class="fa fa-user-plus" aria-hidden="true"> </i>   הרשמה
+                <li id="register"><i class="fa fa-user-plus" aria-hidden="true"> </i>   הרשמה
                     </li>
-                <li><i class="fa fa-sign-in" aria-hidden="true"></i> התחברות </li>
+                <li id="login"><i class="fa fa-sign-in" aria-hidden="true"></i> התחברות </li>
                 <li class="cartvav"><i class="fa fa-shopping-cart" aria-hidden="true"></i><div id="cart">
 
                         @if(!Cart::isEmpty())
@@ -516,6 +516,8 @@
     <!-- Footer Ends here -->
 
 </div>
+
+
 <!-- MAIN Container Ends here. -->
 <a href="#top" id="top" class="animated fadeInUp start-anim"><i class="fa fa-angle-up"></i></a>
 <!-- Page Preloader -->
@@ -560,6 +562,7 @@
 <script src="{{asset('js/webful.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
 
+@include('inc.modal')
 
 @yield('jscode')
 

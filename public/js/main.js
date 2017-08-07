@@ -132,3 +132,34 @@ $('.qty').on('focusout', function () {
     $('.infotextprice span').text(neworprice);
 });
 
+
+function modal(name, button) {
+    var model = $(name);
+    var btn = $(button);
+
+    var close = $('.close');
+
+    $(btn).on('click', function () {
+       $(model).css('display', 'block');
+    });
+
+    $(close).on('click', function () {
+        $(model).css('display', 'none');
+    });
+
+    var a=function(event) {
+        if (event.target == model) {
+            $(model).css('display', 'none');
+        }
+    }
+    window.addEventListener('click',a);
+    window.addEventListener('keydown', keyDownEsc);
+    function keyDownEsc(esc) {
+        var keyCode = esc.keyCode;
+        if(keyCode==27) {
+            $(model).css('display', 'none');
+        }
+    }
+}
+
+
