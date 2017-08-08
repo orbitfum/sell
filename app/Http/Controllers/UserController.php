@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Http\Requests\UserRegister;
 
 class UserController extends MainController
 {
-    public function register()
+    public function register(UserRegister $request)
     {
 
-        return view('content.register', self::$data);
+        User::addUser($request);
+
+        return back()->withInput();
+
     }
 }

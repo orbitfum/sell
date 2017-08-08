@@ -38,7 +38,8 @@
             <h3>הרשמה לזה-קל</h3>
         </div>
         <div class="modal-body">
-            <form action="post" target="">
+            <form action="{{url('user/register')}}"  method="post">
+                {{csrf_field()}}
                 <label for="email">דוא"ל</label>
                 <input type="email" name="email" id="email" placeholder="הזן כתובת דואר אלקטרוני">
 
@@ -50,8 +51,8 @@
                 <label for="password">סיסמה</label>
                 <input type="password" name="password" id="password" placeholder="הזן את סיסמתך">
 
-                <label for="password_check">אמת סיסמה</label>
-                <input type="password" name="password_check" id="password_check" placeholder="הזמן סיסמה שנית">
+                <label for="password_confirmed">אמת סיסמה</label>
+                <input type="password" name="password_confirmed" id="password_confirmed" placeholder="הזמן סיסמה שנית">
 
         </div>
 

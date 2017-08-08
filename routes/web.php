@@ -11,12 +11,20 @@
 |
 */
 Route::get('/', 'PageController@index');
-Route::get('register', 'UserController@register');
+
 Route::get('cjson', 'PageController@catsJson');
 Route::get('cornjon/dsaodasopkdoakoerqwmczxcksdfoddolr', 'PageController@updtaedolar');
 
 #ebay
 Route::get('ifram/ebay/{id}', 'PageController@getifame');
+
+
+
+Route::group(['prefix' => 'user' ],function () {
+    Route::post('register', 'UserController@register');
+
+
+});
 
 Route::group(['prefix' => 'ebay' ],function () {
     Route::get('search', 'PageController@search');

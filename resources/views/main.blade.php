@@ -404,6 +404,15 @@
         </div><!-- Row /-->
     </div>
     <!-- Header Ends /-->
+    @if ($errors->any())
+        <div class="alert alert-danger notification">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+@endif
 @yield('content')
 
 <!-- Footer -->
