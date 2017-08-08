@@ -163,3 +163,92 @@ function modal(name, button) {
 }
 
 
+//modal
+
+$(document).ready(function() {
+
+$('.has-error').on('focus' ,function () {
+    $(this).removeClass();
+    id = $(this).attr('id');
+    $(this).on('keydown', function () {
+        $("[data-id='" + id + "']").fadeOut(550);
+    });
+
+});
+
+    $('#phone').keypress(function(e) {
+        if(e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57))   {      $("#phone-valid").html("ספרות בלבד!").show().fadeOut("1000");
+        return false;
+
+        }
+    });
+
+});
+
+
+function validateAll(){
+    var email = $("#email").val();
+    var phone = $("#phone").val();
+    var spassword = $("#password").val();
+    spassword  = spassword.replace(/./g, '*');
+    var matchPass = $("#password_confirmed").val();
+    matchPass  = matchPass.replace(/./g, '*');
+
+    checkEmail(email);
+    checkSPassword(spassword);
+    checkMatchPass(matchPass);
+    checkphone(phone);
+
+    return false;
+}
+
+function checkEmail(email)
+{
+    var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    if(!pattern.test(email)){
+        $(".email_error").show();
+        $('#email').addClass('has-error');
+    }else{
+        $(".email_error").hide();
+        $('#email').removeClass('has-error');
+    }
+}
+
+function checkSPassword(password){
+    var pattern = /^\S*(?=\S{6,})\S*$/;
+    if(!pattern.test(password)){
+        $(".spassword_error").show();
+        $('.password').addClass('has-error');
+    }else{
+        $(".spassword_error").hide();
+        $('.password').removeClass('has-error');
+    }
+}
+
+function checkMatchPass(match){
+    var spassword = $(".password").val();
+    spassword  = spassword.replace(/./g, '*');
+    var matchPass = $("#password_confirmed").val();
+    matchPass  = matchPass.replace(/./g, '*');
+    if(spassword != matchPass){
+        $(".mpassword_error").show();
+        $('#password_confirmed').addClass('has-error');
+    }else{
+        $(".mpassword_error").hide();
+        $('#password_confirmed').removeClass('has-error');
+    }
+}
+
+function checkphone(phone){
+    var pattern = /^\S*(?=\S{8,})\S*$/;
+    if(!pattern.test(phone)){
+        $(".erphone_error").show();
+        $('#phone').addClass('has-error');
+    }else{
+        $(".erphone_error").hide();
+        $('#phone').removeClass('has-error');
+    }
+}
+
+

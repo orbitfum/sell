@@ -41,18 +41,26 @@
             <form action="{{url('user/register')}}"  method="post">
                 {{csrf_field()}}
                 <label for="email">דוא"ל</label>
-                <input type="email" name="email" id="email" placeholder="הזן כתובת דואר אלקטרוני">
+                <span class="text-danger" data-id="email">{{ $errors->first('email') }}</span>
+                <span class="text-danger email_error" style="display: none;">דוא"ל תקין בלבד.</span>
+                <input type="email" value="{{old('email')}}" @if ($errors->has('email')) class="has-error" @endif onkeyup="checkEmail(this.value)" name="email" id="email" placeholder="הזן כתובת דואר אלקטרוני" required>
 
 
                 <label for="phone">טלפון</label>
-                <input type="tel" name="phone" id="phone" placeholder="הזן מספר טלפון">
+                <span class="text-danger" id="phone-valid" data-id="phone">{{ $errors->first('phone') }}</span>
+                <span class="text-danger erphone_error" style="display: none;">טלפון בעל 8 תווים לפחות</span>
+                <input type="tel" value="{{old('phone')}}" @if ($errors->has('phone')) class="has-error" @endif onkeyup="checkphone(this.value)" name="phone" id="phone" placeholder="הזן מספר טלפון" required>
 
 
                 <label for="password">סיסמה</label>
-                <input type="password" name="password" id="password" placeholder="הזן את סיסמתך">
+                <span class="text-danger" data-id="password">{{ $errors->first('password') }}</span>
+                <span class="text-danger spassword_error" style="display: none;">מינימום 6 תווים לסיסמה.</span>
+                <input type="password" @if ($errors->has('password')) class="has-error" @endif name="password" id="password" class="password" onkeyup="checkSPassword(this.value)" placeholder="הזן את סיסמתך" required>
 
                 <label for="password_confirmed">אמת סיסמה</label>
-                <input type="password" name="password_confirmed" id="password_confirmed" placeholder="הזמן סיסמה שנית">
+                <span class="text-danger" data-id="password_confirmed">{{ $errors->first('password_confirmed') }}</span>
+                <span class="text-danger mpassword_error" style="display: none;">הסיסמאות לא תואמות.</span>
+                <input type="password" @if ($errors->has('password_confirmed')) class="has-error" @endif name="password_confirmed" id="password_confirmed" onkeyup="checkMatchPass(this.value)" placeholder="הזמן סיסמה שנית" required>
 
         </div>
 
@@ -86,9 +94,16 @@
     </div>
 
 </div>
+<?php
+if($errors->first('email') || $errors->first('phone') || $errors->first('password') || $errors->first('password_confirmed')){
+    echo '<script>$("#registerModal").css("display", "block");</script>';
+}
+?>
+
 
 <script>
     modal('#loginModal', '#login');
+    modal('#loginModal', '#loginsm');
     modal('#registerModal', '#register');
     modal('#forgotModal', '#forgot-password');
 

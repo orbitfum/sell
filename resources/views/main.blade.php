@@ -65,7 +65,7 @@
             <ul class="navuser">
                 <li id="register"><i class="fa fa-user-plus" aria-hidden="true"> </i>   הרשמה
                     </li>
-                <li id="login" class="hide-for-large hide-for-medium-only"><i class="fa fa-sign-in" aria-hidden="true"></i> התחבר </li>
+                <li id="loginsm" class="hide-for-large hide-for-medium-only"><i class="fa fa-sign-in" aria-hidden="true"></i> התחבר </li>
                 <li id="login" class="hide-for-small-only"><i class="fa fa-sign-in" aria-hidden="true"></i> התחברות </li>
                 <li class="cartvav"><i class="fa fa-shopping-cart" aria-hidden="true"></i><div id="cart">
 
@@ -404,15 +404,7 @@
         </div><!-- Row /-->
     </div>
     <!-- Header Ends /-->
-    @if ($errors->any())
-        <div class="alert alert-danger notification">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-@endif
+
 @yield('content')
 
 <!-- Footer -->
@@ -547,6 +539,8 @@
     </div>
 </div>
 
+@include('inc.error')
+
 <!-- Including Jquery so All js Can run -->
 <script type="text/javascript" src="{{asset('js/jquery-1.12.3.min.js')}}"></script>
 
@@ -575,11 +569,13 @@
 <script type="text/javascript" src="{{asset('lib/js/extensions/revolution.extension.video.min.js')}}"></script>
 <!-- Revolution Slider Files Ends Delete if not using slider. -->
 
+
+
 <!-- Webful JS -->
 <script src="{{asset('js/webful.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
-
 @include('inc.modal')
+
 
 @yield('jscode')
 

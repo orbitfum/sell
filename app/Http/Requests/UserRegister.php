@@ -25,7 +25,7 @@ class UserRegister extends FormRequest
     {
         return [
             'email' => 'email|unique:users,mail',
-            'phone' => 'min:9|max:11|unique:users,mobile',
+            'phone' => 'min:8|max:15|unique:users,mobile',
             'password' => 'min:6|max:50',
             'password_confirmed' => 'same:password',
 
@@ -46,7 +46,7 @@ class UserRegister extends FormRequest
             'phone.email' => 'אנא הכנס מספר פלאפון תקין',
             'password.min' => 'הסיסמה חייבת להכיל 6 תווים לפחות',
             'password.max' => 'הסיסמה ארוכה אנא בחר אחרת',
-            'Passwordagin.same' => 'הסיסמאות לא תאומות',
+            'password_confirmed.same' => 'הסיסמאות לא תאומות',
         ];
     }
 }

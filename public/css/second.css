@@ -361,3 +361,47 @@ input:checked + label {
     color: white;
 }
 .modal-body input, .modal-body label{padding: 0px 15px;}
+
+.text-danger {
+    color: #a94442;
+}
+
+.modal-body input[type="text"].has-error, .modal-body input[type="email"].has-error,.modal-body input[type="tel"].has-error, .modal-body input[type="password"].has-error, .modal-body textarea#message.has-error{
+    border: solid rgba(220, 20, 60, 0.49) 1px;
+    box-shadow: inset 0 0 2px rgba(237, 64, 87, 0.42);
+    background-color: rgba(237, 64, 87, 0.15);
+}
+
+#notification{
+    position: absolute;
+    z-index: 999;
+    top: 40px;
+    left: 0;
+    right: 0;
+    font-weight: bolder;
+    font-size: 24px;
+    text-align: center;
+    line-height: 2.5;
+    overflow: hidden;
+    box-shadow:         0 0 5px black;
+}
+.alert-success{
+    background: #3c763d;
+    color: #d6e9c6;
+    border-color: #d6e9c6;
+}
+@-webkit-keyframes slideDown {
+    0%, 100% { -webkit-transform: translateY(-100px); }
+    10%, 90% { -webkit-transform: translateY(0px); }
+}
+@-moz-keyframes slideDown {
+    0%, 100% { -moz-transform: translateY(-100px); }
+    10%, 90% { -moz-transform: translateY(0px); }
+}
+#notification {
+    -webkit-transform: translateY(-100px);
+    -webkit-animation: slideDown 3.5s 1.0s 1 linear forwards;
+    -moz-transform:    translateY(-100px);
+    -moz-animation:    slideDown 3.5s 1.0s 1 linear forwards;
+
+}

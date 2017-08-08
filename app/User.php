@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Hash;
+use Hash, Session;
 
 class User extends Model
 {
@@ -21,10 +21,7 @@ class User extends Model
         $add->pass =  Hash::make($input['password']);
 
         $add->save();
-
-
-
-
+        Session::flash('success', 'נרשמת בהצלחה! כעת נחבר אותך :).');
 
 
     }
