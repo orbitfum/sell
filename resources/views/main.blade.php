@@ -65,7 +65,8 @@
             <ul class="navuser">
                 <li id="register"><i class="fa fa-user-plus" aria-hidden="true"> </i>   הרשמה
                     </li>
-                <li id="login"><i class="fa fa-sign-in" aria-hidden="true"></i> התחברות </li>
+                <li id="login" class="hide-for-large hide-for-medium-only"><i class="fa fa-sign-in" aria-hidden="true"></i> התחבר </li>
+                <li id="login" class="hide-for-small-only"><i class="fa fa-sign-in" aria-hidden="true"></i> התחברות </li>
                 <li class="cartvav"><i class="fa fa-shopping-cart" aria-hidden="true"></i><div id="cart">
 
                         @if(!Cart::isEmpty())
@@ -83,6 +84,190 @@
             <ul class="navuserleft  hide-for-small-only">
                 <li> <i class="fa fa-envelope-o" aria-hidden="true"></i> צור קשר </li>
                 <li><i class="fa fa-info" aria-hidden="true"></i> מי אנחנו </li>
+
+            </ul>
+
+            <ul class="navbar-cat hide-for-large-only" style="margin-left: 0">
+                <li>
+                    <div class="top-bar-title float-right hide-for-large-only">
+                        <span class="menu-icon light float-left" data-toggle="categories-dropdown"></span>
+                        <div class="dropdown-pane main-nav-container bottom left" id="categories-dropdown" data-dropdown
+                             data-hover="true" data-hover-pane="true">
+                            <!-- Categories -->
+                            <div class="widget categories">
+                                <h2>Categories</h2>
+
+                                <nav class="widget-content">
+                                    <ul class="menu dropdown vertical" data-responsive-menu="accordion medium-dropdown">
+                                        <li class="mega-menu parent-nav"><a href="#"><i
+                                                        class="flaticon-black-female-dress"></i> Women’s Clothing</a>
+                                            <ul class="child-nav backgroundstyle1">
+                                                <li>
+                                                    <div class="medium-3 small-12 columns inner-mega">
+                                                        <h4>Hot Categories</h4>
+                                                        <ul class="menu vertical">
+                                                            <li><a href="#">Dresses</a></li>
+                                                            <li><a href="#">Blouses & Shirts</a></li>
+                                                            <li><a href="#">T-Shirts</a></li>
+                                                            <li><a href="#">Tank Tops</a></li>
+                                                            <li><a href="#">Jumpsuits & Rompers</a></li>
+                                                            <li><a href="#">Bra & Brief Sets</a></li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="medium-3 small-12 columns inner-mega">
+                                                        <h4>Bottoms</h4>
+                                                        <ul class="menu vertical">
+                                                            <li><a href="#">Skirts</a></li>
+                                                            <li><a href="#">Shorts</a></li>
+                                                            <li><a href="#">Jeans</a></li>
+                                                            <li><a href="#">Pants & Capris</a></li>
+                                                            <li><a href="#">Leggings</a></li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="medium-3 small-12 columns inner-mega">
+                                                        <h4>Outwear & Sweaters</h4>
+                                                        <ul class="menu vertical">
+                                                            <li><a href="#">Blazers</a></li>
+                                                            <li><a href="#">Hoodies & Sweatshirts</a></li>
+                                                            <li><a href="#">Basic Jackets</a></li>
+                                                            <li><a href="#">Trench</a></li>
+                                                            <li><a href="#">Cardigans</a></li>
+                                                            <li><a href="#">Pullovers</a></li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="medium-3 small-12 columns inner-mega">
+                                                        <h4>Intim & Sleepwear</h4>
+                                                        <ul class="menu vertical">
+                                                            <li><a href="#">Bras</a></li>
+                                                            <li><a href="#">Panties</a></li>
+                                                            <li><a href="#">Shapers</a></li>
+                                                            <li><a href="#">Bra & Brief Sets</a></li>
+                                                            <li><a href="#">Nightgowns & Sleepshirts</a></li>
+                                                            <li><a href="#">Pajama Sets</a></li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="medium-3 small-12 columns inner-mega">
+                                                        <h4>Weddings & Events</h4>
+                                                        <ul class="menu vertical">
+                                                            <li><a href="#">Wedding Dresses</a></li>
+                                                            <li><a href="#">Evening Dresses</a></li>
+                                                            <li><a href="#">Prom Dresses</a></li>
+                                                            <li><a href="#">Bridesmaid Dresses</a></li>
+                                                            <li><a href="#">Flower Girl Dresses</a></li>
+                                                            <li><a href="#">Cocktail Dresses</a></li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="medium-3 small-12 columns inner-mega float-left">
+                                                        <h4>Accessories</h4>
+                                                        <ul class="menu vertical">
+                                                            <li><a href="#">Sunglasses</a></li>
+                                                            <li><a href="#">Headwear</a></li>
+                                                            <li><a href="#">Baseball Caps</a></li>
+                                                            <li><a href="#">Scarves & Wraps</a></li>
+                                                            <li><a href="#">Belts</a></li>
+                                                            <li><a href="#">Skullies & Beanies</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="mega-menu parent-nav"><a href="#"><i
+                                                        class="flaticon-male-businessman-clothes"></i> Men’s Clothing</a>
+                                            <ul class="child-nav second-child-nav backgroundstyle2">
+                                                <li>
+                                                    <div class="medium-3 small-12 columns inner-mega">
+                                                        <h4>Hot Categories</h4>
+                                                        <ul class="menu vertical">
+                                                            <li><a href="#">Dresses</a></li>
+                                                            <li><a href="#">Blouses & Shirts</a></li>
+                                                            <li><a href="#">T-Shirts</a></li>
+                                                            <li><a href="#">Tank Tops</a></li>
+                                                            <li><a href="#">Jumpsuits & Rompers</a></li>
+                                                            <li><a href="#">Bra & Brief Sets</a></li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="medium-3 small-12 columns inner-mega">
+                                                        <h4>Bottoms</h4>
+                                                        <ul class="menu vertical">
+                                                            <li><a href="#">Skirts</a></li>
+                                                            <li><a href="#">Shorts</a></li>
+                                                            <li><a href="#">Jeans</a></li>
+                                                            <li><a href="#">Pants & Capris</a></li>
+                                                            <li><a href="#">Leggings</a></li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="medium-3 small-12 columns inner-mega">
+                                                        <h4>Outwear & Sweaters</h4>
+                                                        <ul class="menu vertical">
+                                                            <li><a href="#">Blazers</a></li>
+                                                            <li><a href="#">Hoodies & Sweatshirts</a></li>
+                                                            <li><a href="#">Basic Jackets</a></li>
+                                                            <li><a href="#">Trench</a></li>
+                                                            <li><a href="#">Cardigans</a></li>
+                                                            <li><a href="#">Pullovers</a></li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="medium-3 small-12 columns inner-mega">
+                                                        <h4>Intim & Sleepwear</h4>
+                                                        <ul class="menu vertical">
+                                                            <li><a href="#">Bras</a></li>
+                                                            <li><a href="#">Panties</a></li>
+                                                            <li><a href="#">Shapers</a></li>
+                                                            <li><a href="#">Bra & Brief Sets</a></li>
+                                                            <li><a href="#">Nightgowns & Sleepshirts</a></li>
+                                                            <li><a href="#">Pajama Sets</a></li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="medium-3 small-12 columns inner-mega float-left">
+                                                        <h4>Weddings & Events</h4>
+                                                        <ul class="menu vertical">
+                                                            <li><a href="#">Wedding Dresses</a></li>
+                                                            <li><a href="#">Evening Dresses</a></li>
+                                                            <li><a href="#">Prom Dresses</a></li>
+                                                            <li><a href="#">Bridesmaid Dresses</a></li>
+                                                            <li><a href="#">Flower Girl Dresses</a></li>
+                                                            <li><a href="#">Cocktail Dresses</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-mobile" aria-hidden="true"></i> Phones & Accessories</a>
+                                        </li>
+                                        <li><a href="#"><i class="flaticon-monitor"></i> Computer & Office</a></li>
+                                        <li><a href="#"><i class="flaticon-tablet-pdf-hand-pointing"></i> Consumer
+                                                Electronics</a></li>
+                                        <li><a href="#"><i class="flaticon-gold-ingots"></i> Jewelry &amp; Accessories</a>
+                                        </li>
+                                        <li><a href="#"><i class="flaticon-book-shopping-cart"></i> Home &amp; Garden</a>
+                                        </li>
+                                        <li><a href="#"><i class="flaticon-feminine-heel-shoe"></i> Bags & Shoes</a></li>
+                                        <li><a href="#"><i class="flaticon-gift-box-with-ribbon"></i> Toys, Kids & Baby</a>
+                                        </li>
+                                        <li><a href="#"><i class="flaticon-shoe-side"></i> Sports &amp; Outdoor</a></li>
+                                        <li><a href="#"><i
+                                                        class="flaticon-drink-glass-with-an-umbrella-and-a-fruit-slice-on-border"></i>
+                                                Health &amp; Beauty</a></li>
+                                        <li><a href="#"><i class="flaticon-business-calendar-symbol-on-day-11"></i> Watches</a>
+                                        </li>
+                                    </ul>
+                                </nav><!-- widget-content /-->
+
+                            </div><!-- widget /-->
+                            <!-- Categories -->
+                        </div> <!-- drop down container /-->
+                    </div> <!-- Categories /-->
+
+                </li>
 
             </ul>
 
@@ -212,183 +397,6 @@
                 </div><!-- Logo /-->
 
                 <!-- Categories -->
-                <div class="top-bar-title float-right hide-for-large-only">
-                    <span class="menu-icon light float-left" data-toggle="categories-dropdown"></span>
-                    <div class="dropdown-pane main-nav-container bottom right" id="categories-dropdown" data-dropdown
-                         data-hover="true" data-hover-pane="true">
-                        <!-- Categories -->
-                        <div class="widget categories">
-                            <h2>Categories</h2>
-
-                            <nav class="widget-content">
-                                <ul class="menu dropdown vertical" data-responsive-menu="accordion medium-dropdown">
-                                    <li class="mega-menu parent-nav"><a href="#"><i
-                                                    class="flaticon-black-female-dress"></i> Women’s Clothing</a>
-                                        <ul class="child-nav backgroundstyle1">
-                                            <li>
-                                                <div class="medium-3 small-12 columns inner-mega">
-                                                    <h4>Hot Categories</h4>
-                                                    <ul class="menu vertical">
-                                                        <li><a href="#">Dresses</a></li>
-                                                        <li><a href="#">Blouses & Shirts</a></li>
-                                                        <li><a href="#">T-Shirts</a></li>
-                                                        <li><a href="#">Tank Tops</a></li>
-                                                        <li><a href="#">Jumpsuits & Rompers</a></li>
-                                                        <li><a href="#">Bra & Brief Sets</a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="medium-3 small-12 columns inner-mega">
-                                                    <h4>Bottoms</h4>
-                                                    <ul class="menu vertical">
-                                                        <li><a href="#">Skirts</a></li>
-                                                        <li><a href="#">Shorts</a></li>
-                                                        <li><a href="#">Jeans</a></li>
-                                                        <li><a href="#">Pants & Capris</a></li>
-                                                        <li><a href="#">Leggings</a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="medium-3 small-12 columns inner-mega">
-                                                    <h4>Outwear & Sweaters</h4>
-                                                    <ul class="menu vertical">
-                                                        <li><a href="#">Blazers</a></li>
-                                                        <li><a href="#">Hoodies & Sweatshirts</a></li>
-                                                        <li><a href="#">Basic Jackets</a></li>
-                                                        <li><a href="#">Trench</a></li>
-                                                        <li><a href="#">Cardigans</a></li>
-                                                        <li><a href="#">Pullovers</a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="medium-3 small-12 columns inner-mega">
-                                                    <h4>Intim & Sleepwear</h4>
-                                                    <ul class="menu vertical">
-                                                        <li><a href="#">Bras</a></li>
-                                                        <li><a href="#">Panties</a></li>
-                                                        <li><a href="#">Shapers</a></li>
-                                                        <li><a href="#">Bra & Brief Sets</a></li>
-                                                        <li><a href="#">Nightgowns & Sleepshirts</a></li>
-                                                        <li><a href="#">Pajama Sets</a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="medium-3 small-12 columns inner-mega">
-                                                    <h4>Weddings & Events</h4>
-                                                    <ul class="menu vertical">
-                                                        <li><a href="#">Wedding Dresses</a></li>
-                                                        <li><a href="#">Evening Dresses</a></li>
-                                                        <li><a href="#">Prom Dresses</a></li>
-                                                        <li><a href="#">Bridesmaid Dresses</a></li>
-                                                        <li><a href="#">Flower Girl Dresses</a></li>
-                                                        <li><a href="#">Cocktail Dresses</a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="medium-3 small-12 columns inner-mega float-left">
-                                                    <h4>Accessories</h4>
-                                                    <ul class="menu vertical">
-                                                        <li><a href="#">Sunglasses</a></li>
-                                                        <li><a href="#">Headwear</a></li>
-                                                        <li><a href="#">Baseball Caps</a></li>
-                                                        <li><a href="#">Scarves & Wraps</a></li>
-                                                        <li><a href="#">Belts</a></li>
-                                                        <li><a href="#">Skullies & Beanies</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="mega-menu parent-nav"><a href="#"><i
-                                                    class="flaticon-male-businessman-clothes"></i> Men’s Clothing</a>
-                                        <ul class="child-nav second-child-nav backgroundstyle2">
-                                            <li>
-                                                <div class="medium-3 small-12 columns inner-mega">
-                                                    <h4>Hot Categories</h4>
-                                                    <ul class="menu vertical">
-                                                        <li><a href="#">Dresses</a></li>
-                                                        <li><a href="#">Blouses & Shirts</a></li>
-                                                        <li><a href="#">T-Shirts</a></li>
-                                                        <li><a href="#">Tank Tops</a></li>
-                                                        <li><a href="#">Jumpsuits & Rompers</a></li>
-                                                        <li><a href="#">Bra & Brief Sets</a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="medium-3 small-12 columns inner-mega">
-                                                    <h4>Bottoms</h4>
-                                                    <ul class="menu vertical">
-                                                        <li><a href="#">Skirts</a></li>
-                                                        <li><a href="#">Shorts</a></li>
-                                                        <li><a href="#">Jeans</a></li>
-                                                        <li><a href="#">Pants & Capris</a></li>
-                                                        <li><a href="#">Leggings</a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="medium-3 small-12 columns inner-mega">
-                                                    <h4>Outwear & Sweaters</h4>
-                                                    <ul class="menu vertical">
-                                                        <li><a href="#">Blazers</a></li>
-                                                        <li><a href="#">Hoodies & Sweatshirts</a></li>
-                                                        <li><a href="#">Basic Jackets</a></li>
-                                                        <li><a href="#">Trench</a></li>
-                                                        <li><a href="#">Cardigans</a></li>
-                                                        <li><a href="#">Pullovers</a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="medium-3 small-12 columns inner-mega">
-                                                    <h4>Intim & Sleepwear</h4>
-                                                    <ul class="menu vertical">
-                                                        <li><a href="#">Bras</a></li>
-                                                        <li><a href="#">Panties</a></li>
-                                                        <li><a href="#">Shapers</a></li>
-                                                        <li><a href="#">Bra & Brief Sets</a></li>
-                                                        <li><a href="#">Nightgowns & Sleepshirts</a></li>
-                                                        <li><a href="#">Pajama Sets</a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="medium-3 small-12 columns inner-mega float-left">
-                                                    <h4>Weddings & Events</h4>
-                                                    <ul class="menu vertical">
-                                                        <li><a href="#">Wedding Dresses</a></li>
-                                                        <li><a href="#">Evening Dresses</a></li>
-                                                        <li><a href="#">Prom Dresses</a></li>
-                                                        <li><a href="#">Bridesmaid Dresses</a></li>
-                                                        <li><a href="#">Flower Girl Dresses</a></li>
-                                                        <li><a href="#">Cocktail Dresses</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-mobile" aria-hidden="true"></i> Phones & Accessories</a>
-                                    </li>
-                                    <li><a href="#"><i class="flaticon-monitor"></i> Computer & Office</a></li>
-                                    <li><a href="#"><i class="flaticon-tablet-pdf-hand-pointing"></i> Consumer
-                                            Electronics</a></li>
-                                    <li><a href="#"><i class="flaticon-gold-ingots"></i> Jewelry &amp; Accessories</a>
-                                    </li>
-                                    <li><a href="#"><i class="flaticon-book-shopping-cart"></i> Home &amp; Garden</a>
-                                    </li>
-                                    <li><a href="#"><i class="flaticon-feminine-heel-shoe"></i> Bags & Shoes</a></li>
-                                    <li><a href="#"><i class="flaticon-gift-box-with-ribbon"></i> Toys, Kids & Baby</a>
-                                    </li>
-                                    <li><a href="#"><i class="flaticon-shoe-side"></i> Sports &amp; Outdoor</a></li>
-                                    <li><a href="#"><i
-                                                    class="flaticon-drink-glass-with-an-umbrella-and-a-fruit-slice-on-border"></i>
-                                            Health &amp; Beauty</a></li>
-                                    <li><a href="#"><i class="flaticon-business-calendar-symbol-on-day-11"></i> Watches</a>
-                                    </li>
-                                </ul>
-                            </nav><!-- widget-content /-->
-
-                        </div><!-- widget /-->
-                        <!-- Categories -->
-                    </div> <!-- drop down container /-->
-                </div> <!-- Categories /-->
 
 
             </div><!-- first column /-->

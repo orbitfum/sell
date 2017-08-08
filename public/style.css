@@ -237,9 +237,9 @@ Top bar CSS ends
 }
 
 .top-bar-title {
-    padding: 10px;
-    background-color: #f79800;
-    margin-top: 9px;
+    padding: 12px;
+    background-color: #0f99de;
+    margin-top: 0px;
     margin-bottom: 9px;
     margin-right: 0px;
     position: relative;
@@ -257,7 +257,7 @@ Top bar CSS ends
 }
 
 .top-bar-title:hover {
-    background-color: #0f99de;
+    background-color: #8ec6de;
 }
 
 .main-search-form {
@@ -430,8 +430,8 @@ Banner CSS Ends
 .mega-menu .child-nav {
     min-width: 901px;
     min-height: 432px;
-    max-width: 901px;
-    max-height: 432px;
+    /*max-width: 901px;*/
+    /*max-height: 432px;*/
     border: 1px solid #ededed;
 }
 
@@ -502,7 +502,7 @@ Categories Navigation ends
 
 .widget .menu {
 
-    height: 400px;
+    /*height: 400px;*/
     overflow: auto;
 
 }
@@ -2226,14 +2226,21 @@ add css
 }
 
 .topnav .navuserleft li {
-
-    padding: 16px 10px 11px 10px;
+    padding: 15px 10px 11px 10px;
     font-weight: 300;
     display: inline-block;
     border-left: #4a6de3 solid 1px;
     min-width: 40px;
     line-height: 0px;
+}
+.navbar-cat{
+    list-style: none;
+    float: left;
+}
 
+.navbar-cat li {
+    display: inline-block;
+    line-height: 0px;
 }
 
 .topnav .navuserleft li:hover {
@@ -3151,8 +3158,8 @@ Footer CSS ends here
     .mega-menu .child-nav {
         min-width: auto;
         min-height: auto;
-        max-width: auto;
-        max-height: auto;
+        /*max-width: auto;*/
+        /*max-height: auto;*/
         border: 1px solid #ededed;
     }
 

@@ -34,7 +34,7 @@
     <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-header">
-            <span class="regclose">&times;</span>
+            <span class="close">&times;</span>
             <h3>הרשמה לזה-קל</h3>
         </div>
         <div class="modal-body">

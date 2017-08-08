@@ -126,6 +126,9 @@ input:checked + label {
 
 @media screen and (max-width: 1025px) {
 
+    .modal-body input, .modal-body label{padding: 0px 15px; font-size: 0.875rem}
+
+
     section {
         padding: 0px 0 0;
     }
@@ -142,9 +145,7 @@ input:checked + label {
 
 }
 @media screen and (max-width: 426px) {
-    .menu{
-        display: none;
-    }
+
     label {
         padding: 0px;
     }
@@ -166,14 +167,19 @@ input:checked + label {
         left: 37px;
         font-size: 13px;
         background-size: 11px 25px;
+        top: 0px;
     }
     .main-search-form .button{
         font-size: 18px;
         padding: 9px;
+        top: 0px;
     }
 }
 
 @media screen and (max-width: 376px) {
+
+    .modal-body input, .modal-body label{padding: 0px 15px; font-size: 0.875rem}
+
     label {
         padding: 0px;
     }
@@ -278,7 +284,7 @@ input:checked + label {
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
+    padding-top: 50px;
     left: 0;
     top: 0;
     width: 100%;
@@ -294,6 +300,7 @@ input:checked + label {
     margin: auto;
     padding: 0;
     border: 1px solid #888;
+    min-width: 300px;
     width: 40%;
     left: 0;
     top: 0;
@@ -317,7 +324,7 @@ input:checked + label {
     to {top:0; opacity:1}
 }
 
-.close, .regclose {
+.close {
     color: white;
     float: right;
     font-size: 28px;
@@ -325,9 +332,7 @@ input:checked + label {
 }
 
 .close:hover,
-.close:focus,
-.regclose:hover,
-.regclose:focus
+.close:focus
 {
     color: #000;
     text-decoration: none;
@@ -355,3 +360,4 @@ input:checked + label {
     background-color: #ebebeb;
     color: white;
 }
+.modal-body input, .modal-body label{padding: 0px 15px;}
