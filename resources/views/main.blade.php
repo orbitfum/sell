@@ -63,11 +63,21 @@
     <div class="topnav">
         <div class="row" style="position: relative">
             <ul class="navuser">
-                <li id="register"><i class="fa fa-user-plus" aria-hidden="true"> </i>   הרשמה
+                @if(Session::has('user_name'))
+                    <li>ברוך הבא {{Session::get('user_name')}}</li>
+                    <li><a href="#" style="color: #fff;">התנתק</a></li>
+                @else
+                    <li id="register"><i class="fa fa-user-plus" aria-hidden="true"> </i> הרשמה
                     </li>
-                <li id="loginsm" class="hide-for-large hide-for-medium-only"><i class="fa fa-sign-in" aria-hidden="true"></i> התחבר </li>
-                <li id="login" class="hide-for-small-only"><i class="fa fa-sign-in" aria-hidden="true"></i> התחברות </li>
-                <li class="cartvav"><i class="fa fa-shopping-cart" aria-hidden="true"></i><div id="cart">
+                    <li id="loginsm" class="hide-for-large hide-for-medium-only"><i class="fa fa-sign-in"
+                                                                                    aria-hidden="true"></i> התחבר
+                    </li>
+                    <li id="login" class="hide-for-small-only"><i class="fa fa-sign-in" aria-hidden="true"></i> התחברות
+                    </li>
+
+                @endif
+                <li class="cartvav"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <div id="cart">
 
                         @if(!Cart::isEmpty())
 
@@ -76,14 +86,17 @@
                             0
                         @endif
 
-                    </div> </li>
-                <li class="cartvav"><i class="fa fa-heart-o" aria-hidden="true"></i> <div id="wish">0</div></li>
+                    </div>
+                </li>
+                <li class="cartvav"><i class="fa fa-heart-o" aria-hidden="true"></i>
+                    <div id="wish">0</div>
+                </li>
             </ul>
 
 
             <ul class="navuserleft  hide-for-small-only">
-                <li> <i class="fa fa-envelope-o" aria-hidden="true"></i> צור קשר </li>
-                <li><i class="fa fa-info" aria-hidden="true"></i> מי אנחנו </li>
+                <li><i class="fa fa-envelope-o" aria-hidden="true"></i> צור קשר</li>
+                <li><i class="fa fa-info" aria-hidden="true"></i> מי אנחנו</li>
 
             </ul>
 
@@ -177,7 +190,8 @@
                                             </ul>
                                         </li>
                                         <li class="mega-menu parent-nav"><a href="#"><i
-                                                        class="flaticon-male-businessman-clothes"></i> Men’s Clothing</a>
+                                                        class="flaticon-male-businessman-clothes"></i> Men’s
+                                                Clothing</a>
                                             <ul class="child-nav second-child-nav backgroundstyle2">
                                                 <li>
                                                     <div class="medium-3 small-12 columns inner-mega">
@@ -241,23 +255,28 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="#"><i class="fa fa-mobile" aria-hidden="true"></i> Phones & Accessories</a>
+                                        <li><a href="#"><i class="fa fa-mobile" aria-hidden="true"></i> Phones &
+                                                Accessories</a>
                                         </li>
                                         <li><a href="#"><i class="flaticon-monitor"></i> Computer & Office</a></li>
                                         <li><a href="#"><i class="flaticon-tablet-pdf-hand-pointing"></i> Consumer
                                                 Electronics</a></li>
-                                        <li><a href="#"><i class="flaticon-gold-ingots"></i> Jewelry &amp; Accessories</a>
+                                        <li><a href="#"><i class="flaticon-gold-ingots"></i> Jewelry &amp;
+                                                Accessories</a>
                                         </li>
-                                        <li><a href="#"><i class="flaticon-book-shopping-cart"></i> Home &amp; Garden</a>
+                                        <li><a href="#"><i class="flaticon-book-shopping-cart"></i> Home &amp;
+                                                Garden</a>
                                         </li>
-                                        <li><a href="#"><i class="flaticon-feminine-heel-shoe"></i> Bags & Shoes</a></li>
+                                        <li><a href="#"><i class="flaticon-feminine-heel-shoe"></i> Bags & Shoes</a>
+                                        </li>
                                         <li><a href="#"><i class="flaticon-gift-box-with-ribbon"></i> Toys, Kids & Baby</a>
                                         </li>
                                         <li><a href="#"><i class="flaticon-shoe-side"></i> Sports &amp; Outdoor</a></li>
                                         <li><a href="#"><i
                                                         class="flaticon-drink-glass-with-an-umbrella-and-a-fruit-slice-on-border"></i>
                                                 Health &amp; Beauty</a></li>
-                                        <li><a href="#"><i class="flaticon-business-calendar-symbol-on-day-11"></i> Watches</a>
+                                        <li><a href="#"><i class="flaticon-business-calendar-symbol-on-day-11"></i>
+                                                Watches</a>
                                         </li>
                                     </ul>
                                 </nav><!-- widget-content /-->
@@ -272,7 +291,9 @@
             </ul>
 
             <div class="facbook hide-for-small-only">
-                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2F%25D7%2596%25D7%2594-%25D7%25A7%25D7%259C-%25D7%259C%25D7%25A7%25D7%25A0%25D7%2595%25D7%25AA-%25D7%259E%25D7%2597%25D7%2595%25D7%259C-272067086606441%2F&width=80&layout=button_count&action=like&size=large&show_faces=false&share=false&height=21&appId=1899215936968165" width="80" height="41" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2F%25D7%2596%25D7%2594-%25D7%25A7%25D7%259C-%25D7%259C%25D7%25A7%25D7%25A0%25D7%2595%25D7%25AA-%25D7%259E%25D7%2597%25D7%2595%25D7%259C-272067086606441%2F&width=80&layout=button_count&action=like&size=large&show_faces=false&share=false&height=21&appId=1899215936968165"
+                        width="80" height="41" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                        allowTransparency="true"></iframe>
             </div>
 
         </div>
@@ -568,7 +589,6 @@
 <script type="text/javascript" src="{{asset('lib/js/extensions/revolution.extension.slideanims.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('lib/js/extensions/revolution.extension.video.min.js')}}"></script>
 <!-- Revolution Slider Files Ends Delete if not using slider. -->
-
 
 
 <!-- Webful JS -->

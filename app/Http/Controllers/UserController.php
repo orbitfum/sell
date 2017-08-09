@@ -16,4 +16,13 @@ class UserController extends MainController
         return back()->withInput();
 
     }
+
+    public function login(Request $request)
+    {
+
+        User::userLogin($request);
+
+        return back()->withInput();
+
+    }
 }

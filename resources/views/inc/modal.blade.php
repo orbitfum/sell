@@ -7,7 +7,8 @@
             <h3>התחברות לזה-קל</h3>
         </div>
         <div class="modal-body">
-            <form action="post" target="">
+            <form action="{{url('user/login')}}" method="post" target="">
+                {{csrf_field()}}
                 <label for="login">דוא"ל או טלפון</label>
                 <input type="text" name="login" id="login" placeholder="הזן כתובת דואר או טלפון">
 
