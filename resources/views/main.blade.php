@@ -65,7 +65,7 @@
             <ul class="navuser">
                 @if(Session::has('user_name'))
                     <li>ברוך הבא {{Session::get('user_name')}}</li>
-                    <li><a href="#" style="color: #fff;">התנתק</a></li>
+                    <li><a href="{{url('user/logut')}}" style="color: #fff;">התנתק</a></li>
                 @else
                     <li id="register"><i class="fa fa-user-plus" aria-hidden="true"> </i> הרשמה
                     </li>
@@ -76,7 +76,7 @@
                     </li>
 
                 @endif
-                <li class="cartvav"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <li class="cartvav"> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     <div id="cart">
 
                         @if(!Cart::isEmpty())

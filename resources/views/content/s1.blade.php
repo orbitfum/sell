@@ -273,14 +273,14 @@
                                             <div class="product-meta">
                                                 <div class="prices" dir="rtl">
                                                     @if($row['sellingStatus']['currentPrice']==$row['sellingStatus']['convertedCurrentPrice'])
-                                                        <span class="price">{{number_format($row['sellingStatus']['currentPrice'],2)}}
+                                                        <span class="price">{{ HR::currency($row['sellingStatus']['currentPrice'])}}
                                                             ₪</span>
 
                                                     @else
-                                                        <span class="price">{{number_format($row['sellingStatus']['currentPrice'],2)}}
+                                                        <span class="price">{{ HR::currency($row['sellingStatus']['currentPrice'])}}
                                                             ₪</span>
 
-                                                        <span class="sale-price">{{number_format($row['sellingStatus']['convertedCurrentPrice'],2)}}
+                                                        <span class="sale-price">{{HR::currency($row['sellingStatus']['convertedCurrentPrice'])}}
                                                             ₪</span>
                                                     @endif
                                                 </div>
