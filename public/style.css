@@ -2108,10 +2108,10 @@ Single Store CSS Ends
     width: 49%;
 }
 
-
-.item-quantity{
+.item-quantity {
     margin-bottom: 40px;
 }
+
 .item-quantity .qty {
     margin-bottom: 0px;
     padding: 5px;
@@ -2178,38 +2178,47 @@ add css
     direction: rtl;
     height: 40px;
     border-bottom: 1px solid rgba(80, 117, 249, 0.6);
-
     position: fixed;
 
 }
 
 .topnav .navuser {
     list-style: none;
-    float: right;
+    display: inline;
     direction: rtl;
     color: #FFFFFF;
 }
 
-.topnav .navuser .cartvav{
+.topnav .navuser .cartvav {
     font-size: 13pt;
     position: relative;
-    top: -4px;
+    top: -10px;
+    height: 47px;
 }
-.cartvav div{
-    top: -21px;
+
+.cartvav .acat {
+    color: #fff;
+    height: 20px;
+}
+
+.cartvav div {
+
+    top: -31px;
     position: relative;
     left: 8px;
     font-size: 13px;
 }
+
 .topnav .navuser li {
     padding: 16px 10px 11px 10px;
     font-weight: 300;
+    color: #fff;
     display: inline-block;
     border-left: #4a6de3 solid 1px;
     min-width: 40px;
     line-height: 0px;
     position: relative;
-    top: -16px;
+    top: -32px;
 }
 
 .topnav .navuser li:hover {
@@ -2233,7 +2242,8 @@ add css
     min-width: 40px;
     line-height: 0px;
 }
-.navbar-cat{
+
+.navbar-cat {
     list-style: none;
     float: left;
 }
@@ -2248,12 +2258,31 @@ add css
     cursor: pointer;
     background-color: #4787ed;
 }
+
 .facbook {
     position: absolute;
     top: 5px;
     left: -200px;
     height: 60px
 }
+
+.infoAddress {
+    background-color: #3853D8;
+
+}
+
+.infoAddress b {
+    color: #fff;
+    font-size: 15pt;
+    padding: 5px;
+    display: block;
+    text-align: center;
+    text-decoration: underline;
+    letter-spacing: 1.5px;
+
+
+}
+
 
 /*-----------------------
 21 - Content Blocks CSS Starts.
@@ -2862,7 +2891,7 @@ Information Boxes Ends
 }
 
 .content-container .title-section {
-    background-color: #4787ed;
+    background-color: #3853D8;
 }
 
 .content-container .title-section::after {

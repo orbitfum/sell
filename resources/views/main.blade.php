@@ -76,7 +76,7 @@
                     </li>
 
                 @endif
-                <li class="cartvav"> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <li class="cartvav"><a href="{{url('cart/mycart')}}" class="acat"> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     <div id="cart">
 
                         @if(!Cart::isEmpty())
@@ -87,9 +87,12 @@
                         @endif
 
                     </div>
+                    </a>
                 </li>
-                <li class="cartvav"><i class="fa fa-heart-o" aria-hidden="true"></i>
+                <li class="cartvav">
+                    <a href="#" class="acat"><i class="fa fa-heart-o" aria-hidden="true"></i>
                     <div id="wish">0</div>
+                    </a>
                 </li>
             </ul>
 

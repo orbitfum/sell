@@ -36,6 +36,7 @@ Route::group(['prefix' => 'ebay' ],function () {
 #cart
 Route::group(['prefix' => 'cart' ],function () {
     Route::get('mycart', 'PageController@cart');
+    Route::get('checkout', 'PageController@checkout');
 });
 
 
