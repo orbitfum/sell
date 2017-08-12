@@ -71,7 +71,7 @@
                                     </td>
 
                                     <td class="product-price">
-                                        <span class="amount">$&nbsp;{{$item['price']}}</span>
+                                        <span class="amount">₪&nbsp;{{$item['price']}}</span>
                                     </td>
 
                                     <td class="product-comment">
@@ -85,7 +85,7 @@
                                     </td>
 
                                     <td class="product-subtotal">
-                                        <span class="amount">$&nbsp;{{$item['price'] * $item['quantity']}}</span>
+                                        <span class="amount">₪&nbsp;{{$item['price'] * $item['quantity']}}</span>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -98,6 +98,8 @@
                             <b>פרטים עבור המשלוח</b>
                          <form  method="post" action="" dir="rtl">
                              {{csrf_field()}}
+                             <label for="email">דואר אלקטרוני</label>
+                             <input name="email" placeholder="דואר אלקטרוני" type="text">
                              <label for="name">שם פרטי ומשפחה <span>באנגלית</span></label>
                              <input name="name" placeholder="שם פרטי ומשפחה באנגלית" type="text">
                              <label for="phone">פלאפון</label>
