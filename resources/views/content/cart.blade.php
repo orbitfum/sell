@@ -67,7 +67,7 @@
                                     </td>
 
                                     <td class="product-name">
-                                        <a href="#">{{$item['name']}}</a>
+                                        {{$item['name']}}
 
                                         <div class="product-detail">
                                             מאפיינים:
