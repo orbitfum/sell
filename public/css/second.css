@@ -364,6 +364,8 @@ input:checked + label {
 
 .text-danger {
     color: #a94442;
+    font-weight: 700;
+    text-decoration-color: blanchedalmond;
 }
 
 .modal-body input[type="text"].has-error, .modal-body input[type="email"].has-error,.modal-body input[type="tel"].has-error, .modal-body input[type="password"].has-error, .modal-body textarea#message.has-error{
@@ -371,9 +373,13 @@ input:checked + label {
     box-shadow: inset 0 0 2px rgba(237, 64, 87, 0.42);
     background-color: rgba(237, 64, 87, 0.15);
 }
-
+input[type="text"].has-error, input[type="email"].has-error, input[type="tel"].has-error, input[type="password"].has-error, textarea#message.has-error{
+    border: solid rgba(220, 20, 60, 0.49) 1px;
+    box-shadow: inset 0 0 2px rgba(237, 64, 87, 0.42);
+    background-color: rgb(253, 202, 216);
+}
 #notification{
-    position: absolute;
+    position: fixed;
     z-index: 999;
     top: 40px;
     left: 0;

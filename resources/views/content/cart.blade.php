@@ -2,6 +2,8 @@
 
 @section ('content')
 <?php print_r($cart);?>
+
+
     <!-- Content Area -->
     <div class="content-container module contact-page">
 
@@ -29,33 +31,35 @@
         </div><!-- Row ends /-->
 
         <div class="row cart-page">
+            @if(!empty($cart))
 
             <div class="small-12 columns">
 
-                <div class="featured-area small-module">
-                    <div class="section-title">
-                        <div class="clearfix"></div>
-                    </div><!-- section title /-->
+                <div class="small-module">
 
-                    <div class="content-section new-items-wrap">
-                        <div class="medium-8 small-12 columns responsive-table">
+                        <div class="medium-8 small-12 columns responsive-table" style="padding-left: 0.4rem; padding-right: 0.4rem">
+
                             <table class="shop_table cart responsive">
                                 <thead>
                                 <tr>
-                                    <th class="product-name" colspan="3">Product</th>
-                                    <th class="product-price">Price</th>
-                                    <th class="product-notes">Your Comments</th>
-                                    <th class="product-quantity">Quantity</th>
-                                    <th class="product-subtotal">Total</th>
+                                    <th class="product-name" colspan="3">מוצר</th>
+                                    <th class="product-price">מחיר</th>
+                                    <th class="product-notes">משלוח</th>
+                                    <th class="product-quantity">כמות</th>
+                                    <th class="product-subtotal">סה"כ</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
+
                                 @foreach($cart as $item)
                                 <tr class="cart-item" data-id="{{$item['id']}}">
+                                    <div class="spinner-bg">
+                                        <div class="dot1"></div>
+                                        <div class="dot2"></div></div>
 
                                     <td class="product-remove">
-                                        <a href="" class="remove" title="Remove this item" data-id="{{$item['id']}}"><span class="fa fa-close"></span></a>
+                                        <a href="" class="remove-item" title="Remove this item" data-id="{{$item['id']}}"><span class="fa fa-close"></span></a>
                                     </td>
 
                                     <td class="product-thumbnail">
@@ -66,7 +70,15 @@
                                         <a href="#">{{$item['name']}}</a>
 
                                         <div class="product-detail">
-                                            Color: Green
+                                            מאפיינים:
+                                            {{$item['attributes']['val1']}}
+                                            @if(!empty($item['attributes']['val2']))
+                                                , {{$item['attributes']['val2']}}
+                                            @elseif($item['attributes']['val3'])
+                                                , {{$item['attributes']['val3']}}
+                                            @elseif($item['attributes']['val4'])
+                                                , {{$item['attributes']['val4']}}
+                                            @endif
                                         </div>
                                     </td>
 
@@ -75,17 +87,17 @@
                                     </td>
 
                                     <td class="product-comment">
-                                        <textarea placeholder="Optional Note"></textarea>
+                                        <span class="amount">₪&nbsp;{{$item['attributes']['shipping']}}</span>
                                     </td>
 
                                     <td class="product-quantity">
                                         <div class="quantity buttons_added">
-                                            <input type="number" value="{{$item['quantity']}}" title="Qty" class="input-text qty text" size="4">
+                                            <input type="number" data-id="{{$item['id']}}" value="{{$item['quantity']}}" title="Qty" class="input-text text" id="update-cart" size="2" style="width: 50px">
                                         </div>
                                     </td>
 
                                     <td class="product-subtotal">
-                                        <span class="amount">₪&nbsp;{{$item['price'] * $item['quantity']}}</span>
+                                        <span class="amount">₪&nbsp;{{($item['price'] * $item['quantity']) + ($item['attributes']['shipping'] * $item['quantity'])}}</span>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -99,33 +111,44 @@
                          <form  method="post" action="" dir="rtl">
                              {{csrf_field()}}
                              <label for="email">דואר אלקטרוני</label>
-                             <input name="email" placeholder="דואר אלקטרוני" type="text">
-                             <label for="name">שם פרטי ומשפחה <span>באנגלית</span></label>
-                             <input name="name" placeholder="שם פרטי ומשפחה באנגלית" type="text">
+                             <span class="text-danger email_error" style="display: none;">דוא"ל תקין בלבד.</span>
+                             <input name="email" placeholder="דואר אלקטרוני" type="email" id="email" onkeyup="checkEmail(this.value)">
+
+                             <label for="customerName">שם פרטי ומשפחה <span>באנגלית</span></label>
+                             <span class="text-danger customerName" style="display: none;"></span>
+                             <input name="customerName" placeholder="שם פרטי ומשפחה באנגלית" type="text" id="customerName">
+
                              <label for="phone">פלאפון</label>
-                             <input name="phone" type="text" placeholder="הכנס מספר פלאפון">
+                             <span class="text-danger phone" id="phone-valid" style="display: none;"></span>
+                             <input name="phone" type="text" id="phone" placeholder="הכנס מספר פלאפון">
+
+
                              <label for="city">עיר <span>באנגלית</span></label>
-                             <input name="city" type="text" placeholder="עיר באנגלית">
+                             <span class="text-danger city" style="display: none;"></span>
+                             <input name="city" type="text" id="city" placeholder="עיר באנגלית">
+                             <span class="text-danger city" style="display: none;"></span>
+
                              <label for="address">רחוב <span>באנגלית</span></label>
-                             <input name="address" type="text" placeholder="רחוב באנגלית">
-                             <label for="address">בית</label>
-                             <input name="numberhome" type="text">
-                             <label for="address">דירה</label>
-                             <input name="numberdira" type="text">
+                             <span class="text-danger address" style="display: none;"></span>
+                             <input name="address" id="address" type="text" placeholder="רחוב באנגלית" style="margin-bottom: 5px">
+                             <label for="address" style="float: right">בית</label>
+                             <input name="numberhome" type="text" style="float: right;    width: 137px;">
+                             <label for="address" style="float: right">דירה</label>
+                             <input name="numberdira" type="text" style="float: right;    width: 137px;">
                          </form>
 
 
 
-                                <input type="submit" class="button primary float-right" value="לתשלום" />
+                                <input type="submit" class="button primary float-right" value="לתשלום"  style="margin-top: 5px;"/>
                             </div>
-                        <div class="medium-4 small-12 columns">
-                            dfasdas
 
-
-
-                            <input type="submit" class="button primary float-right" value="לתשלום" />
-                        </div><!-- right /-->
                         </div><!-- Shop Cart Detail /-->
+
+                @else
+                    <div class="medium-12 small-12 columns" dir="rtl">
+                        העגלה שלך ריקה, אולי תוסיף משהו?
+                    </div>
+                @endif
                         <div class="clearfix"></div>
                     </div> <!-- content section /-->
                 </div><!-- Featured Area -->

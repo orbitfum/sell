@@ -177,7 +177,7 @@ $('.has-error').on('focus' ,function () {
 });
 
     $('#phone').keypress(function(e) {
-        if(e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57))   {      $("#phone-valid").html("ספרות בלבד!").show().fadeOut("1000");
+        if(e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57))   {      $("#phone-valid").html("ספרות בלבד!").show().fadeOut(3000);
         return false;
 
         }
@@ -251,4 +251,50 @@ function checkphone(phone){
     }
 }
 
+//cart
 
+
+$('.remove-item').on('click', function () {
+    event.preventDefault();
+    $.ajax({
+        url: BASEURL + "cart/remove-item",
+        type: "GET",
+        daraType: "html",
+        data:{id: $(this).data('id')},
+        beforeSend: function () {
+            $('.spinner-bg').css('display', 'block');
+        },
+        success: function(data){
+            setTimeout(function () {
+                location.reload();
+            }, 1200);
+        }
+    });
+});
+
+
+$('#update-cart').on('change', function () {
+    $('#update-cart').on('focusout', function () {
+    $.ajax({
+        url: BASEURL + "cart/update-item",
+        type: "GET",
+        daraType: "html",
+        data:{id: $(this).data('id'), quantity: $(this).val()},
+        beforeSend: function () {
+            $('.spinner-bg').css('display', 'block');
+        },
+        success: function(data){
+            setTimeout(function () {
+                 location.reload();
+            }, 1200);
+        }
+    });});
+});
+
+$('#customerName, #city, #address').keypress(function(key) {
+    error = $(this).attr('id');
+    if((key.charCode < 97 || key.charCode > 122) && (key.charCode < 65 || key.charCode > 90) && (key.charCode != 45)) {
+        $("."+error).html("אותיות באנגלית בלבד!").show().fadeOut(3500);
+        return false;
+    }
+});

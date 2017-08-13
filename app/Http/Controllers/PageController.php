@@ -130,5 +130,13 @@ class PageController extends MainController
         return view('content.cart', self::$data);
     }
 
+    static public function removeItem(request $request){
+        Order::removeItem($request['id']);
+    }
+
+    static public function updateItem(request $request){
+        Order::updateItem($request);
+    }
+
 }
 
