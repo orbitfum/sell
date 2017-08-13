@@ -74,9 +74,9 @@
                                             {{$item['attributes']['val1']}}
                                             @if(!empty($item['attributes']['val2']))
                                                 , {{$item['attributes']['val2']}}
-                                            @elseif($item['attributes']['val3'])
+                                            @elseif(!empty($item['attributes']['val3']))
                                                 , {{$item['attributes']['val3']}}
-                                            @elseif($item['attributes']['val4'])
+                                            @elseif(!empty($item['attributes']['val4']))
                                                 , {{$item['attributes']['val4']}}
                                             @endif
                                         </div>
