@@ -327,7 +327,6 @@
 
                         <div class="main-search-form">
                             <form method="get" action="{{url('ebay/search')}}" autocomplete="on">
-                                <input>
                                 @if(isset($_GET['q']))
                                     <input type="text" name="q" value="{{isset($_GET['q'])?$_GET['q']:''}}"
                                            autocomplete="on" placeholder="רשום את המוצר שאתה מחפש באייבי"
