@@ -9,7 +9,7 @@
         <div class="title-section">
             <div class="row" dir="rtl">
                 <div class="small-12 columns">
-                    <h1>נמצאו {{number_format($info['total'])}} פרטים עבור תוצאת החיפוש שבחרת</h1>
+                    <h1>נמצאו {{number_format($info['totalEntries'])}} פרטים עבור תוצאת החיפוש שבחרת</h1>
                 </div> <!-- title /-->
             </div><!-- row /-->
         </div>
@@ -38,29 +38,26 @@
                     <div class="widget">
                         <h2>קטגוריות</h2>
                         <div class="widget-content">
-                            @if(0)
                             <ul class="menu vertical">
                                 @foreach($cat as $row)
-@if(!empty($row->categoryId))
+
                                     <li>
 
-                                        <a href="#"><div class="categoryname" data-ebayid="{{$row['categoryId']}}">{{$row['categoryName']}}</div><span>({{$row['count']}})</span></a>
+                                        <a href="#">{{$row['categoryName']}}<span>({{$row['count']}})</span></a>
 
                                         @if(isset($row['childCategoryHistogram']))
 
                                             <ul>
                                                 @foreach($row['childCategoryHistogram'] as $row1)
                                                     @if(!empty($row1['categoryName']))
-                                                        <li><a href="#"><subcat class="categoryname" data-ebayid="{{$row1['categoryId']}}">{{$row1['categoryName']}}</subcat><span>({{$row1['count']}})</span></a> </li>
+                                                <li><a href="#">{{$row1['categoryName']}}<span>({{$row1['count']}})</span></a> </li>
                                                     @endif
                                                     @endforeach
                                             </ul>
                                             @endif
                                     </li>
-                                    @endif
                                 @endforeach
                             </ul>
-                            @endif
                         </div><!-- widget content /-->
                     </div><!-- widget /-->
 
@@ -207,16 +204,17 @@
                             <div class="row">
 
                                 @foreach($item as $row)
+                                    @if(isset($row['galleryURL']) || isset($row['pictureURLSuperSize']))
 
-                                        <div   class="product medium-4 small-12 columns" style="position: relative">
+                                        <div class="product medium-4 small-12 columns" style="position: relative">
                                             <a href='{{ url('ebay/'.str_replace([' ','/'],['-',','],$row['title']).'/'.$row["itemId"]) }}' style="position: absolute;z-index: 999; width: 100%;height: 100%">
                                             <div class="product-image">
                                                 <!--  <div class="sale-tag">Sale</div> -->
 
                                                 <a href="">
-                                                    <img src="{{$row['image']['imageUrl']}}"
+                                                    <img src="{{isset($row['pictureURLSuperSize'])?$row['pictureURLSuperSize']:$row['galleryURL']}}"
                                                          alt="{{$row['title']}}"/>
-                                                    <img src="{{$row['image']['imageUrl']}}"
+                                                    <img src="{{isset($row['pictureURLSuperSize'])?$row['pictureURLSuperSize']:$row['galleryURL']}}"
                                                          alt="{{$row['title']}}"/>
                                                 </a>
 
@@ -241,8 +239,8 @@
                                             </div><!-- product title /-->
                                             <div class="product-meta">
                                                 <div class="prices" dir="rtl">
-                                                    @if(1)
-                                                        <span class="price">{{number_format($row['price']['value'],2)}}
+                                                    @if($row['sellingStatus']['currentPrice']==$row['sellingStatus']['convertedCurrentPrice'])
+                                                        <span class="price">{{number_format($row['sellingStatus']['currentPrice'],2)}}
                                                             ₪</span>
 
                                                     @else
@@ -271,7 +269,7 @@
 
                                         </div><!-- Product /-->
 
-
+                                    @endif
 
                                 @endforeach
                             </div>
@@ -308,27 +306,4 @@
 
     </div><!-- content container /-->
 
-
-
 @endsection
-
-@section('jscode')
-
-    <script type="application/javascript">
-        $(document).ready(function() {
-            $.get('{{ url('cjson') }}', function( info ) {
-                $.each(info, function( key, value ) {
-                    $('.categoryname').each(function(i, obj) {
-                        if($(this).data('ebayid') == key) {
-                            $(this).html(value);
-                        }
-                        //console.log($(this).data('ebayid'));
-                    });
-                    //console.log(catname.data('ebayid'));
-                });
-            }, "json");
-            //jQuery('.categoryname').data('ebayid', '11450').html('Testing');
-        });
-    </script>
-
-    @endsection

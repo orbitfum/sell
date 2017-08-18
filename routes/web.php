@@ -11,38 +11,7 @@
 |
 */
 Route::get('/', 'PageController@index');
-
-Route::get('cjson', 'PageController@catsJson');
-Route::get('cornjon/dsaodasopkdoakoerqwmczxcksdfoddolr', 'PageController@updtaedolar');
-
-#ebay
-Route::get('ifram/ebay/{id}', 'PageController@getifame');
-
-
-
-Route::group(['prefix' => 'user' ],function () {
-    Route::post('register', 'UserController@register');
-    Route::post('login', 'UserController@login');
-    Route::get('logut', 'UserController@logut');
-});
-
-Route::group(['prefix' => 'ebay' ],function () {
-    Route::get('search', 'PageController@search');
-    Route::get('addCart', 'PageController@addCart');
-    Route::get('{name}/{id}', 'PageController@getItem');
-    Route::get('{namecat}/{id}/{name}', 'PageController@searchcat');
-});
-
-#cart
-Route::group(['prefix' => 'cart' ],function () {
-    Route::get('mycart', 'PageController@cart');
-    Route::get('remove-item', 'PageController@removeItem');
-    Route::get('update-item', 'PageController@updateItem');
-    Route::get('checkout', 'PageController@checkout');
-});
-
-
-
-
+Route::get('ebay/search', 'PageController@search');
+Route::get('ebay/{name}/{id}', 'PageController@getItem');
 
 

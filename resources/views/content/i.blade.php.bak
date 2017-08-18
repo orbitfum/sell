@@ -2,24 +2,32 @@
 
 @section ('content')
 
+    <style>
+        .selectedphoto {
+            border: 1px black solid;
+        }
+    </style>
+
+
     <div class="content-container single-product module">
         <!-- Title Section -->
         <div class="title-section">
             <div class="row">
                 <div class="small-12 columns">
                     <div class="float-right" dir="rtl">
-                        חנות: <a href="#" class="store-name">{{$it['Seller']['UserID']}}</a> <span class="opened">Top-rated seller <strong>({{$it['Seller']['FeedbackScore']}})</strong></span>
+
+                        <span><i class="fa fa-hand-peace-o" aria-hidden="true"></i> <b
+                                    style="color: chartreuse;font-size: 15pt">{{$it['QuantitySold']}}</b> כבר קנו את המוצר! </span>
                     </div>
-                    <div class="pro-rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star off"></i>
-                        <span class="review-count store-name">248 Reviews</span>
+                    <div class="float-right" dir="rtl">
+                        <span><i class="fa fa-shield" aria-hidden="true"></i> טכנולוגיית הצפנה מתקדמת <i
+                                    class="fa fa-shield" aria-hidden="true"></i></span>
+
                     </div>
-                    <div class="float-left">
-                        <a href="#" class="bordered-light">Follow Store</a>
+
+                    <div class="float-left " dir="rtl">
+                        <a href="#" class="bordered-light"> <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                            שמור מוצר</a>
                     </div>
                 </div> <!-- title /-->
             </div><!-- row /-->
@@ -71,9 +79,11 @@
         <div class="single-product-detail module">
             <div class="row">
 
-                <div class="medium-5 small-12 columns item-image">
+                <div class="medium-6 small-12 columns item-image">
                     <div class="main-image">
-                        <img src="{{is_array($it['PictureURL'])?$it['PictureURL'][0]:$it['PictureURL']}}"
+                        <img id="zoomit"
+                             data-zoom-image="{{is_array($it['PictureURL'])?$it['PictureURL'][0]:$it['PictureURL']}}"
+                             src="{{is_array($it['PictureURL'])?$it['PictureURL'][0]:$it['PictureURL']}}"
                              alt="{{$it['Title']}}"/>
                     </div>
                     @if(is_array($it['PictureURL']))
@@ -82,266 +92,197 @@
 
                                 @foreach($it['PictureURL'] as $row)
                                     <a href="#">
-                                        <img src="{{$row}}" alt=""/>
+                                        <img class="insidephoto selectedphoto" src="{{$row}}" style="object-fit: cover;"
+                                             alt=""/>
                                     </a>
                                 @endforeach
                             @endif
                         </div>
                     @endif
-                </div><!-- Item Image /-->
-
-                <div class="medium-7 small-12 columns item-detail">
+                </div>
+                <div class="medium-6 small-12 columns item-detail">
                     <div class="item-header">
                         <h1>{{$it['Title']}}</h1>
                         <div class="item-meta">
                             <div class="pro-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star off"></i>
-                                <span class="review-count store-name">48 Reviews</span><span
-                                        class="review-count no-border">90 Orders</span>
-                                <div class="socialicons float-right">
-                                    <a href="#" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" title="Share on Twitter"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" title="Share on Google plus"><i class="fa fa-google"></i></a>
-                                </div><!-- social icons /-->
+                                <div class="infoseler" dir="rtl">
+                                    <i title="מידע על המוכר" class="fa fa-info-circle" aria-hidden="true"></i>
+                                    <span>שם המוכר: <b>{{$it['Seller']['UserID']}}</b>  </span>
+                                    <span>|</span>
+                                    <span>תגובות חיוביות: <b>{{$it['Seller']['PositiveFeedbackPercent']}}</b></span>
+                                    <span>|</span>
+                                    <span>המוצר נשלח מ: <b>{{$it['Location']}}</b></span>
+                                </div>
+
                             </div>
                         </div><!-- item meta /-->
                     </div><!-- item header /-->
 
-                    <div class="item-pricing">
-                        <p><span class="row-title">SKU:</span><span>{{isset($it['SKU'])?$it['SKU']:''}}</span></p>
-                        <p><span class="row-title">Category:</span><span><a href="#">Pants</a>, <a
-                                        href="#">Women</a></span></p>
-                        <p><span class="row-title">Price:</span><span class="sale-price">$99.53 / piece</span></p>
-                        <div><span class="row-title">Discount Price:</span><span><span
-                                        class="regular-price">$99.53</span> / piece</span><span class="off-percent">35% off</span>
-                            <span class="bulk-price">
-                            	<a data-toggle="bulk-price" href="#">
-                            		Bulk Price &raquo;
-                             	</a>
-                            </span>
-                            <div class="dropdown-pane top-left" id="bulk-price" data-dropdown data-hover="true"
-                                 data-hover-pane="true">
-                                <table class="text-center">
-                                    <tr>
-                                        <th>Qty</th>
-                                        <th>Price /piece</th>
-                                    </tr>
-                                    <tr>
-                                        <td>2-10</td>
-                                        <td>$89.53</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10-50</td>
-                                        <td>$79.53</td>
-                                    </tr>
-                                    <tr>
-                                        <td>50-100</td>
-                                        <td>$59</td>
-                                    </tr>
-                                </table>
-                                <p>Discount automatically counted on checkout.</p>
-                            </div>
-                        </div>
+                    <div class="item-options" dir="rtl">
+                        <span class="row-title" style="margin-right: 8px;">מצב המוצר:</span>
+                        <span style="font-weight: bold"> {{Lang::get('tr.'.$it['ConditionDisplayName'])}}</span>
+                        <div style="margin: 5px 0" class="clearfix"></div>
+                        @if(isset($it['Variations']))
+                            <?php $a = $b = 1; ?>
+                            @if(isset($it['Variations']['VariationSpecificsSet']['NameValueList']['0']))
+                                @foreach($it['Variations']['VariationSpecificsSet']['NameValueList'] as $key=>$vari)
+                                    <div class="option-box">
+                        <span class="row-title">{{Lang::get('tr.'. $vari['Name'])}}
+                            :</span>
+                                        <span>
+                            <select class="cn"  id="vali{{$a++}}" name="variation" data-variation="{{ $vari['Name'] }}">
+                                <option value="^^^SELECT^^^">בחר</option>
+                            </select>
+                        <span class="select-error" id="er{{$b++}}" style="display: none">נא לבחור</span>
+                                        </span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="option-box">
+                        <span class="row-title">{{Lang::get('tr.'. $it['Variations']['VariationSpecificsSet']['NameValueList']['Name'])}}
+                            :</span>
+                                    <span>
+                            <select class="cn" id="vali{{$a++}}" name="variation"
+                                    data-variation="{{ $it['Variations']['VariationSpecificsSet']['NameValueList']['Name'] }}">
+                                <option value="^^^SELECT^^^">בחר</option>
+                            </select>
+                                                                <span class="select-error" id="er{{$b++}}" style="display: none">נא לבחור</span>
 
-                    </div><!-- item head /-->
-
-                    <div class="item-options">
-                        <div class="option-box"><span class="row-title">Colors:</span><span><a href="#" title="Red"
-                                                                                               class="color red">&nbsp;</a> <a
-                                        href="#" title="Green" class="color green">&nbsp;</a> <a href="#" title="Orange"
-                                                                                                 class="color ornage">&nbsp;</a> <a
-                                        href="#" title="Blue" class="color blue">&nbsp;</a> <a href="#" title="Yellow"
-                                                                                               class="color yellow">&nbsp;</a></span>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="option-box">
-                            <span class="row-title">Sizes:</span><span><a href="#" title="Mediume"
-                                                                          class="color">M</a> <a href="#" title="Large"
-                                                                                                 class="color">L</a> <a
-                                        href="#" title="X Large" class="color">X</a> <a href="#" title="Small"
-                                                                                        class="color">S</a></span>
-                            <div class="clearfix"></div>
-                        </div>
+                        </span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            @endif
+                            <input type="hidden" id="validationCount" name="validationCount" value="{{$a}}" />
+                        @endif
                     </div><!-- item options /-->
-
-                    <div class="item-quantity">
-                        <div><span class="row-title">Quantity:</span><span><input type="number" class="qty" value="1"/> piece(s)</span>
+                    
+                    <div class="item-quantity" dir="rtl">
+                        <div class="option-box"><span class="row-title" style="width: 166px">כמות:</span><span><input type="number" class="qty" value="1"/> יחידות</span>
+                            <span id="qtymsg" style="color: red; font-size: 12px;"></span>
                         </div>
-                        <div><span class="row-title">Total Price:</span> <span>Select Color, size and quantity.</span>
+
+                    </div>
+                    <div class="boxpricnew">
+                        <div class="boxup">
+                            @if(isset($it['Variations']['Variation'][0]['DiscountPriceInfo']))
+
+                                <div class="infotextprice">מחיר לצרכן: <span data-price="{{HR::currency($it['Variations']['Variation'][0]['DiscountPriceInfo']['OriginalRetailPrice']) }}">
+                                        {{HR::currency($it['Variations']['Variation'][0]['DiscountPriceInfo']['OriginalRetailPrice']) }}
+                                        </span>₪</div>
+                                <div class="haozim">הנחה: <span>{{number_format(HR::currency($it['CurrentPrice'])/ HR::currency($it['Variations']['Variation'][0]['DiscountPriceInfo']['OriginalRetailPrice']) *100)}}
+                                        %</span></div>
+                            @else
+                                <div class="infotextprice">מחיר לצרכן: <span data-price="{{HR::currency($it['CurrentPrice']) + (HR::currency($it['CurrentPrice'] + 63/100))  }}">
+                                        {{HR::currency($it['CurrentPrice']) + (HR::currency($it['CurrentPrice'] + 63/100))  }}
+                                        </span>₪</div>
+                                <div class="haozim">הנחה: <span>63%</span></div>
+                            @endif
+                        </div>
+                        <div class="pricafter">
+                            <div class="pricexl">
+                                <sup>רק:</sup>
+                                <b data-price="{{HR::currency($it['CurrentPrice'])}}">{{HR::currency($it['CurrentPrice'])}}</b> <span>₪</span>
+
+                            </div>
+                            <div><span>מחיר משלוח: <b>{!!$shippnginfo['ShippingCostSummary']['ShippingServiceCost'] != 0 ? HR::currencyShip($shippnginfo['ShippingCostSummary']['ShippingServiceCost']).' ₪':'<i style="color:#ffed00">חינם</i>'!!}
+                                        </b></span> | <span>זמן אספקה: <b>19-45 </b><b>ימים</b></span>
+                            </div>
+
+
                         </div>
                     </div>
+                    <hr>
+
                     <!-- Item Quantity /-->
 
-                    <div class="shopping-buttons">
-                        <a href="#" class="button secondary">Buy Now</a> <a href="#" class="button primary">Add to
-                            cart</a> <a href="#" class="wishlist"><i class="fa fa-heart"></i></a>
-                        <div class="clearfix"></div>
-                    </div>
-                    <!-- shopping Buttons /-->
-
-                    <div class="store-promotion">
-                        <div><span class="row-title">Store Promotion: </span> <span
-                                    class="coupon-store"><strong>US $2</strong> off per <strong>US $5</strong></span>
-                        </div>
-                    </div>
-                    <!-- promotion Ends /-->
-
-                </div><!-- item detail /-->
-
-            </div><!-- row /-->
-        </div>
-        <!-- single product detail /-->
-
-        <!-- customer content -->
-        <div class="store-content">
-            <div class="row">
-
-                <!-- store sidebar -->
-                <div class="sidebar store-sidebar medium-3 small-12 columns">
-
-                    <div class="widget store-widget">
-                        <h2>About Store</h2>
-
-                        <div class="widget-content">
-                            <a href="#">
-                                <img alt="" src="images/help/store1.jpg"/>
-                            </a>
-                            <h4><a href="#">Fajar Accessories & Fashion Store</a></h4>
-                            <div class="store-reputation">
-                                <div class="pro-rating float-left">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star off"></i>
-                                </div>
-                                <span>230 reviews</span>
-                            </div><!-- Store reputation /-->
-                            <p class="store-location"><i class="fa fa-map-marker" aria-hidden="true"></i> 25 Birmingham,
-                                USA</p>
-                            <a href="#" class="button primary">Add to Fav Store</a>
-                        </div><!-- widget content /-->
-
-                    </div><!-- widget ends /-->
-
-                    <div class="widget">
-                        <h2>Customer Service</h2>
-                        <div class="widget-content">
-                            <ul class="menu vertical">
-                                <li><a href="#">Contact Store</a></li>
-                                <li><a href="#">Visit Store</a></li>
-                            </ul>
-                        </div>
-                        <!-- widget content /-->
-                    </div>
-                    <!-- widget /-->
-
-                    <div class="widget">
-                        <h2>Store Categors</h2>
-                        <div class="widget-content">
-                            <ul class="menu vertical">
-                                <li><a href="#">Women</a></li>
-                                <li><a href="#">Men</a></li>
-                                <li><a href="#">Kids</a></li>
-                                <li><a href="#">Party Wear</a></li>
-                                <li><a href="#">Sports Wear</a></li>
-                            </ul>
-                        </div><!-- widget content /-->
-                    </div><!-- widget /-->
-
-                    <div class="widget">
-                        <h2>Best Sellers</h2>
-                        <div class="widget-content">
-
-                            <div class="popular-product">
-                                <img alt="" src="images/help/product1-1.jpg" class="float-left thumbnail"/>
-                                <div class="float-right product-description">
-                                    <a href="#">Red hot skirt with laces</a>
-                                    <div class="price">$22</div>
-                                    <div class="pro-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star off"></i>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div><!-- popular product /-->
-
-                            <div class="popular-product">
-                                <img alt="" src="images/help/product4-1.jpg" class="float-left thumbnail"/>
-                                <div class="float-right product-description">
-                                    <a href="#">Red hot skirt with laces</a>
-                                    <div class="price">$22</div>
-                                    <div class="pro-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star off"></i>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div><!-- popular product /-->
-
-                            <div class="popular-product">
-                                <img alt="" src="images/help/product3-1.jpg" class="float-left thumbnail"/>
-                                <div class="float-right product-description">
-                                    <a href="#">Red hot skirt with laces</a>
-                                    <div class="price">$22</div>
-                                    <div class="pro-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star off"></i>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div><!-- popular product /-->
-
-                            <div class="popular-product">
-                                <img alt="" src="images/help/product2-1.jpg" class="float-left thumbnail"/>
-                                <div class="float-right product-description">
-                                    <a href="#">Red hot skirt with laces</a>
-                                    <div class="price">$22</div>
-                                    <div class="pro-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star off"></i>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div><!-- popular product /-->
-
-                        </div><!-- widget content /-->
-                    </div><!-- widget /-->
+                    <a class="shopping-buttons float-right">
+                        <a href="#" class="button secondary">קנה עכשיו</a>
+                        <a href="" class="button primary add-to-cart" data-id="{{$it["ItemID"]}}"
+                           data-price="{{HR::currency($it['CurrentPrice'])}}"
+                           data-ship="{!!$shippnginfo['ShippingCostSummary']['ShippingServiceCost'] != 0 ? HR::currencyShip($shippnginfo['ShippingCostSummary']['ShippingServiceCost']):0 !!}"
+                           data-img="{{is_array($it['PictureURL']) ? $it['PictureURL'][0] : $it['PictureURL']}}"
+                           data-title="{{$it['Title']}}">
+                            <div class="btn-spinner"></div>
+                            הוסף לעגלה</a>
 
                 </div>
-                <!-- store sidebar Ends /-->
+                <div class="clearfix"></div>
 
-                <!-- Store Content -->
-                <div class="medium-9 small-12 columns store-content">
 
-                    <ul class="tabs" role="tablist" data-tabs id="new-items">
-                        <li class="tabs-title is-active"><a href="#description" role="tab" aria-selected="true">Description</a>
-                        </li>
-                        <li class="tabs-title"><a href="#panel2" role="tab">Specifications</a></li>
-                        <li class="tabs-title"><a href="#panel3" role="tab">Reviews</a></li>
-                        <li class="tabs-title"><a href="#panel4" role="tab">Payment & Shipping</a></li>
-                    </ul> <!-- Tabs Titles Ends /-->
+                <!-- promotion Ends /-->
 
-                    <div class="tabs-content small-module" data-tabs-content="new-items">
-                        <div class="tabs-panel is-active product-description" id="panel1">
-                            <iframe src='{{url("ifram/ebay/{$it['ItemID']}")}}'></iframe>
-                        </div>
+            </div><!-- item detail /-->
+            <!-- Item Image /-->
+        </div><!-- row /-->
+
+    </div>
+    <!-- single product detail /-->
+
+    <!-- customer content -->
+    <div class="store-content">
+        <div class="row">
+            <div class="featured-area small-module">
+                <div class="section-title" style="text-align: center">
+                    <h2>מוצרים <span>דומים</span></h2>
+                </div><!-- section title /-->
+
+                <div class="content-section store-related">
+                    @if(isset($moreitem['itemRecommendations']['item']))
+                        @foreach($moreitem['itemRecommendations']['item'] as $row)
+                            <div class="product">
+                                <div class="product-image">
+                                    <a href="{{ url('ebay/'.str_replace([' ','/'],['-',','],$row['title']).'/'.$row["itemId"]) }}">
+                                        <img style="height: 150px;" src="{{$row['imageURL']}}" alt=""/>
+                                        <img style="height: 150px;" src="{{$row['imageURL']}}" alt=""/>
+                                    </a>
+
+                                </div><!-- Product Image /-->
+                                <div class="product-title">
+                                    <a style="height: 90px"
+                                       href="{{ url('ebay/'.str_replace([' ','/'],['-',','],$row['title']).'/'.$row["itemId"]) }}">{{$row['title']}}</a>
+                                </div><!-- product title /-->
+                                <div class="product-meta">
+                                    <div class="prices">
+                                        <span class="price">{{HR::currency($row['buyItNowPrice'])}} ₪</span>
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div><!-- product meta /-->
+                            </div><!-- Product /-->
+
+                        @endforeach
+                    @endif
+                </div><!-- Content Section /-->
+
+            </div>
+
+            <!-- store sidebar -->
+
+            <!-- Store Content -->
+            <div class="medium-12 small-12 columns store-content">
+
+                <ul class="tabs" role="tablist" data-tabs id="new-items">
+                    <li class="tabs-title is-active"><a href="#description" role="tab"
+                                                        aria-selected="true">Description</a>
+                    </li>
+                    <li class="tabs-title"><a href="#panel2" role="tab">Specifications</a></li>
+                    <li class="tabs-title"><a href="#panel3" role="tab">Reviews</a></li>
+                    <li class="tabs-title"><a href="#panel4" role="tab">Payment & Shipping</a></li>
+                </ul> <!-- Tabs Titles Ends /-->
+
+                <div class="tabs-content small-module" data-tabs-content="new-items">
+                    <div class="tabs-panel is-active product-description" id="panel1">
+                        <script type="text/javascript">
+                            function resizeIframe(iframe) {
+                                iframe.height = iframe.contentWindow.document.body.scrollHeight + "px";
+                            }
+                        </script>
+
+                        <iframe scrolling="yes" frameborder="0" src='{{url("ifram/ebay/{$it['ItemID']}")}}'
+                                onload="resizeIframe(this)"></iframe>
+
+
                     </div><!-- tabs content /-->
 
                     <!-- more items from store /-->
@@ -705,4 +646,206 @@
     </div><!-- content container /-->
 
 
+@endsection
+
+
+@section('jscode')
+    <script src="{{ url('lib/assets/zoom/jquery.elevatezoom.js') }}" type="text/javascript"></script>
+    <script>
+        $('.insidephoto').each(function (i, obj) {
+            var bigurl = $('zoomit').attr('src');
+            var thisurl = $(this).attr('src');
+            if ($(this).attr('src') == $('#zoomit').attr('src')) {
+                $(this).css('border', '1px solid black');
+                $("#zoomit").elevateZoom({tint: true, tintColour: '#F90', tintOpacity: 0.5});
+            }
+            $(this).click(function () {
+                $('#zoomit').removeData('elevateZoom');
+                $('.zoomContainer').remove();
+                $('.insidephoto').css('border', '');
+                $(this).css('border', '1px solid black');
+                $('#zoomit').attr('src', thisurl);
+                $('#zoomit').data('zoom-image', thisurl);
+                $("#zoomit").elevateZoom({tint: true, tintColour: '#F90', tintOpacity: 0.5});
+                return false;
+            });
+        });
+        @if (0)
+        $('select').data('variation', '{{ $it['Variations']['Pictures']['VariationSpecificName'] }}').on('change', function () {
+            var selvalu = this.value;
+            $.each({!! $varpictures !!}, function (key, value) {
+                if (selvalu === value.VariationSpecificValue) {
+                    $('#zoomit').removeData('elevateZoom');
+                    $('.zoomContainer').remove();
+                    $('#zoomit').attr('src', value.PictureURL);
+                    $('#zoomit').data('zoom-image', value.PictureURL);
+                    $("#zoomit").elevateZoom({tint: true, tintColour: '#F90', tintOpacity: 0.5});
+                    return false;
+                }
+            });
+        });
+        @endif
+        ///1
+        var qtty = {{ $it['Quantity'] }};
+        var soldqtty = {{ $it['QuantitySold']}};
+        allValue = {!! $json !!};
+        $('.qty').on('change', function () {
+            $('#qtymsg').html('');
+            var available = 0;
+            if(typeof alljson["Item"]['Variations'] !== 'undefined'){
+                var validationCount =parseInt($('#validationCount').val()) - 1;
+                if(validationCount == 1){
+                    var selectVal = $('.cn')[0]['value'];
+                    lisInfo = alljson["Item"]['Variations'];
+                    $.each(variations, function (k1, v1) {
+                        if(v1['VariationSpecifics']['NameValueList']['Value'] == selectVal){
+                            var qty = v1['Quantity'];
+                            var sold = v1['SellingStatus']['QuantitySold'];
+                            available = qty - sold;
+                        }
+                    });
+                }else{
+                    var keys = [];
+                    for(var i = 1; i <= validationCount; i++){
+                        keys.push($('#vali' + i.toString())[0]['value']);
+                    }
+                    lisInfo = alljson["Item"]['Variations'];
+                    $.each(variations, function (k1, v1) {
+                        var flag = true;
+                        for(var j = 0; j < validationCount; j++){
+                            if(v1['VariationSpecifics']['NameValueList'][j]['Value'] != keys[j]){
+                                flag = false;
+                            }
+                        }
+                        if(flag == true){
+                            var qty = v1['Quantity'];
+                            var sold = v1['SellingStatus']['QuantitySold'];
+                            available = qty - sold;
+                        }
+                    });
+                }
+            }else{
+                available = qtty - soldqtty;
+            }
+
+            if (this.value > available) {
+                $('.qty').val(available);
+                $('#qtymsg').html('מקסימום ' + available + ' יחידות!');
+            }
+            else if (this.value < 1) {
+                $('.qty').val('1');
+                $('#qtymsg').html('מינימום יחידה אחת!');
+            }
+        });
+        ////2
+        alljson = {!! $json !!};
+        vars = alljson["Item"]['Variations']['VariationSpecificsSet']['NameValueList'].length;
+        info = alljson["Item"]['Variations'];
+        //
+        var specifics = alljson["Item"]['Variations']["VariationSpecificsSet"]['NameValueList'];
+        var variations = alljson["Item"]['Variations']["Variation"];
+        var array_selected_specs = {};
+        var isMulti = false;
+        var outOfStock = " [Out of stock]";
+        if (specifics.length > 0) {
+            isMulti = true;
+        }
+        if (isMulti) {
+            $.each(specifics, function (k1, v1) {
+                var specName = v1['Name'];
+                array_selected_specs[specName] = "^^^SELECT^^^";
+            });
+        }
+        else {
+            $.each(specifics, function (k1, v1) {
+                if (k1 == "Name") {
+                    array_selected_specs[v1] = "^^^SELECT^^^";
+                }
+            });
+        }
+
+        $('.cn').on('focusin', function () {
+            var selBox = $(this);
+            var selectedVal = $(this).val();
+            var selectedSpec = $(this).attr('data-variation');
+            var new_array_specs = [];
+            $(".cn").each(function () {
+                array_selected_specs[$(this).attr('data-variation')] = $(this).val();
+            });
+            $.each(variations, function (k1, v1) {
+                var qty = v1['Quantity'];
+                var sold = v1['SellingStatus']['QuantitySold'];
+                var available = qty - sold;
+
+                if (isMulti) {
+                    $.each(v1['VariationSpecifics'], function (k2, v2) {
+                        var combinationFound = true;
+                        $.each(v2, function (k3, v3) {
+                            $.each(array_selected_specs, function (k4, v4) {
+                                if (k4 != selectedSpec && v3['Name'] != selectedSpec) {
+                                    if (k4 == v3['Name']) {
+                                        if (v4 != "^^^SELECT^^^" && v4 != v3['Value']) {
+                                            combinationFound = false;
+                                        }
+                                    }
+                                }
+                            });
+                        });
+                        if (combinationFound) {
+                            $.each(v2, function (k3, v3) {
+                                if (v3['Name'] == selectedSpec) {
+                                    if ($.inArray(v3['Value'], new_array_specs) === -1) {
+                                        if (available == 0) {
+                                            var v = v3['Value'] + outOfStock;
+                                            if ($.inArray(v, new_array_specs) === -1) {
+                                                new_array_specs.push(v);
+                                            }
+                                        }
+                                        else {
+                                            var v = v3['Value'] + outOfStock;
+                                            if ($.inArray(v, new_array_specs) !== -1) {
+                                                new_array_specs.splice($.inArray(v, new_array_specs), 1);
+                                            }
+                                            new_array_specs.push(v3['Value']);
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    });
+                }
+                else {
+                    $.each(v1['VariationSpecifics']['NameValueList'], function (k2, v2) {
+                        if (k2 == "Value") {
+                            if (available > 0) {
+
+                                new_array_specs.push(v2);
+                            }
+                            else {
+
+                                new_array_specs.push(v2 + outOfStock);
+                            }
+                        }
+                    });
+                }
+            });
+            //
+            selBox.find('option:gt(0)').remove();
+            $.each(new_array_specs, function (k2, v2) {
+                var selected = "";
+                var disabled = "";
+                if (v2 == selectedVal) {
+                    selected = "selected";
+                }
+                if (v2.indexOf(outOfStock) >= 0) {
+                    disabled = "disabled";
+                }
+                selBox.append($("<option class='rem' " + selected + " " + disabled + "></option>").attr("value", v2).text(v2));
+            });
+            $('.qty').val("0");
+            $('#qtymsg').html('');
+        });
+
+
+    </script>
 @endsection

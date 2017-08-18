@@ -2,7 +2,7 @@
 /*=========================================
 Stylesheet for Webful MarketPlace
 ==========================================*/
-/**/
+
 /* ------------------------------------------ */
 /*             TABLE OF CONTENTS
 /* ------------------------------------------ */
@@ -52,10 +52,6 @@ Stylesheet for Webful MarketPlace
     background: #F79800;
 }
 
-.selectedphoto {
-    border: 1px black solid;
-}
-
 body {
     padding: 0;
     margin: 0;
@@ -65,8 +61,7 @@ body {
     font-size: 100%;
     line-height: 25px;
     color: #5d5d5d;
-
-    background-color: #fff;
+    background-color: #eee;
 
 }
 
@@ -164,11 +159,11 @@ iframe {
 }
 
 .button.primary:hover {
-    background-color: #4787ed;
+    background-color: #0f99de;
 }
 
 .button.secondary {
-    background-color: #4787ed;
+    background-color: #0f99de;
 }
 
 .button.secondary:hover {
@@ -229,7 +224,6 @@ Top bar CSS ends
 03 - HEADER CSS Starts
 -------------------------*/
 .header {
-    margin-top: 40px;
     padding-top: 25px;
     padding-bottom: 25px;
     border-bottom: 1px solid #ededed;
@@ -237,9 +231,9 @@ Top bar CSS ends
 }
 
 .top-bar-title {
-    padding: 12px;
-    background-color: #0f99de;
-    margin-top: 0px;
+    padding: 10px;
+    background-color: #f79800;
+    margin-top: 9px;
     margin-bottom: 9px;
     margin-right: 0px;
     position: relative;
@@ -257,7 +251,7 @@ Top bar CSS ends
 }
 
 .top-bar-title:hover {
-    background-color: #8ec6de;
+    background-color: #0f99de;
 }
 
 .main-search-form {
@@ -282,6 +276,7 @@ Top bar CSS ends
     width: 130px;
     position: absolute;
     top: 0px;
+    right: 36.58px;
     margin-bottom: 0px;
 }
 
@@ -430,8 +425,8 @@ Banner CSS Ends
 .mega-menu .child-nav {
     min-width: 901px;
     min-height: 432px;
-    /*max-width: 901px;*/
-    /*max-height: 432px;*/
+    max-width: 901px;
+    max-height: 432px;
     border: 1px solid #ededed;
 }
 
@@ -502,12 +497,13 @@ Categories Navigation ends
 
 .widget .menu {
 
-    /*height: 400px;*/
+    height: 400px;
     overflow: auto;
 
 }
 
 .widget .menu li {
+
 
 }
 
@@ -526,10 +522,9 @@ Categories Navigation ends
     font-size: 11px;
 }
 
-.widget .menu li ul {
+.widget .menu li ul{
     margin-right: 10px;
 }
-
 .widget .menu li ul li {
     color: #9BA2AB;
     font-size: 10pt;
@@ -1173,7 +1168,7 @@ Open Shop Landing Ends
 }
 
 .pagination a:hover, .pagination button:hover {
-    background: #4787ed;
+    background: #0f99de;
     color: #FFF;
 }
 
@@ -1397,8 +1392,8 @@ Blog Posts Ends
 }
 
 .product .product-image img {
-    max-width: 170px;
-    height: 170px;
+    max-width: 100%;
+    height: 250px;
     text-align: center;
 }
 
@@ -1460,16 +1455,6 @@ Blog Posts Ends
 
 .pro-rating {
     color: #f79800;
-}
-
-.pro-rating .infoseler {
-    background-color: #4787ed;
-    padding: 5px;
-}
-
-.pro-rating .infoseler span {
-    color: #fff;
-    margin-left: 10px;
 }
 
 .pro-rating .off {
@@ -1806,7 +1791,6 @@ Suggested Stores Ends
 .store-content .pagination-container {
     border-top: 1px solid #ededed;
     padding-top: 15px;
-
 }
 
 .shop-filter span {
@@ -1935,13 +1919,13 @@ Single Store CSS Ends
 }
 
 .bordered-light {
-    border: 1px solid #3adb76;
+    border: 1px solid #FFF;
     padding: 3px 10px;
     border-radius: 4px;
 }
 
 .bordered-light:hover {
-    border-color: #ff0000;
+    border-color: #f79800;
 }
 
 .main-image {
@@ -1956,7 +1940,7 @@ Single Store CSS Ends
 }
 
 .single-product-detail .thumbnails img {
-    float: right;
+    float: left;
     width: 82px;
     height: 82px;
     margin-right: 15px;
@@ -1974,8 +1958,7 @@ Single Store CSS Ends
 }
 
 .item-header h1 {
-    font-size: 1.25rem;
-    font-weight: 400;
+    font-size: 1.30rem;
     margin-bottom: 10px;
 }
 
@@ -2023,11 +2006,10 @@ Single Store CSS Ends
 }
 
 .row-title {
-    width: 181px;
-    padding-left: 15px;
+    width: 100px;
+    padding-right: 15px;
     display: block;
-    float: right;
-    font-size: 13pt;
+    float: left;
     line-height: 20px;
 }
 
@@ -2065,7 +2047,8 @@ Single Store CSS Ends
 }
 
 .item-options {
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .red {
@@ -2100,16 +2083,7 @@ Single Store CSS Ends
 }
 
 .option-box {
-    margin: 0 10px;
-    margin-bottom: -6px;
-}
-
-.option-box span select {
-    width: 49%;
-}
-
-.item-quantity {
-    margin-bottom: 40px;
+    margin-bottom: 15px;
 }
 
 .item-quantity .qty {
@@ -2119,7 +2093,6 @@ Single Store CSS Ends
     width: 50px;
     display: inline;
     margin-right: 15px;
-    text-align: center;
 }
 
 .item-quantity span {
@@ -2169,120 +2142,8 @@ Single Store CSS Ends
 }
 
 /*--------------------
-add css
+Product Page CSS Ends
 ---------------------*/
-.topnav {
-    z-index: 9999;
-    background-color: #3853d8;
-    width: 100%;
-    direction: rtl;
-    height: 40px;
-    border-bottom: 1px solid rgba(80, 117, 249, 0.6);
-    position: fixed;
-
-}
-
-.topnav .navuser {
-    list-style: none;
-    display: inline;
-    direction: rtl;
-    color: #FFFFFF;
-}
-
-.topnav .navuser .cartvav {
-    font-size: 13pt;
-    position: relative;
-    top: -10px;
-    height: 47px;
-}
-
-.cartvav .acat {
-    color: #fff;
-    height: 20px;
-}
-
-.cartvav div {
-
-    top: -31px;
-    position: relative;
-    left: 8px;
-    font-size: 13px;
-}
-
-.topnav .navuser li {
-    padding: 16px 10px 11px 10px;
-    font-weight: 300;
-    color: #fff;
-    display: inline-block;
-    border-left: #4a6de3 solid 1px;
-    min-width: 40px;
-    line-height: 0px;
-    position: relative;
-    top: -32px;
-}
-
-.topnav .navuser li:hover {
-    color: #fff;
-    cursor: pointer;
-    background-color: #4787ed;
-}
-
-.topnav .navuserleft {
-    color: #FFFFFF;
-    list-style: none;
-    float: left;
-    padding-left: 90px;
-}
-
-.topnav .navuserleft li {
-    padding: 15px 10px 11px 10px;
-    font-weight: 300;
-    display: inline-block;
-    border-left: #4a6de3 solid 1px;
-    min-width: 40px;
-    line-height: 0px;
-}
-
-.navbar-cat {
-    list-style: none;
-    float: left;
-}
-
-.navbar-cat li {
-    display: inline-block;
-    line-height: 0px;
-}
-
-.topnav .navuserleft li:hover {
-    color: #fff;
-    cursor: pointer;
-    background-color: #4787ed;
-}
-
-.facbook {
-    position: absolute;
-    top: 5px;
-    left: -200px;
-    height: 60px
-}
-
-.infoAddress {
-    background-color: #3d3f4a;
-
-}
-
-.infoAddress b {
-    color: #fff;
-    font-size: 15pt;
-    padding: 5px;
-    display: block;
-    text-align: center;
-    text-decoration: underline;
-    letter-spacing: 1.5px;
-
-
-}
-
 
 /*-----------------------
 21 - Content Blocks CSS Starts.
@@ -2665,149 +2526,6 @@ Page loading animation End
 ------------------------*/
 
 /*-------------------------
-add costum
---------------------------*/
-
-.boxpricnew {
-    background: rgba(255, 140, 0, 1);
-    border-top: solid 7px #bd5e05;
-    height: 130px;
-    position: relative;
-    direction: rtl
-}
-
-.boxpricnew .boxup {
-    position: absolute;
-    border-top: 7px solid #bd5e05;
-    background-image: linear-gradient(
-            #fdfdfd 70%,
-            #ecebeb 90%
-    );
-    width: 180px;
-    right: 30px;
-    top: -15px;
-    height: 120px;
-    border-radius: 13px 13px 30px 30px
-}
-
-.boxpricnew .boxup .infotextprice {
-    text-align: right;
-    margin-top: 20px;
-    padding: 5px;
-    font-size: 13pt;
-    color: #bd5e05;
-    font-weight: 400
-}
-
-.boxup .haozim {
-    color: #bd5e05;
-    font-size: 13pt;
-    font-weight: 200;
-    padding: 5px;
-}
-
-.boxpricnew .boxup .infotextprice span {
-    font-size: 14pt;
-    color: #bd5e05;
-    font-weight: bold;
-    width: 60px;
-    padding: 5px;
-    margin: 5px auto;
-}
-
-.boxpricnew .boxup .haozim span {
-    font-size: 14pt;
-    color: #bd5e05;
-    font-weight: bold;
-    width: 60px;
-    padding: 5px;
-    margin: 5px auto;
-}
-
-.pricafter {
-    position: absolute;
-    left: 20px;
-    width: 230px;
-    color: #fff;
-}
-
-.pricafter sup {
-    color: #fff;
-    font-size: 13px;
-    top: -35px;
-    position: relative
-}
-
-.pricafter .pricexl {
-    font-size: 30pt;
-    margin-top: 30px;
-    color: #fff;
-    margin-bottom: 5px;
-}
-
-.pricafter .pricexl span {
-    font-size: 25pt;
-    color: #fff;
-    /*font-size: 15px;*/
-}
-
-.pricafter div span {
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    font-size: 15px;
-}
-
-@media screen and (max-width: 770px) {
-    .pricafter {
-        left: 2px;
-        width: 148px;
-    }
-
-    .boxpricnew .boxup {
-
-        width: 154px;
-        right: 10px;
-        top: -15px;
-        height: 120px;
-    }
-
-    .boxpricnew .boxup .infotextprice {
-        font-size: 10px;
-    }
-
-    .pricafter .pricexl {
-        font-size: 28pt;
-    }
-
-    .pricafter .pricexl span {
-        font-size: 12px;
-    }
-
-    .pricafter div {
-        width: 139px;
-    }
-
-    .pricafter div span {
-        font-size: 14px;
-    }
-}
-
-@media screen and (max-width: 360px) {
-    .boxpricnew .boxup {
-
-        width: 124px;
-        right: 8px;
-        top: -15px;
-        height: 110px;
-    }
-
-    .boxpricnew .boxup .infotextprice span {
-        font-size: 12px;
-    }
-
-}
-
-/*-------------------------
 23 - Information Boxes
 -------------------------*/
 .information-boxes {
@@ -2891,11 +2609,11 @@ Information Boxes Ends
 }
 
 .content-container .title-section {
-    background-color: #3853D8;
+    background-color: rgba(43, 45, 50, 0.7);
 }
 
 .content-container .title-section::after {
-    background-color: #4787ed;
+    background-color: #666;
 }
 
 .content-container .title-section h1 {
@@ -3097,24 +2815,6 @@ Call to Action
 /*--------------------------
 Footer CSS ends here
 ---------------------------*/
-.nokaim {
-    max-width: 700px;
-    height: 320px;
-    border: 1px solid #ededed
-}
-
-.nokaim img {
-    float: right;
-    width: 40%;
-    margin-top: 35px
-}
-
-.nokaim .title {
-    font-size: 18pt;
-    float: right;
-    width: 60%;
-    padding: 5px;
-}
 
 /*-------------------------
 27 - Media Queries
@@ -3175,7 +2875,6 @@ Footer CSS ends here
 
 /*Mobile Screens CSS*/
 @media only screen and (max-width: 40em) {
-
     .responsive-table {
         overflow-x: scroll;
     }
@@ -3187,8 +2886,8 @@ Footer CSS ends here
     .mega-menu .child-nav {
         min-width: auto;
         min-height: auto;
-        /*max-width: auto;*/
-        /*max-height: auto;*/
+        max-width: auto;
+        max-height: auto;
         border: 1px solid #ededed;
     }
 
@@ -3331,7 +3030,7 @@ Footer CSS ends here
     }
 
     .title-section .bordered-light {
-
+        display: none;
     }
 
     .single-product-detail .thumbnails img {
@@ -3351,3 +3050,4 @@ Media Queries Ends
     font-size: 11pt
 }
 
+;
