@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2017 at 09:52 PM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: Aug 14, 2017 at 06:50 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -39,18 +39,18 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `eng`, `heb`, `catid_ebay`) VALUES
 (1, 'Clothing, Shoes & Accessories', 'בגדים, נעליים ', 11450),
-(2, 'Men''s Clothing', 'בגדי גברים', 1059),
+(2, 'Men\'s Clothing', 'בגדי גברים', 1059),
 (3, 'Unisex Clothing, Shoes & Accs', 'יוניסקס בגדים, נעליים ', 155184),
-(4, 'Women''s Clothing', 'בגדי נשים', 15724),
+(4, 'Women\'s Clothing', 'בגדי נשים', 15724),
 (5, 'Costumes, Reenactment, Theater', 'תחפושות, שחזור, תיאטרון', 163147),
-(6, 'Kids'' Clothing, Shoes & Accs', 'הילדים בגדים, נעליים ', 171146),
-(7, 'Men''s Accessories', 'גברים ואביזרים', 4250),
-(8, 'Men''s Shoes', 'נעלי גברים', 93427),
+(6, 'Kids\' Clothing, Shoes & Accs', 'הילדים בגדים, נעליים ', 171146),
+(7, 'Men\'s Accessories', 'גברים ואביזרים', 4250),
+(8, 'Men\'s Shoes', 'נעלי גברים', 93427),
 (9, 'Baby & Toddler Clothing', 'התינוק ', 3082),
-(10, 'Women''s Accessories', 'נשים ואביזרים', 4251),
-(11, 'Women''s Shoes', 'נעלי נשים', 3034),
+(10, 'Women\'s Accessories', 'נשים ואביזרים', 4251),
+(11, 'Women\'s Shoes', 'נעלי נשים', 3034),
 (12, 'Vintage', 'בציר', 175759),
-(13, 'Women''s Handbags & Bags', 'תיקים של נשים ', 169291),
+(13, 'Women\'s Handbags & Bags', 'תיקים של נשים ', 169291),
 (14, 'Cultural & Ethnic Clothing', 'תרבות ', 155240),
 (15, 'Uniforms & Work Clothing', 'מדים ', 28015),
 (16, 'Wholesale, Large & Small Lots', 'הסיטונאי, גדולים ', 41964),
@@ -128,7 +128,7 @@ INSERT INTO `categories` (`id`, `eng`, `heb`, `catid_ebay`) VALUES
 (88, 'Other Cell Phones & Accs', 'טלפונים סלולריים אחרים ', 42428),
 (89, 'Jewelry & Watches', 'תכשיטים ', 281),
 (90, 'Fashion Jewelry', 'תכשיטי אופנה', 10968),
-(91, 'Men''s Jewelry', 'תכשיטי גברים', 10290),
+(91, 'Men\'s Jewelry', 'תכשיטי גברים', 10290),
 (92, 'Loose Diamonds & Gemstones', 'רופף יהלומים ', 491),
 (93, 'Fine Jewelry', 'תכשיטים יפים', 4196),
 (94, 'Loose Beads', 'חופשי חרוזים', 179264),
@@ -141,7 +141,7 @@ INSERT INTO `categories` (`id`, `eng`, `heb`, `catid_ebay`) VALUES
 (101, 'Other Jewelry & Watches', 'תכשיטים אחרים ', 98863),
 (102, 'Jewelry Boxes & Organizers', 'קופסאות תכשיטים ', 10321),
 (103, 'Wholesale Lots', 'סיטונאי הרבה', 40131),
-(104, 'Children''s Jewelry', 'ילדים של תכשיטים', 84605),
+(104, 'Children\'s Jewelry', 'ילדים של תכשיטים', 84605),
 (105, 'Home & Garden', 'בבית ', 11700),
 (106, 'Home Décor', 'עיצוב הבית', 10033),
 (107, 'Kitchen, Dining & Bar', 'מטבח, פינת אוכל ', 20625),
@@ -230,7 +230,7 @@ INSERT INTO `categories` (`id`, `eng`, `heb`, `catid_ebay`) VALUES
 (190, 'Sculpting, Molding & Ceramics', 'פיסול, דפוס ', 183302),
 (191, 'Home Arts & Crafts', 'בית אומנויות ', 160667),
 (192, 'Stamping & Embossing', 'הטבעה ', 3122),
-(193, 'Kids'' Crafts', 'הילדים מלאכות', 116652),
+(193, 'Kids\' Crafts', 'הילדים מלאכות', 116652),
 (194, 'Art Supplies', 'ציוד אמנות', 11783),
 (195, 'Leathercrafts', 'Leathercrafts', 28131),
 (196, 'Wholesale Lots', 'סיטונאי הרבה', 45074),
@@ -342,7 +342,7 @@ INSERT INTO `categories` (`id`, `eng`, `heb`, `catid_ebay`) VALUES
 (302, 'Religious Products & Supplies', 'דתי מוצרים ', 102545),
 (303, 'Personal Security', 'ביטחון אישי', 102535),
 (304, 'Consumer Electronics', 'אלקטרוניקה', 293),
-(305, 'Gadgets & Other Electronics', 'גאדג '' טים ', 14948),
+(305, 'Gadgets & Other Electronics', 'גאדג \' טים ', 14948),
 (306, 'Portable Audio & Headphones', 'שמע ניידים ', 15052),
 (307, 'TV, Video & Home Audio', 'טלוויזיה, וידאו ', 32852),
 (308, 'Vehicle Electronics & GPS', 'הרכב האלקטרוניקה ', 3270),
@@ -378,6 +378,91 @@ INSERT INTO `categories` (`id`, `eng`, `heb`, `catid_ebay`) VALUES
 (338, 'Specialty Services', 'המומחיות שירותים', 316),
 (339, 'Gift Cards & Coupons', 'כרטיסי מתנה ', 172008);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `search_tags`
+--
+
+CREATE TABLE `search_tags` (
+  `id` int(255) NOT NULL,
+  `searchkey` varchar(255) NOT NULL,
+  `english_word` varchar(255) NOT NULL,
+  `numsearch` int(255) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `search_tags`
+--
+
+INSERT INTO `search_tags` (`id`, `searchkey`, `english_word`, `numsearch`, `updated_at`, `created_at`) VALUES
+(31, 'קוף', 'Monkey', 1, '2017-07-29 08:40:25', '2017-07-29 08:40:25'),
+(48, 'אבטיח', 'Watermelon', 2, '2017-07-30 06:53:25', '2017-07-29 18:04:47'),
+(49, 'דרגון בול זי', 'Dragon Ball Z', 1, '2017-07-29 18:05:00', '2017-07-29 18:05:00'),
+(50, 'אדידס', 'Adidas', 28, '2017-08-08 08:30:15', '2017-07-29 18:05:30'),
+(51, 'פוקימון', 'Pokemon', 1, '2017-07-29 18:05:43', '2017-07-29 18:05:43'),
+(52, 'ספינר צבעוני', 'Spinner colorful', 1, '2017-07-29 18:05:56', '2017-07-29 18:05:56'),
+(53, 'נעלי adidas', 'Shoes adidas', 2, '2017-07-29 19:56:48', '2017-07-29 19:03:02'),
+(60, 'מתנפחים לבריכה', 'Inflatables in the pool.', 1, '2017-07-30 06:53:41', '2017-07-30 06:53:41'),
+(61, 'בריכה', 'Pool', 1, '2017-07-30 06:54:13', '2017-07-30 06:54:13'),
+(62, 'ברבור לבריכה', 'A swan in the pool.', 1, '2017-07-30 06:55:06', '2017-07-30 06:55:06'),
+(63, 'ברבור בריכה', 'Swan pool', 1, '2017-07-30 06:55:18', '2017-07-30 06:55:18'),
+(64, 'נעלי אדידס', 'Adidas shoes', 1, '2017-08-02 15:32:18', '2017-08-02 15:32:18'),
+(65, 'חולצה צהובה של דרגון בול', 'A yellow T-Shirt of Dragon Ball', 1, '2017-08-02 15:33:00', '2017-08-02 15:33:00'),
+(66, 'חולצה כחול עם פסים שחורים', 'Shirt blue with black stripes.', 2, '2017-08-02 15:34:32', '2017-08-02 15:34:17'),
+(67, 'צפרדע', 'Frog', 1, '2017-08-03 10:11:34', '2017-08-03 10:11:34'),
+(68, 'כפכפים', 'Flip-flops', 4, '2017-08-13 13:31:43', '2017-08-10 17:38:01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` int(11) NOT NULL,
+  `dolar` decimal(11,3) NOT NULL,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `dolar`, `updated_at`, `created_at`) VALUES
+(1, '3.588', '2017-07-19 20:55:48', '2017-07-19 23:54:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `mail` varchar(255) NOT NULL,
+  `mobile` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL,
+  `frist_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `mail`, `mobile`, `pass`, `frist_name`, `last_name`, `updated_at`, `created_at`) VALUES
+(1, 'bs1601@gmail.com', '054413866', '$2y$10$T9MsOWPji5nZwDAMnPFQ4ugVdHrHnzDKUbl7Ob9DGIjlXhrYnoWkm', NULL, NULL, '2017-08-08 13:34:57', '2017-08-08 13:34:57'),
+(2, 'test@tdtdq.com', '0544549777', '$2y$10$Q21Atv91lggM9bqRqFLKD.iFUXt4.MjqASBRLCfuVw0/27ODLHbcy', NULL, NULL, '2017-08-08 13:38:10', '2017-08-08 13:38:10'),
+(3, 'orbitfum@gmail.com', '525905111', '$2y$10$nZC.uvyOzUEsQoVutdpcnex6CbDRcsDCnLNZfpbVaegXyNko2m/8C', NULL, NULL, '2017-08-08 16:30:25', '2017-08-08 16:30:25'),
+(4, 'xxxlover24@gmail.com', '52590454545', '$2y$10$x4QGdxyt7RUGqxBmS.qLsuS2K1/uWY8ulaq3sOE6mojRMUI4FYMP2', NULL, NULL, '2017-08-08 16:41:13', '2017-08-08 16:41:13'),
+(5, 'Eladtiar@gmail.com', '52590511155', '$2y$10$3KzFyxdhFiWgV8z8oj4wMOx/ccCFHCvTgIjinMt68Mws/2w6qKvGm', NULL, NULL, '2017-08-08 16:53:17', '2017-08-08 16:53:17');
+
 --
 -- Indexes for dumped tables
 --
@@ -390,6 +475,26 @@ ALTER TABLE `categories`
   ADD UNIQUE KEY `catid_ebay` (`catid_ebay`);
 
 --
+-- Indexes for table `search_tags`
+--
+ALTER TABLE `search_tags`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `mail` (`mail`),
+  ADD UNIQUE KEY `mobile` (`mobile`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -398,6 +503,21 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=340;
+--
+-- AUTO_INCREMENT for table `search_tags`
+--
+ALTER TABLE `search_tags`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
