@@ -48,9 +48,39 @@ function controlVari(vali, vari, err){
     }
 }
 
+$('#btnpay').on('click',function(){
+    event.preventDefault();
+    var trCount = $('.cart-item').length;
+    for(var i= 0 ;i < trCount; i ++){
+        var itemid = $('.cart-item').eq(i).find('#itemid').val();
+        var itemAttributes = $('.cart-item').eq(i).find('#itemAttributes').val();
+        var currentPrice = $('.cart-item').eq(i).find('#currentPrice').val();
+        var count = $('.cart-item').eq(i).find('#update-cart').val();
+
+        if(itemid != "" || itemid != null){
+            $.ajax({
+                url: BASEURL + "cart/checkout",
+                type: "GET",
+                daraType: "html",
+                data: {
+                    itemid : itemid,
+                    itemAttributes : itemAttributes,
+                    currentPrice: currentPrice,
+                    count : count,
+                },
+                success: function (data) {
+                    if (data == 0) {
+                        i = i - 1;
+                    }
+                }
+            });
+        }
+    }
+    location.reload();
+});
 
 
-$('.add-to-cart').on('click', function () {
+$('.mycart').on('click', function () {
     event.preventDefault();
 
      exists = false;
@@ -58,10 +88,49 @@ $('.add-to-cart').on('click', function () {
         vali2 = $('#vali2').val();
         vali3 = $('#vali3').val();
         vali4 = $('#vali4').val();
+        var attri = "";
+         var price = "";
      if(vali1 == '^^^SELECT^^^' || vali2 == '^^^SELECT^^^' || vali3 == '^^^SELECT^^^' || vali4 == '^^^SELECT^^^'){
          exists = false;
      }else{
          exists = true;
+         var available = 0;
+            if(typeof alljson["Item"]['Variations'] !== 'undefined'){
+                var validationCount =parseInt($('#validationCount').val()) - 1;
+                if(validationCount == 1){
+                    var selectVal = $('.cn')[0]['value'];
+                    lisInfo = alljson["Item"]['Variations'];
+                    $.each(variations, function (k1, v1) {
+                        if(v1['VariationSpecifics']['NameValueList']['Value'] == selectVal){
+                            attri = v1['VariationSpecifics']['NameValueList']['Name'] + ":" + selectVal;
+                            price = v1['StartPrice'];
+                        }
+                    });
+                }else{
+                    var keys = [];
+                    for(var i = 1; i <= validationCount; i++){
+                        keys.push($('#vali' + i.toString())[0]['value']);
+                    }
+                    lisInfo = alljson["Item"]['Variations'];
+                    $.each(variations, function (k1, v1) {
+                        var flag = true;
+                        var attriList = "";
+                        for(var j = 0; j < validationCount; j++){
+                            if(v1['VariationSpecifics']['NameValueList'][j]['Value'] != keys[j]){
+                                attriList = v1['VariationSpecifics']['NameValueList'][j]['Name'] + ":" + keys[j] + "," + attriList;
+                                price = v1['StartPrice'];
+                                flag = false;
+                            }
+                        }
+                        if(flag == true){
+                            attri = attriList;
+                        }
+                    });
+                }
+            }else{
+                attri = "";
+                price = alljson['Item']['CurrentPrice'];
+            }
      }
 
     controlVari(vali1,'vali1','er1');
@@ -86,6 +155,107 @@ $('.add-to-cart').on('click', function () {
             val2: vali2,
             val3: vali3,
             val4: vali4,
+            attri: attri,
+            realprice : price,
+            quntity: $('.qty').val(),
+        },
+        beforeSend: function () {
+            $('.btn-spinner').css('display', 'block');
+        },
+        success: function (data) {
+            if (data == 0) {
+                setTimeout(function () {
+                    $('.btn-spinner').css('display', 'none');
+                }, 1200);
+            } else {
+                window.location = 'http://localhost:8000/cart/mycart';
+            }
+            
+        }
+    });
+    }
+
+});
+
+
+$('.add-to-cart').on('click', function () {
+    event.preventDefault();
+
+     exists = false;
+        vali1 = $('#vali1').val();
+        vali2 = $('#vali2').val();
+        vali3 = $('#vali3').val();
+        vali4 = $('#vali4').val();
+        var attri = "";
+        var price = "";
+     if(vali1 == '^^^SELECT^^^' || vali2 == '^^^SELECT^^^' || vali3 == '^^^SELECT^^^' || vali4 == '^^^SELECT^^^'){
+         exists = false;
+     }else{
+         exists = true;
+
+         var available = 0;
+            if(typeof alljson["Item"]['Variations'] !== 'undefined'){
+                var validationCount =parseInt($('#validationCount').val()) - 1;
+                if(validationCount == 1){
+                    var selectVal = $('.cn')[0]['value'];
+                    lisInfo = alljson["Item"]['Variations'];
+                    $.each(variations, function (k1, v1) {
+                        if(v1['VariationSpecifics']['NameValueList']['Value'] == selectVal){
+                            attri = v1['VariationSpecifics']['NameValueList']['Name'] + ":" + selectVal;
+                            price = v1['StartPrice'];
+                        }
+                    });
+                }else{
+                    var keys = [];
+                    for(var i = 1; i <= validationCount; i++){
+                        keys.push($('#vali' + i.toString())[0]['value']);
+                    }
+                    lisInfo = alljson["Item"]['Variations'];
+                    $.each(variations, function (k1, v1) {
+                        var flag = true;
+                        var attriList = "";
+                        for(var j = 0; j < validationCount; j++){
+                            if(v1['VariationSpecifics']['NameValueList'][j]['Value'] != keys[j]){
+                                attriList = v1['VariationSpecifics']['NameValueList'][j]['Name'] + ":" + keys[j] + "," + attriList;
+                                price = v1['StartPrice'];
+                                flag = false;
+                            }
+                        }
+                        if(flag == true){
+                            attri = attriList;
+                        }
+                    });
+                }
+            }else{
+                attri = "";
+                price = alljson['Item']['CurrentPrice'];
+            }
+     }
+
+    controlVari(vali1,'vali1','er1');
+    controlVari(vali2,'vali2','er2');
+    controlVari(vali3,'vali3','er3');
+    controlVari(vali4,'vali4','er4');
+
+
+    if(exists){
+
+    $.ajax({
+        url: BASEURL + "ebay/addCart",
+        type: "GET",
+        daraType: "html",
+        data: {
+            id: $(this).data('id'),
+            price: $(this).data('price'),
+            ship: $(this).data('ship'),
+            img: $(this).data('img'),
+            title: $(this).data('title'),
+            val1: vali1,
+            val2: vali2,
+            val3: vali3,
+            val4: vali4,
+            attri: attri,
+            realprice : price,
             quntity: $('.qty').val(),
         },
         beforeSend: function () {
@@ -293,7 +463,7 @@ $('#update-cart').on('change', function () {
 
 $('#customerName, #city, #address').keypress(function(key) {
     error = $(this).attr('id');
-    if((key.charCode < 97 || key.charCode > 122) && (key.charCode < 65 || key.charCode > 90) && (key.charCode != 45)) {
+    if((key.charCode < 97 || key.charCode > 122) && (key.charCode < 65 || key.charCode > 90) && (key.charCode != 45) && (key.charCode != 32)) {
         $("."+error).html("אותיות באנגלית בלבד!").show().fadeOut(3500);
         return false;
     }

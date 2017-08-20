@@ -15,10 +15,12 @@ class Order extends Model
             if(Cart::add($product['id'], $product['title'], $product['price'], $product['quntity'],
                 [   'img' => $product['img'],
                     'shipping' => $product['ship'],
-                    'val1' => $product['val1'],
+                    'attribute' => $product['attri'],
+                    'realprice' => $product['realprice'],
+                    'val1' => !empty($product['val1'])? $product['val1'] : '',
                     'val2' => !empty($product['val2'])? $product['val2'] : '',
                     'val3' => !empty($product['val3'])? $product['val3'] : '',
-                    'val3' => !empty($product['val4'])? $product['val4'] : '',
+                    'val4' => !empty($product['val4'])? $product['val4'] : '',
 
                     ])){
                 print_r($product) ;

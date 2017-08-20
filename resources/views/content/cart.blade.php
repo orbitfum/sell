@@ -99,6 +99,9 @@
                                     <td class="product-subtotal">
                                         <span class="amount">₪&nbsp;{{($item['price'] * $item['quantity']) + ($item['attributes']['shipping'] * $item['quantity'])}}</span>
                                     </td>
+                                    <input type="hidden" id="itemid" value="{{$item['id']}}" />
+                                    <input type="hidden" id="itemAttributes" value="{{$item['attributes']['attribute']}}" />
+                                    <input type="hidden" id="currentPrice" value="{{$item['attributes']['realprice']}}" />
                                 </tr>
                                 @endforeach
                                 </tbody>
@@ -137,9 +140,7 @@
                              <input name="numberdira" type="text" style="float: right;    width: 137px;">
                          </form>
 
-
-
-                                <input type="submit" class="button primary float-right" value="לתשלום"  style="margin-top: 5px;"/>
+                                <input type="submit" id="btnpay" name="btnpay" class="button primary float-right" value="לתשלום"  style="margin-top: 5px;"/>
                             </div>
 
                         </div><!-- Shop Cart Detail /-->
