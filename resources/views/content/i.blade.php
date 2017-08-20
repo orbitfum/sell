@@ -130,7 +130,8 @@
                         <span class="row-title">{{Lang::get('tr.'. $vari['Name'])}}
                             :</span>
                                         <span>
-                            <select class="cn"  id="vali{{$a++}}" name="variation" data-variation="{{ $vari['Name'] }}">
+                            <select class="cn" id="vali{{$a++}}" name="variation" data-variation="{{ $vari['Name'] }}"
+                                    onchange="myFunction()">
                                 <option value="^^^SELECT^^^">בחר</option>
                             </select>
                         <span class="select-error" id="er{{$b++}}" style="display: none">נא לבחור</span>
@@ -144,7 +145,8 @@
                             :</span>
                                     <span>
                             <select class="cn" id="vali{{$a++}}" name="variation"
-                                    data-variation="{{ $it['Variations']['VariationSpecificsSet']['NameValueList']['Name'] }}">
+                                    data-variation="{{ $it['Variations']['VariationSpecificsSet']['NameValueList']['Name'] }}"
+                                    onchange="myFunction()">
                                 <option value="^^^SELECT^^^">בחר</option>
                             </select>
                                                                 <span class="select-error" id="er{{$b++}}" style="display: none">נא לבחור</span>
@@ -153,11 +155,16 @@
                                     <div class="clearfix"></div>
                                 </div>
                             @endif
+                            <input type="hidden" id="validationCount" name="validationCount" value="{{$a}}"/>
                         @endif
                     </div><!-- item options /-->
 
                     <div class="item-quantity" dir="rtl">
-                        <div class="option-box"><span class="row-title" style="width: 166px">כמות:</span><span><input type="number" class="qty" value="1"/> יחידות</span>
+                        <div class="option-box"><span class="row-title" style="width: 66px">כמות:</span><span
+                                    id="avamsg" class="row-title"
+                                    style="width:100px;text-align:left;">&nbsp;</span><span><input type="number"
+                                                                                                   class="qty"
+                                                                                                   value="1"/> יחידות</span>
                             <span id="qtymsg" style="color: red; font-size: 12px;"></span>
                         </div>
 
@@ -196,7 +203,13 @@
                     <!-- Item Quantity /-->
 
                     <a class="shopping-buttons float-right">
-                        <a href="#" class="button secondary">קנה עכשיו</a>
+                        <!--<a href="" class="button secondary mycart">קנה עכשיו</a>-->
+                        <a href="" class="button secondary mycart" data-id="{{$it["ItemID"]}}"
+                           data-price="{{HR::currency($it['CurrentPrice'])}}"
+                           data-ship="{!!$shippnginfo['ShippingCostSummary']['ShippingServiceCost'] != 0 ? HR::currencyShip($shippnginfo['ShippingCostSummary']['ShippingServiceCost']):0 !!}"
+                           data-img="{{is_array($it['PictureURL']) ? $it['PictureURL'][0] : $it['PictureURL']}}"
+                           data-title="{{$it['Title']}}">
+                            קנה עכשיו</a>
                         <a href="" class="button primary add-to-cart" data-id="{{$it["ItemID"]}}"
                            data-price="{{HR::currency($it['CurrentPrice'])}}"
                            data-ship="{!!$shippnginfo['ShippingCostSummary']['ShippingServiceCost'] != 0 ? HR::currencyShip($shippnginfo['ShippingCostSummary']['ShippingServiceCost']):0 !!}"
@@ -684,13 +697,94 @@
             });
         });
         @endif
+
+        function myFunction() {
+            $('#avamsg').html('');
+            var available = 0;
+            if (typeof alljson["Item"]['Variations'] !== 'undefined') {
+                var validationCount = parseInt($('#validationCount').val()) - 1;
+                if (validationCount == 1) {
+                    var selectVal = $('.cn')[0]['value'];
+                    lisInfo = alljson["Item"]['Variations'];
+                    $.each(variations, function (k1, v1) {
+                        if (v1['VariationSpecifics']['NameValueList']['Value'] == selectVal) {
+                            var qty = v1['Quantity'];
+                            var sold = v1['SellingStatus']['QuantitySold'];
+                            available = qty - sold;
+                        }
+                    });
+                } else {
+                    var keys = [];
+                    for (var i = 1; i <= validationCount; i++) {
+                        keys.push($('#vali' + i.toString())[0]['value']);
+                    }
+                    lisInfo = alljson["Item"]['Variations'];
+                    $.each(variations, function (k1, v1) {
+                        var flag = true;
+                        for (var j = 0; j < validationCount; j++) {
+                            if (v1['VariationSpecifics']['NameValueList'][j]['Value'] != keys[j]) {
+                                flag = false;
+                            }
+                        }
+                        if (flag == true) {
+                            var qty = v1['Quantity'];
+                            var sold = v1['SellingStatus']['QuantitySold'];
+                            available = qty - sold;
+                        }
+                    });
+                }
+            } else {
+                available = qtty - soldqtty;
+            }
+            $('#avamsg').html(available.toString() + ' זמין');
+        }
+
         ///1
         var qtty = {{ $it['Quantity'] }};
+        var soldqtty = {{ $it['QuantitySold']}};
+        allValue = {!! $json !!};
         $('.qty').on('change', function () {
             $('#qtymsg').html('');
-            if (this.value > qtty) {
-                $('.qty').val(qtty);
-                $('#qtymsg').html('מקסימום ' + qtty + ' יחידות!');
+            var available = 0;
+            if (typeof alljson["Item"]['Variations'] !== 'undefined') {
+                var validationCount = parseInt($('#validationCount').val()) - 1;
+                if (validationCount == 1) {
+                    var selectVal = $('.cn')[0]['value'];
+                    lisInfo = alljson["Item"]['Variations'];
+                    $.each(variations, function (k1, v1) {
+                        if (v1['VariationSpecifics']['NameValueList']['Value'] == selectVal) {
+                            var qty = v1['Quantity'];
+                            var sold = v1['SellingStatus']['QuantitySold'];
+                            available = qty - sold;
+                        }
+                    });
+                } else {
+                    var keys = [];
+                    for (var i = 1; i <= validationCount; i++) {
+                        keys.push($('#vali' + i.toString())[0]['value']);
+                    }
+                    lisInfo = alljson["Item"]['Variations'];
+                    $.each(variations, function (k1, v1) {
+                        var flag = true;
+                        for (var j = 0; j < validationCount; j++) {
+                            if (v1['VariationSpecifics']['NameValueList'][j]['Value'] != keys[j]) {
+                                flag = false;
+                            }
+                        }
+                        if (flag == true) {
+                            var qty = v1['Quantity'];
+                            var sold = v1['SellingStatus']['QuantitySold'];
+                            available = qty - sold;
+                        }
+                    });
+                }
+            } else {
+                available = qtty - soldqtty;
+            }
+
+            if (this.value > available) {
+                $('.qty').val(available);
+                $('#qtymsg').html('מקסימום ' + available + ' יחידות!');
             }
             else if (this.value < 1) {
                 $('.qty').val('1');
@@ -802,6 +896,8 @@
                 }
                 selBox.append($("<option class='rem' " + selected + " " + disabled + "></option>").attr("value", v2).text(v2));
             });
+            $('.qty').val("0");
+            $('#qtymsg').html('');
         });
 
 
